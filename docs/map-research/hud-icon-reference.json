@@ -1,0 +1,566 @@
+[
+  {
+    "selectors": ".map_button.idol_spawn",
+    "gamePath": "minimap/soul_jar_marker_psd.vtex",
+    "localFile": "assets/minimap__soul_jar_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.gold_spawn",
+    "gamePath": "minimap/unsecured_souls.vsvg",
+    "localFile": "assets/minimap__unsecured_souls.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.rejuv_crystal",
+    "gamePath": "minimap/rejuv_crystal_psd.vtex",
+    "localFile": "assets/minimap__rejuv_crystal_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.powerup_spawn",
+    "gamePath": "minimap/gold_crate_marker_psd.vtex",
+    "localFile": "assets/minimap__gold_crate_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.powerup_gun",
+    "gamePath": "minimap/powerup_weapon.vsvg",
+    "localFile": "assets/minimap__powerup_weapon.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.powerup_souls",
+    "gamePath": "minimap/powerup_souls_png.vtex",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.powerup_survival",
+    "gamePath": "minimap/powerup_health.vsvg",
+    "localFile": "assets/minimap__powerup_health.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.powerup_casting",
+    "gamePath": "minimap/powerup_magic.vsvg",
+    "localFile": "assets/minimap__powerup_magic.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.powerup_movement",
+    "gamePath": "minimap/powerup_movement.vsvg",
+    "localFile": "assets/minimap__powerup_movement.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.shop_tunnel_exit",
+    "gamePath": "minimap/icon_stairs.vsvg",
+    "localFile": "assets/minimap__icon_stairs.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.teleporter_far",
+    "gamePath": "minimap/minimap_teleporter_go_right.vsvg",
+    "localFile": "assets/minimap__minimap_teleporter_go_right.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.teleporter_nearby",
+    "gamePath": "minimap/minimap_teleporter_go_right.vsvg",
+    "localFile": "assets/minimap__minimap_teleporter_go_right.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.teleporter_active",
+    "gamePath": "minimap/minimap_teleporter_highlight.vsvg",
+    "localFile": "assets/minimap__minimap_teleporter_highlight.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.neutral_weak",
+    "gamePath": "minimap/neutral_small_psd.vtex",
+    "localFile": "assets/minimap__neutral_small_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.neutral_medium",
+    "gamePath": "minimap/neutral_medium_psd.vtex",
+    "localFile": "assets/minimap__neutral_medium_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.neutral_large",
+    "gamePath": "minimap/neutral_large_psd.vtex",
+    "localFile": "assets/minimap__neutral_large_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.neutral_vault",
+    "gamePath": "minimap/neutral_vault_psd.vtex",
+    "localFile": "assets/minimap__neutral_vault_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t1 .boss_health_bg,.map_button.boss_barracks_icon .boss_health_bg",
+    "gamePath": "minimap/boss_health_psd.vtex",
+    "localFile": "assets/minimap__boss_health_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.mid_boss .boss_image",
+    "gamePath": "minimap/super_neutral_marker_psd.vtex",
+    "localFile": "assets/minimap__super_neutral_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.mid_boss.midboss_spawned #Spawned",
+    "gamePath": "minimap/super_neutral_marker_psd.vtex",
+    "localFile": "assets/minimap__super_neutral_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t1 .boss_health_bg,.map_button.boss_barracks_icon .boss_health_bg",
+    "gamePath": "minimap/boss_health_psd.vtex",
+    "localFile": "assets/minimap__boss_health_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t1 .boss_health,.map_button.boss_barracks_icon .boss_health",
+    "gamePath": "minimap/boss_health_fill_psd.vtex",
+    "localFile": "assets/minimap__boss_health_fill_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t2 .boss_health_bg",
+    "gamePath": "minimap/boss_health_t2_psd.vtex",
+    "localFile": "assets/minimap__boss_health_t2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t2 .boss_health",
+    "gamePath": "minimap/boss_health_fill_t2_psd.vtex",
+    "localFile": "assets/minimap__boss_health_fill_t2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_buildingzip .boss_health",
+    "gamePath": "minimap/boss_health_fill_t2_psd.vtex",
+    "localFile": "assets/minimap__boss_health_fill_t2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_buildingzip .boss_health_bg",
+    "gamePath": "minimap/boss_health_t2_psd.vtex",
+    "localFile": "assets/minimap__boss_health_t2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t3 .boss_health",
+    "gamePath": "minimap/boss_health_final_fill_psd.vtex",
+    "localFile": "assets/minimap__boss_health_final_fill_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t3 .boss_health_bg",
+    "gamePath": "minimap/boss_health_final_psd.vtex",
+    "localFile": "assets/minimap__boss_health_final_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t3 .boss_health_s2",
+    "gamePath": "minimap/boss_health_final_stage2_fill_psd.vtex",
+    "localFile": "assets/minimap__boss_health_final_stage2_fill_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.boss_icon_t3 .boss_health_bg_s2",
+    "gamePath": "minimap/boss_health_final_stage2_psd.vtex",
+    "localFile": "assets/minimap__boss_health_final_stage2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.trigger_secure_souls",
+    "gamePath": "hud/icons/icon_corrupted_souls.vsvg",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.idol_dropping",
+    "gamePath": "minimap/soul_jar_marker_psd.vtex",
+    "localFile": "assets/minimap__soul_jar_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.idol_return",
+    "gamePath": "minimap/soul_jar_marker_return_psd.vtex",
+    "localFile": "assets/minimap__soul_jar_marker_return_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.idol_return_friendly",
+    "gamePath": "minimap/soul_jar_marker_return_psd.vtex",
+    "localFile": "assets/minimap__soul_jar_marker_return_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.idol_return_enemy",
+    "gamePath": "minimap/soul_jar_marker_return_enemy_psd.vtex",
+    "localFile": "assets/minimap__soul_jar_marker_return_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.gold_dropping",
+    "gamePath": "minimap/gold_psd.vtex",
+    "localFile": "assets/minimap__gold_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.tier1_shop",
+    "gamePath": "minimap/minimap_shop_psd.vtex",
+    "localFile": "assets/minimap__minimap_shop_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.guided_arrow",
+    "gamePath": "minimap/archer_guided_arrow_psd.vtex",
+    "localFile": "assets/minimap__archer_guided_arrow_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.bookworm_knight",
+    "gamePath": "minimap/bookworm_knight_psd.vtex",
+    "localFile": "assets/minimap__bookworm_knight_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.necro_gravestone",
+    "gamePath": "minimap/necro_gravestone_psd.vtex",
+    "localFile": "assets/minimap__necro_gravestone_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.nurse_leech",
+    "gamePath": "hud/hero_specific/nurse_leech.vsvg",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.doorman_doorway",
+    "gamePath": "minimap/doorman_doorway_psd.vtex",
+    "localFile": "assets/minimap__doorman_doorway_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.chesspiece_bishop",
+    "gamePath": "minimap/chessmaster_bishop_psd.vtex",
+    "localFile": "assets/minimap__chessmaster_bishop_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.chesspiece_queen",
+    "gamePath": "minimap/chessmaster_queen_psd.vtex",
+    "localFile": "assets/minimap__chessmaster_queen_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.corrupted_item_shop",
+    "gamePath": "minimap/minimap_icon_broker.vsvg",
+    "localFile": "assets/minimap__minimap_icon_broker.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.capture_point",
+    "gamePath": "minimap/minimap_icon_koth_png.vtex",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.escort",
+    "gamePath": "minimap/escort_friendly_psd.vtex",
+    "localFile": "assets/minimap__escort_friendly_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.escort .enemy",
+    "gamePath": "minimap/escort_enemy_psd.vtex",
+    "localFile": "assets/minimap__escort_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.escort .team1",
+    "gamePath": "minimap/escort_team2_psd.vtex",
+    "localFile": "assets/minimap__escort_team2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.escort .team2",
+    "gamePath": "minimap/escort_team2_psd.vtex",
+    "localFile": "assets/minimap__escort_team2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".map_button.mid_stairs",
+    "gamePath": "minimap/icon_stairs_mid.vsvg",
+    "localFile": "assets/minimap__icon_stairs_mid.svg",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": "#DeathImage",
+    "gamePath": "hud/icons/skull.vsvg",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".player.localplayer #LocalSpecularImage",
+    "gamePath": "minimap/player_marker_self_spec_highlight_psd.vtex",
+    "localFile": "assets/minimap__player_marker_self_spec_highlight_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": "#ArrowImage",
+    "gamePath": "minimap/player_arrow_enemy_psd.vtex",
+    "localFile": "assets/minimap__player_arrow_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".player.team1 #ArrowImage",
+    "gamePath": "minimap/player_arrow_team1_psd.vtex",
+    "localFile": "assets/minimap__player_arrow_team1_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".player.team2 #ArrowImage",
+    "gamePath": "minimap/player_arrow_team2_psd.vtex",
+    "localFile": "assets/minimap__player_arrow_team2_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".friend.player #ArrowImage",
+    "gamePath": "minimap/player_arrow_friend_psd.vtex",
+    "localFile": "assets/minimap__player_arrow_friend_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".enemy.player #ArrowImage",
+    "gamePath": "minimap/player_arrow_enemy_psd.vtex",
+    "localFile": "assets/minimap__player_arrow_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": "#FrogImage",
+    "gamePath": "heroes/frog_mm_psd.vtex",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/npc_tower_friend_psd.vtex",
+    "localFile": "assets/minimap__npc_tower_friend_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/npc_tower_enemy_psd.vtex",
+    "localFile": "assets/minimap__npc_tower_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/npc_dispenser_friend_psd.vtex",
+    "localFile": "assets/minimap__npc_dispenser_friend_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/player_marker_psd.vtex",
+    "localFile": "assets/minimap__player_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/player_marker_self_psd.vtex",
+    "localFile": "assets/minimap__player_marker_self_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/npc_marker_enemy_psd.vtex",
+    "localFile": "assets/minimap__npc_marker_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/npc_marker_friend_psd.vtex",
+    "localFile": "assets/minimap__npc_marker_friend_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/npc_marker_neutral_psd.vtex",
+    "localFile": "assets/minimap__npc_marker_neutral_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/shop_psd.vtex",
+    "localFile": "assets/minimap__shop_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_small_psd.vtex",
+    "localFile": "assets/minimap__neutral_small_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_small_up_psd.vtex",
+    "localFile": "assets/minimap__neutral_small_up_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_small_down_psd.vtex",
+    "localFile": "assets/minimap__neutral_small_down_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_medium_psd.vtex",
+    "localFile": "assets/minimap__neutral_medium_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_medium_up_psd.vtex",
+    "localFile": "assets/minimap__neutral_medium_up_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_medium_down_psd.vtex",
+    "localFile": "assets/minimap__neutral_medium_down_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_large_psd.vtex",
+    "localFile": "assets/minimap__neutral_large_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_large_up_psd.vtex",
+    "localFile": "assets/minimap__neutral_large_up_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_large_down_psd.vtex",
+    "localFile": "assets/minimap__neutral_large_down_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/neutral_vault_psd.vtex",
+    "localFile": "assets/minimap__neutral_vault_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/health_pad_psd.vtex",
+    "localFile": "assets/minimap__health_pad_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/item_crate_spawn_psd.vtex",
+    "localFile": "assets/minimap__item_crate_spawn_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/ammo_box_psd.vtex",
+    "localFile": "assets/minimap__ammo_box_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/boss_marker_enemy_psd.vtex",
+    "localFile": "assets/minimap__boss_marker_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/boss_marker_friend_psd.vtex",
+    "localFile": "assets/minimap__boss_marker_friend_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/boss_marker_neutral_psd.vtex",
+    "localFile": "assets/minimap__boss_marker_neutral_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/zip_line_marker_enemy_psd.vtex",
+    "localFile": "assets/minimap__zip_line_marker_enemy_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/zip_line_marker_friend_psd.vtex",
+    "localFile": "assets/minimap__zip_line_marker_friend_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/zip_line_marker_neutral_psd.vtex",
+    "localFile": "assets/minimap__zip_line_marker_neutral_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/hero_flag_mm_psd.vtex",
+    "localFile": "assets/minimap__hero_flag_mm_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/hero_flag_enemy_mm_psd.vtex",
+    "localFile": "assets/minimap__hero_flag_enemy_mm_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".precache",
+    "gamePath": "minimap/hero_flag_fill_mm_psd.vtex",
+    "localFile": "assets/minimap__hero_flag_fill_mm_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".held_idol_image",
+    "gamePath": "minimap/soul_jar_marker_psd.vtex",
+    "localFile": "assets/minimap__soul_jar_marker_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".speaking_button_image",
+    "gamePath": "minimap/minimap_speech_psd.vtex",
+    "localFile": "assets/minimap__minimap_speech_psd.png",
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".favor_player_team .idolFavorPreview",
+    "gamePath": "icons/carat_down.vsvg",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  },
+  {
+    "selectors": ".favor_enemy_team .idolFavorPreview",
+    "gamePath": "icons/carat_up.vsvg",
+    "localFile": null,
+    "source": "sources/hud_minimap.css"
+  }
+]

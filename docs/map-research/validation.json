@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-27T02:11:11.004Z",
+  "markerCount": 913,
+  "counts": {
+    "base_spawn_area": 2,
+    "patron": 2,
+    "walker": 6,
+    "guardian_reference": 6,
+    "camp_vault": 11,
+    "camp_strong": 11,
+    "camp_medium": 25,
+    "camp_weak": 4,
+    "crates": 423,
+    "tough_crates": 74,
+    "golden_statues": 166,
+    "bells": 3,
+    "healing_snacks": 36,
+    "bridge_buffs": 2,
+    "climb_ropes": 17,
+    "teleporters": 4,
+    "shops": 9,
+    "soul_urn_spawns": 6,
+    "soul_urn_pads": 2,
+    "base_sentries": 8,
+    "bounce_pads": 17,
+    "steam_vents": 47,
+    "cosmic_veils": 30,
+    "unstable_rifts": 2
+  },
+  "ziplineCount": 3,
+  "savedAssets": 154,
+  "failedAssets": [],
+  "checks": [
+    "unique IDs",
+    "finite coordinates within map bounds",
+    "complete supplied camp coverage",
+    "all assigned icons exist locally"
+  ],
+  "mapMatchesApp": true
+}

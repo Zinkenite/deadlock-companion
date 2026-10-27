@@ -1,0 +1,1 @@
+{"identifier":"desktop","windows":["main"],"permissions":["core:default","core:window:allow-set-always-on-top","core:window:allow-available-monitors","core:window:allow-set-position","core:window:allow-set-size","autostart:default"]}

@@ -1,0 +1,1237 @@
+{
+  "checkedAt": "2026-10-27T02:11:02.952Z",
+  "assets": [
+    {
+      "name": "minimap/escort_team2_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/escort_team2_psd.png",
+      "file": "assets/minimap__escort_team2_psd.png",
+      "status": "saved",
+      "bytes": 10474,
+      "sha256": "8dead330cfe22e6c9fe68fbc649fe3f4f53e83c7dfce5cd313bb75387a5beb0a"
+    },
+    {
+      "name": "minimap/powerup_magic.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_magic.svg",
+      "file": "assets/minimap__powerup_magic.svg",
+      "status": "saved",
+      "bytes": 5056,
+      "sha256": "95b966bf52079720ad3f06a0a23a6875f4210a960417e635939b8aaa2d2118d2"
+    },
+    {
+      "name": "minimap/soul_jar_marker_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/soul_jar_marker_psd.png",
+      "file": "assets/minimap__soul_jar_marker_psd.png",
+      "status": "saved",
+      "bytes": 6275,
+      "sha256": "068503fcf91440713c5d096d4d15b7e5f2a2e7f15012e3db5303baed987890c8"
+    },
+    {
+      "name": "minimap/player_arrow_team1_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_arrow_team1_psd.png",
+      "file": "assets/minimap__player_arrow_team1_psd.png",
+      "status": "saved",
+      "bytes": 7509,
+      "sha256": "403562eb1882005f53cbf2145d03cdff2f3fbff79bf2647358f1e7025b5e2828"
+    },
+    {
+      "name": "minimap/boss_marker_friend_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_marker_friend_psd.png",
+      "file": "assets/minimap__boss_marker_friend_psd.png",
+      "status": "saved",
+      "bytes": 4889,
+      "sha256": "bcabcb466df31cb80f9621c5fa041a84ccba295c08f03c69e3ab093fa691740b"
+    },
+    {
+      "name": "minimap/minimap_speech_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_speech_psd.png",
+      "file": "assets/minimap__minimap_speech_psd.png",
+      "status": "saved",
+      "bytes": 1005,
+      "sha256": "219c4da249f81e8ecfbde9d603a233930eb818eeb25f165933a626d17454d778"
+    },
+    {
+      "name": "minimap/objective_icon_t2.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/objective_icon_t2.svg",
+      "file": "assets/minimap__objective_icon_t2.svg",
+      "status": "saved",
+      "bytes": 1426,
+      "sha256": "93a22f141d144373d7740d4014b3e74ce13ffe5b5bc83574d8df849656e3bd33"
+    },
+    {
+      "name": "minimap/soul_jar_marker_return_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/soul_jar_marker_return_enemy_psd.png",
+      "file": "assets/minimap__soul_jar_marker_return_enemy_psd.png",
+      "status": "saved",
+      "bytes": 3778,
+      "sha256": "f93ac3433f4db4c1e5cb52a2391d62766c1a1d6d62121ab3d9b7ee7071d94c41"
+    },
+    {
+      "name": "minimap/boss_health_t2_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_t2_psd.png",
+      "file": "assets/minimap__boss_health_t2_psd.png",
+      "status": "saved",
+      "bytes": 2122,
+      "sha256": "5214d6d2fdeae705d1f5cdbf177ccaacf728d9adcf2ee891799285e91ba25541"
+    },
+    {
+      "name": "minimap/powerup_weapon.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_weapon.svg",
+      "file": "assets/minimap__powerup_weapon.svg",
+      "status": "saved",
+      "bytes": 3900,
+      "sha256": "505ac4219871db6899ba2f74e88cbe962692075bcd656c6a215b66c46d96574a"
+    },
+    {
+      "name": "minimap/boss_marker_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_marker_enemy_psd.png",
+      "file": "assets/minimap__boss_marker_enemy_psd.png",
+      "status": "saved",
+      "bytes": 4538,
+      "sha256": "49e3de9559ce5acf06581193fc3345bf580f9b3f965e96785882518547719c04"
+    },
+    {
+      "name": "minimap/npc_marker_neutral_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/npc_marker_neutral_psd.png",
+      "file": "assets/minimap__npc_marker_neutral_psd.png",
+      "status": "saved",
+      "bytes": 108,
+      "sha256": "3a9e64fc2eac08d1f5d06c4df18bec21b05291b7fdab7c9f2dbab34fb70395de"
+    },
+    {
+      "name": "minimap/boss_health_final_fill_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_final_fill_psd.png",
+      "file": "assets/minimap__boss_health_final_fill_psd.png",
+      "status": "saved",
+      "bytes": 704,
+      "sha256": "3e9af7d0bb0e10a771fe857a291298a2cc9213f3b07c916f6ab2a48f5ab236ec"
+    },
+    {
+      "name": "minimap/boss_marker_neutral_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_marker_neutral_psd.png",
+      "file": "assets/minimap__boss_marker_neutral_psd.png",
+      "status": "saved",
+      "bytes": 2534,
+      "sha256": "6d7cee40c1ad1740e88f1f9f538c02971625f09a0da9d4a799b8f61046c08b06"
+    },
+    {
+      "name": "minimap/npc_tower_friend_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/npc_tower_friend_psd.png",
+      "file": "assets/minimap__npc_tower_friend_psd.png",
+      "status": "saved",
+      "bytes": 478,
+      "sha256": "4b56ab69137f6ccdf877f28c94a767064abcad149055261bb99277b4fe20bf9e"
+    },
+    {
+      "name": "minimap/powerup_movement.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_movement.svg",
+      "file": "assets/minimap__powerup_movement.svg",
+      "status": "saved",
+      "bytes": 5208,
+      "sha256": "4ecdff80f150fd969c1088e7dbbe26b094f62625bb82df97fef382858a8a8b28"
+    },
+    {
+      "name": "minimap/minimap_shop_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_shop_psd.png",
+      "file": "assets/minimap__minimap_shop_psd.png",
+      "status": "saved",
+      "bytes": 654,
+      "sha256": "10a54a0138da7662d4b6e6fa80434c3f866f5c34bc5b25d81a18a3d8f957927e"
+    },
+    {
+      "name": "minimap/zip_line_marker_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/zip_line_marker_enemy_psd.png",
+      "file": "assets/minimap__zip_line_marker_enemy_psd.png",
+      "status": "saved",
+      "bytes": 241,
+      "sha256": "52cd2533e7247d46862a5ef1e7d0a616c2ed3c22fcffae7a7973c1e0535f169e"
+    },
+    {
+      "name": "minimap/soul_jar_marker_return_pulse_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/soul_jar_marker_return_pulse_psd.png",
+      "file": "assets/minimap__soul_jar_marker_return_pulse_psd.png",
+      "status": "saved",
+      "bytes": 4257,
+      "sha256": "b7da485eadad01808c2639e7c036a2f4c7bc51ff661e16ac3884654493b94de6"
+    },
+    {
+      "name": "minimap/hero_flag_fill_mm_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/hero_flag_fill_mm_psd.png",
+      "file": "assets/minimap__hero_flag_fill_mm_psd.png",
+      "status": "saved",
+      "bytes": 3840,
+      "sha256": "ea70615b130ad2f97ed58c548c834c274809c660ef8c5de9778da99d363a9e97"
+    },
+    {
+      "name": "minimap/necro_gravestone_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/necro_gravestone_psd.png",
+      "file": "assets/minimap__necro_gravestone_psd.png",
+      "status": "saved",
+      "bytes": 3550,
+      "sha256": "40c487c874b5301ec3f83e60f5bb23e6e31749a8c3de0d6f7ca84aa29c9886b5"
+    },
+    {
+      "name": "minimap/boss_health_final_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_final_psd.png",
+      "file": "assets/minimap__boss_health_final_psd.png",
+      "status": "saved",
+      "bytes": 3469,
+      "sha256": "a8df78ab83b3c4aaa778eba522c1fb6e661170ad4e0a10e7042d5e49d4a57057"
+    },
+    {
+      "name": "minimap/neutral_medium_down_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_medium_down_psd.png",
+      "file": "assets/minimap__neutral_medium_down_psd.png",
+      "status": "saved",
+      "bytes": 431,
+      "sha256": "5234a0b7b14697e486227f407723174ee342449649e57a1cd63ccea8c9a800e4"
+    },
+    {
+      "name": "minimap/powerup_health.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_health.svg",
+      "file": "assets/minimap__powerup_health.svg",
+      "status": "saved",
+      "bytes": 3505,
+      "sha256": "3c519cb76808aa8fe4ba32e4d040bd6b0914a3f86e4634ae44444ad60efdb1b0"
+    },
+    {
+      "name": "minimap/icon_stairs_mid.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/icon_stairs_mid.svg",
+      "file": "assets/minimap__icon_stairs_mid.svg",
+      "status": "saved",
+      "bytes": 866,
+      "sha256": "3820ea3544c38febd2b0717734af96c1a5118acd810d9672c92ba5b2c3c2c30a"
+    },
+    {
+      "name": "minimap/npc_marker_friend_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/npc_marker_friend_psd.png",
+      "file": "assets/minimap__npc_marker_friend_psd.png",
+      "status": "saved",
+      "bytes": 113,
+      "sha256": "c5288730e4c29eaa8f0a0462de8e9c69d65b7335b92b373e36587fada162cc4a"
+    },
+    {
+      "name": "minimap/boss_health_dead_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_dead_psd.png",
+      "file": "assets/minimap__boss_health_dead_psd.png",
+      "status": "saved",
+      "bytes": 659,
+      "sha256": "b17a9cd75647a4e3088a4138f5e0af8030073ab05016b3a96962cab780baefbc"
+    },
+    {
+      "name": "minimap/player_marker_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_marker_psd.png",
+      "file": "assets/minimap__player_marker_psd.png",
+      "status": "saved",
+      "bytes": 749,
+      "sha256": "8603ea40f465618a5c780c63a2ea482383e2c688b971bcc249cce8e6dbf1a675"
+    },
+    {
+      "name": "minimap/neutral_medium_up_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_medium_up_psd.png",
+      "file": "assets/minimap__neutral_medium_up_psd.png",
+      "status": "saved",
+      "bytes": 442,
+      "sha256": "4f9e96322be3659c57c46ad464ecb90c3ad4c7e7a4bebd85b87ef39307e9e8cd"
+    },
+    {
+      "name": "minimap/neutral_large_up_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_large_up_psd.png",
+      "file": "assets/minimap__neutral_large_up_psd.png",
+      "status": "saved",
+      "bytes": 477,
+      "sha256": "463ed8425a4eeca17bcba0afde14961b60aaaaea9628a15ebdada4fb718e058e"
+    },
+    {
+      "name": "minimap/powerup_movement_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_movement_unfilled.svg",
+      "file": "assets/minimap__powerup_movement_unfilled.svg",
+      "status": "saved",
+      "bytes": 5237,
+      "sha256": "1b6aad36505f22c005c925d7ca2237f50294546e7836d6d3b9d25a538d87632c"
+    },
+    {
+      "name": "minimap/escort_friendly_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/escort_friendly_psd.png",
+      "file": "assets/minimap__escort_friendly_psd.png",
+      "status": "saved",
+      "bytes": 8539,
+      "sha256": "6ad1fcfaec8304f38d80b02abe0acf218eb48b1f41d4c3f0de1a7cc44ecd89a1"
+    },
+    {
+      "name": "minimap/shop_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/shop_psd.png",
+      "file": "assets/minimap__shop_psd.png",
+      "status": "saved",
+      "bytes": 9837,
+      "sha256": "561d072636ff5560d97f50ddfd2cdd92aecdee58d32d65215e285e9d67de1475"
+    },
+    {
+      "name": "minimap/boss_health_fill_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_fill_psd.png",
+      "file": "assets/minimap__boss_health_fill_psd.png",
+      "status": "saved",
+      "bytes": 177,
+      "sha256": "ab4e96979ecd12b2b79a8ab68addbc4339c6c92c51b17a1f5f6e09863c6f8cbf"
+    },
+    {
+      "name": "minimap/minimap_teleporter_highlight.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_teleporter_highlight.svg",
+      "file": "assets/minimap__minimap_teleporter_highlight.svg",
+      "status": "saved",
+      "bytes": 2974,
+      "sha256": "075d0adf4d4445f4a692d79a7fae867ffa3d0eaab322c34064381448126c0a1d"
+    },
+    {
+      "name": "minimap/minimap_teleporter_highlight_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_teleporter_highlight_unfilled.svg",
+      "file": "assets/minimap__minimap_teleporter_highlight_unfilled.svg",
+      "status": "saved",
+      "bytes": 3033,
+      "sha256": "69f790f4256649edcb20b24fe7df35dd96729ecd6fbe22dbab3be80f19d126d0"
+    },
+    {
+      "name": "minimap/gold_crate_marker_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/gold_crate_marker_psd.png",
+      "file": "assets/minimap__gold_crate_marker_psd.png",
+      "status": "saved",
+      "bytes": 3421,
+      "sha256": "cd970e256386accd292590df1c4dfe8c967e077ef3d1895d70a2634e44157bb5"
+    },
+    {
+      "name": "minimap/neutral_small_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_small_psd.png",
+      "file": "assets/minimap__neutral_small_psd.png",
+      "status": "saved",
+      "bytes": 411,
+      "sha256": "ea2e144e6e4ac4e9760eb5a11bfa4eaf54c3d1bb9f5823f82793c4935e6688d8"
+    },
+    {
+      "name": "minimap/powerup_magic_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_magic_unfilled.svg",
+      "file": "assets/minimap__powerup_magic_unfilled.svg",
+      "status": "saved",
+      "bytes": 5113,
+      "sha256": "9218e3e323852626da0239a7fb3d633e7acf9355354d4bc8218a84f4e04b91b6"
+    },
+    {
+      "name": "minimap/ammo_box_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/ammo_box_psd.png",
+      "file": "assets/minimap__ammo_box_psd.png",
+      "status": "saved",
+      "bytes": 1018,
+      "sha256": "a5ad0ed36d6ec455db76dd8bb6ae815ed98c93cd7e494512eac0c5039ee407a2"
+    },
+    {
+      "name": "minimap/objective_icon_t2_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/objective_icon_t2_unfilled.svg",
+      "file": "assets/minimap__objective_icon_t2_unfilled.svg",
+      "status": "saved",
+      "bytes": 1469,
+      "sha256": "06a2d2e66accad6b955ba6c3e53f1b8c46e1c1b81536d2ead18095be4c0dc0b9"
+    },
+    {
+      "name": "minimap/icon_stairs.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/icon_stairs.svg",
+      "file": "assets/minimap__icon_stairs.svg",
+      "status": "saved",
+      "bytes": 731,
+      "sha256": "3e28a8849d65658e103f6e37814cedc0df8346224ba53370fe1b2b7ef1829ae2"
+    },
+    {
+      "name": "minimap/neutral_medium_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_medium_psd.png",
+      "file": "assets/minimap__neutral_medium_psd.png",
+      "status": "saved",
+      "bytes": 420,
+      "sha256": "2ccb9463a8d608d77726b2d74161de46b03d058a4c15d459b46b8ae02d9f695c"
+    },
+    {
+      "name": "minimap/player_arrow_friend_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_arrow_friend_psd.png",
+      "file": "assets/minimap__player_arrow_friend_psd.png",
+      "status": "saved",
+      "bytes": 8084,
+      "sha256": "26cd4aa1925711084c72b8c7d7f8a40aaf617ad22d2a99b3d00089cef75dea87"
+    },
+    {
+      "name": "minimap/unsecured_souls.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/unsecured_souls.svg",
+      "file": "assets/minimap__unsecured_souls.svg",
+      "status": "saved",
+      "bytes": 1857,
+      "sha256": "f6913719228cae01779350cbdca39c988159b8c2af10738bd892a802290b83a5"
+    },
+    {
+      "name": "minimap/neutral_large_down_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_large_down_psd.png",
+      "file": "assets/minimap__neutral_large_down_psd.png",
+      "status": "saved",
+      "bytes": 475,
+      "sha256": "705a7567797f4879078a607601dad61da6b0b2f23b9ea842661e0326277aa65c"
+    },
+    {
+      "name": "minimap/hero_flag_enemy_mm_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/hero_flag_enemy_mm_psd.png",
+      "file": "assets/minimap__hero_flag_enemy_mm_psd.png",
+      "status": "saved",
+      "bytes": 3601,
+      "sha256": "c93c7725d399e610709e5ebd6da5c42bd2a4bd8509c606a77bee37c4e1fcfa7e"
+    },
+    {
+      "name": "minimap/npc_marker_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/npc_marker_enemy_psd.png",
+      "file": "assets/minimap__npc_marker_enemy_psd.png",
+      "status": "saved",
+      "bytes": 113,
+      "sha256": "de59065bba0727e856407e0a577bb780d288f88873d060d13927f4bf1f95af20"
+    },
+    {
+      "name": "minimap/super_neutral_marker_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/super_neutral_marker_psd.png",
+      "file": "assets/minimap__super_neutral_marker_psd.png",
+      "status": "saved",
+      "bytes": 20241,
+      "sha256": "acd7bf26a96bd6fd8eee9d181afcbbac62f73f063bd8e29a89e4eb5a8ab9eacf"
+    },
+    {
+      "name": "minimap/objective_icon_t1_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/objective_icon_t1_unfilled.svg",
+      "file": "assets/minimap__objective_icon_t1_unfilled.svg",
+      "status": "saved",
+      "bytes": 1078,
+      "sha256": "835654bb2113c9ca2c6bc21362f541930d9beecf6f5cd5dc6723756390336953"
+    },
+    {
+      "name": "minimap/player_arrow_team2_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_arrow_team2_psd.png",
+      "file": "assets/minimap__player_arrow_team2_psd.png",
+      "status": "saved",
+      "bytes": 7843,
+      "sha256": "61dc264c5d33ad41aae3112643b16a6ec550276c045a25f731585e98e2619026"
+    },
+    {
+      "name": "minimap/minimap_teleporter_go_right.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_teleporter_go_right.svg",
+      "file": "assets/minimap__minimap_teleporter_go_right.svg",
+      "status": "saved",
+      "bytes": 2944,
+      "sha256": "fd5866d74501f8fc255c96f39ac4c7aa6bfb551f88d471a279b94e22b12851ac"
+    },
+    {
+      "name": "minimap/neutral_large_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_large_psd.png",
+      "file": "assets/minimap__neutral_large_psd.png",
+      "status": "saved",
+      "bytes": 425,
+      "sha256": "1cfbd52313af82a3faf67684c308921f29677f0218318043d5a963d498b4fc82"
+    },
+    {
+      "name": "minimap/icon_stairs_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/icon_stairs_unfilled.svg",
+      "file": "assets/minimap__icon_stairs_unfilled.svg",
+      "status": "saved",
+      "bytes": 761,
+      "sha256": "aa0da29769f77486211ac981eaa72cd628cf140ebac8611860344b2b3b698693"
+    },
+    {
+      "name": "minimap/npc_tower_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/npc_tower_enemy_psd.png",
+      "file": "assets/minimap__npc_tower_enemy_psd.png",
+      "status": "saved",
+      "bytes": 478,
+      "sha256": "63be3dbe5070eee628ef976a23ef85576a0d48a776b8992bac93c522ebbbdcbf"
+    },
+    {
+      "name": "minimap/npc_dispenser_friend_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/npc_dispenser_friend_psd.png",
+      "file": "assets/minimap__npc_dispenser_friend_psd.png",
+      "status": "saved",
+      "bytes": 535,
+      "sha256": "6ff1d5cb958b7598e62d6975455e5fab746174a0cff44fb8fe32dcc4745a02aa"
+    },
+    {
+      "name": "minimap/base/minimap_midtown_mid_tunnels_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_midtown_mid_tunnels_psd.png",
+      "file": "assets/minimap__base__minimap_midtown_mid_tunnels_psd.png",
+      "status": "saved",
+      "bytes": 171605,
+      "sha256": "20af3bc4dd36e1f2fb2462a5d25c898906ee05d82605b0dc87862d634827094b"
+    },
+    {
+      "name": "minimap/base/minimap_midtown_mid_psd_dd4bcbf9.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_midtown_mid_psd_dd4bcbf9.png",
+      "file": "assets/minimap__base__minimap_midtown_mid_psd_dd4bcbf9.png",
+      "status": "saved",
+      "bytes": 344819,
+      "sha256": "f7a3c7545415b882194fbc66f3bf5729d9eb77bf455e1c5f56eec1de5beb0d29"
+    },
+    {
+      "name": "minimap/base/minimap_lane_1_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_lane_1_psd.png",
+      "file": "assets/minimap__base__minimap_lane_1_psd.png",
+      "status": "saved",
+      "bytes": 26770,
+      "sha256": "c5ce0c90bad0d27c436254f6e65fcc70cf6b275e9e1e285f5a617daec2d0ceea"
+    },
+    {
+      "name": "minimap/base/minimap_mid_psd_7034a849.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_mid_psd_7034a849.png",
+      "file": "assets/minimap__base__minimap_mid_psd_7034a849.png",
+      "status": "saved",
+      "bytes": 66474,
+      "sha256": "a5ce3f5aa42ed21adf9b187811a9a2a8bebbe174ab6a0080142f51fe13731db9"
+    },
+    {
+      "name": "minimap/base/neutrals/se_arcade_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/se_arcade_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__se_arcade_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 2998,
+      "sha256": "0ee316ba1656fe65f17ff977a3d628ed9353a45455bc9bc839b23ec48c4e286f"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_bridge_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_bridge_neutrals.png",
+      "file": "assets/minimap__base__neutrals__ne_bridge_neutrals.png",
+      "status": "saved",
+      "bytes": 2782,
+      "sha256": "ec246a05b0c1658140829dbbfe9b8f62177e3774d07ea946e8e6bf1fe9dbb930"
+    },
+    {
+      "name": "minimap/base/neutrals/financial_tunnel_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/financial_tunnel_neutrals.png",
+      "file": "assets/minimap__base__neutrals__financial_tunnel_neutrals.png",
+      "status": "saved",
+      "bytes": 1705,
+      "sha256": "f477e73a8c6d7cce42fbd2247dd81219b9b547db51ef1c25e34e8ea1ce9bf5cd"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_mansion_ext_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_mansion_ext_camp.png",
+      "file": "assets/minimap__base__neutrals__ne_mansion_ext_camp.png",
+      "status": "saved",
+      "bytes": 3626,
+      "sha256": "b0a0cad0c71dabbc80a5a696c60e526f44a0785a1098634d645ae5e4eaa7be35"
+    },
+    {
+      "name": "minimap/base/neutrals/combine_parking_garage_orange.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/combine_parking_garage_orange.png",
+      "file": "assets/minimap__base__neutrals__combine_parking_garage_orange.png",
+      "status": "saved",
+      "bytes": 1371,
+      "sha256": "8368bddd6a7caeef15d73b7e1afc4c1099bdbd427f0ddab3ac1f0588294ba3fd"
+    },
+    {
+      "name": "minimap/base/neutrals/theater_tunnel_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/theater_tunnel_neutrals.png",
+      "file": "assets/minimap__base__neutrals__theater_tunnel_neutrals.png",
+      "status": "saved",
+      "bytes": 6142,
+      "sha256": "147ee70a12328452038dc143aa8606d11635ddebc28c38298da11f7919da57c0"
+    },
+    {
+      "name": "minimap/base/neutrals/camp_mid_roof_e.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/camp_mid_roof_e.png",
+      "file": "assets/minimap__base__neutrals__camp_mid_roof_e.png",
+      "status": "saved",
+      "bytes": 1435,
+      "sha256": "40d5d17151066754403b2f7a09fd219b3db1cc28cff3229b7928f99a80a951a2"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_garage_downstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_garage_downstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_garage_downstairs_camp.png",
+      "status": "saved",
+      "bytes": 2988,
+      "sha256": "033d1dcfc436a732e5b74e3e92489f0e67e07d6ed78dece08ba6a41990dd8029"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_theater_ext_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_theater_ext_camp.png",
+      "file": "assets/minimap__base__neutrals__ne_theater_ext_camp.png",
+      "status": "saved",
+      "bytes": 3657,
+      "sha256": "3045b4ab7e07b2a8d522147049018c33ce3184a6ae6ad670a466550b632a8078"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_nightclub_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_nightclub_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__ne_nightclub_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 3076,
+      "sha256": "419cf1ae28a734981c67347ebb426cde99a905c48c7b0a50949797c33ae41b5d"
+    },
+    {
+      "name": "minimap/base/neutrals/se_utility_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/se_utility_neutrals.png",
+      "file": "assets/minimap__base__neutrals__se_utility_neutrals.png",
+      "status": "saved",
+      "bytes": 3388,
+      "sha256": "88485a3de33dd7c38cc3b9b7e2222422917a6449d24fc8baa211dedc59637b27"
+    },
+    {
+      "name": "minimap/base/neutrals/se_club_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/se_club_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__se_club_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 2990,
+      "sha256": "db06efa1ae4fb93b16f9b77b853a19619530d63a782e2d1a3fe4ba32cc102d32"
+    },
+    {
+      "name": "minimap/base/neutrals/rebels_camp_parking_garage_orange.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/rebels_camp_parking_garage_orange.png",
+      "file": "assets/minimap__base__neutrals__rebels_camp_parking_garage_orange.png",
+      "status": "saved",
+      "bytes": 3802,
+      "sha256": "1c6e06c89bbdb8b5e2fd81abc058b2818e8a0ee09bf8a3959f7bcc7dfaccce26"
+    },
+    {
+      "name": "minimap/base/neutrals/nw_utility_south_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/nw_utility_south_neutrals.png",
+      "file": "assets/minimap__base__neutrals__nw_utility_south_neutrals.png",
+      "status": "saved",
+      "bytes": 3246,
+      "sha256": "1d1bf93e28a40123cb16bcb386a54bc1abc50308e010f44aafa80ad0caf063b2"
+    },
+    {
+      "name": "minimap/base/neutrals/rebels_camp_parking_garage_blue.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/rebels_camp_parking_garage_blue.png",
+      "file": "assets/minimap__base__neutrals__rebels_camp_parking_garage_blue.png",
+      "status": "saved",
+      "bytes": 3313,
+      "sha256": "6b5fd0f08ee21487ffa9739e5771398a9ebda5f43e21a0ac43d1f667a9385eae"
+    },
+    {
+      "name": "minimap/base/neutrals/combine_parking_garage_blue.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/combine_parking_garage_blue.png",
+      "file": "assets/minimap__base__neutrals__combine_parking_garage_blue.png",
+      "status": "saved",
+      "bytes": 1701,
+      "sha256": "1d6f1abee3054482ebad1438b0fba792370a0b64b3b927911ad7a2b4d03e4b1d"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_power_grid_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_power_grid_neutrals.png",
+      "file": "assets/minimap__base__neutrals__ne_power_grid_neutrals.png",
+      "status": "saved",
+      "bytes": 3157,
+      "sha256": "7435ac10981a4e80785a4f10ffff2dcae5bf919b5295772ca03b5533eb63bacf"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_nightclub_downstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_nightclub_downstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__ne_nightclub_downstairs_camp.png",
+      "status": "saved",
+      "bytes": 3068,
+      "sha256": "bbcf6ceda35f7ce24de33cadf2daa28d2b839f2d0353464d6e1ce45506e06b23"
+    },
+    {
+      "name": "minimap/base/neutrals/nw_market_downstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/nw_market_downstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__nw_market_downstairs_camp.png",
+      "status": "saved",
+      "bytes": 3217,
+      "sha256": "a9a8ee7cbe3d2addd5d23095814074edbabe3cd20aa665ee6a795688de33ac98"
+    },
+    {
+      "name": "minimap/base/neutrals/nw_market_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/nw_market_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__nw_market_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 3289,
+      "sha256": "b2c5cbad4432b10377f01708ad53fcf6a6a899af31fb395c1ca53f5fda529681"
+    },
+    {
+      "name": "minimap/base/neutrals/camp_mid_roof_w.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/camp_mid_roof_w.png",
+      "file": "assets/minimap__base__neutrals__camp_mid_roof_w.png",
+      "status": "saved",
+      "bytes": 1237,
+      "sha256": "16af35f36e065513ca05e8cd51120ce9beec4c5c631665e4d3f9b5a06e24378b"
+    },
+    {
+      "name": "minimap/base/neutrals/se_chapel_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/se_chapel_neutrals.png",
+      "file": "assets/minimap__base__neutrals__se_chapel_neutrals.png",
+      "status": "saved",
+      "bytes": 3478,
+      "sha256": "26f4e770bc2c6c0b2ebe6302ac735633aea95d7e3fbab55c6b9978681db17e81"
+    },
+    {
+      "name": "minimap/base/neutrals/nw_street_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/nw_street_neutrals.png",
+      "file": "assets/minimap__base__neutrals__nw_street_neutrals.png",
+      "status": "saved",
+      "bytes": 3938,
+      "sha256": "04221642e54c7430c4a346a9b1ee82ab19b6b5e5588a99b1b1d93daff6524906"
+    },
+    {
+      "name": "minimap/base/neutrals/industrial_tunnel_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/industrial_tunnel_neutrals.png",
+      "file": "assets/minimap__base__neutrals__industrial_tunnel_neutrals.png",
+      "status": "saved",
+      "bytes": 5005,
+      "sha256": "756a255763ec75a8c8b6bf0ffd7dc0605a202a997360fc9a681f9528263a2d21"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_bodega_ext_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_bodega_ext_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_bodega_ext_camp.png",
+      "status": "saved",
+      "bytes": 3443,
+      "sha256": "025bc3b8f51355b18ee0e173280bff8f6a79d6c4406dbbd75c6b5e4b75a3dbe0"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_warehouse_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_warehouse_neutrals.png",
+      "file": "assets/minimap__base__neutrals__ne_warehouse_neutrals.png",
+      "status": "saved",
+      "bytes": 8745,
+      "sha256": "6908b0047ee27481f461f09f0cb66b2522f55223d27a2336d62212082f51486f"
+    },
+    {
+      "name": "minimap/base/neutrals/chinatown_tunnel_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/chinatown_tunnel_neutrals.png",
+      "file": "assets/minimap__base__neutrals__chinatown_tunnel_neutrals.png",
+      "status": "saved",
+      "bytes": 1587,
+      "sha256": "0558eca89c89ec88b16483aeea563fe84bf7bf5a0e9244814fa865a38d04fc4a"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_bridge_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_bridge_neutrals.png",
+      "file": "assets/minimap__base__neutrals__sw_bridge_neutrals.png",
+      "status": "saved",
+      "bytes": 2711,
+      "sha256": "220c2442c34bd1aec8ec0b56c1122eb6e3a16f90ef5e242d69fb544e62edfdd9"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_bodega_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_bodega_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_bodega_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 3304,
+      "sha256": "709f98157c3aeb97ae360fe200b32a462dfa78488cb438f332b903a8c10dffbd"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_warehouse_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_warehouse_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_warehouse_camp.png",
+      "status": "saved",
+      "bytes": 6564,
+      "sha256": "fa9e809661d25568eda5d1d248d7d6ac15d913d5fa7f5bc4a89c5c0af472fcc4"
+    },
+    {
+      "name": "minimap/base/neutrals/se_street_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/se_street_camp.png",
+      "file": "assets/minimap__base__neutrals__se_street_camp.png",
+      "status": "saved",
+      "bytes": 4017,
+      "sha256": "10e14970fa744a443177bbb6a253755024a2c149ba91b54d5c6c3c28b4a8ea95"
+    },
+    {
+      "name": "minimap/base/neutrals/east_end_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/east_end_neutrals.png",
+      "file": "assets/minimap__base__neutrals__east_end_neutrals.png",
+      "status": "saved",
+      "bytes": 2229,
+      "sha256": "c461a5860f6306dc9fbd496c6f61084bbd24e94b2b1859168b38d34996b859ab"
+    },
+    {
+      "name": "minimap/base/neutrals/nw_club_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/nw_club_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__nw_club_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 2858,
+      "sha256": "6337fadda7237746a5e08c3932205aafb4bbbebcc7b6834a205396e51300dc31"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_power_grid_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_power_grid_neutrals.png",
+      "file": "assets/minimap__base__neutrals__sw_power_grid_neutrals.png",
+      "status": "saved",
+      "bytes": 2993,
+      "sha256": "c237eb379c5f1f8cfb74693b6c7f68fe34860abfe583a0a73c4f623e979084b0"
+    },
+    {
+      "name": "minimap/base/neutrals/se_arcade_downstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/se_arcade_downstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__se_arcade_downstairs_camp.png",
+      "status": "saved",
+      "bytes": 3215,
+      "sha256": "ada82f8633b2b6e94424b9a3af52901291cffeb183cd73434da4787c22dfec72"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_garage_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_garage_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_garage_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 3244,
+      "sha256": "49bfa1cc514e0776a06913ce13bb7c7d1df15909365b7d8f5c13dd50036fc2dc"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_theater_downstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_theater_downstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__ne_theater_downstairs_camp.png",
+      "status": "saved",
+      "bytes": 3299,
+      "sha256": "ed4d8ca21af53498078a6dd87d574a1bb6d97cd4df88d9db8b6151432dcda64d"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_bodega_downstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_bodega_downstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_bodega_downstairs_camp.png",
+      "status": "saved",
+      "bytes": 2926,
+      "sha256": "3f7326aed4f0e441170facdff27b70ff2e2af59f825a7991c41c596f505016c8"
+    },
+    {
+      "name": "minimap/base/neutrals/ne_theater_upstairs_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ne_theater_upstairs_camp.png",
+      "file": "assets/minimap__base__neutrals__ne_theater_upstairs_camp.png",
+      "status": "saved",
+      "bytes": 4354,
+      "sha256": "a759e5de8096e95f63b6911bb87cb4de59b61b0a2c6e7543506adf23e4ad9382"
+    },
+    {
+      "name": "minimap/base/neutrals/sw_factory_ext_camp.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/sw_factory_ext_camp.png",
+      "file": "assets/minimap__base__neutrals__sw_factory_ext_camp.png",
+      "status": "saved",
+      "bytes": 3433,
+      "sha256": "bd711a811e5d8c6dd4c015ce3bd205aec538039fd1d6f139b2052b169b77b058"
+    },
+    {
+      "name": "minimap/base/neutrals/bank_upstairs_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/bank_upstairs_neutrals.png",
+      "file": "assets/minimap__base__neutrals__bank_upstairs_neutrals.png",
+      "status": "saved",
+      "bytes": 1271,
+      "sha256": "c8c7e3e2f459228f62c1ef412a12c6f7b60a74ae272098315be85d587ff157d8"
+    },
+    {
+      "name": "minimap/base/neutrals/ferry_upstairs_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/ferry_upstairs_neutrals.png",
+      "file": "assets/minimap__base__neutrals__ferry_upstairs_neutrals.png",
+      "status": "saved",
+      "bytes": 3052,
+      "sha256": "7ae92081e9ba5cc64824fc4871b6f1885a5c5e2c713132235e80c5b8c300dca0"
+    },
+    {
+      "name": "minimap/base/neutrals/west_end_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/west_end_neutrals.png",
+      "file": "assets/minimap__base__neutrals__west_end_neutrals.png",
+      "status": "saved",
+      "bytes": 3906,
+      "sha256": "5c96b16882ca307852eeffc37f5d2af8d1c7db06c9876b8812d0739e472a8685"
+    },
+    {
+      "name": "minimap/base/neutrals/nw_chapel_neutrals.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/neutrals/nw_chapel_neutrals.png",
+      "file": "assets/minimap__base__neutrals__nw_chapel_neutrals.png",
+      "status": "saved",
+      "bytes": 3156,
+      "sha256": "34c269f848cda8ef2d2411d97ae2bdfe9dc3748bdc172a31607f1ad3c1545e5f"
+    },
+    {
+      "name": "minimap/base/minimap_lane_4_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_lane_4_psd.png",
+      "file": "assets/minimap__base__minimap_lane_4_psd.png",
+      "status": "saved",
+      "bytes": 26766,
+      "sha256": "5381261805c9192fb6818a0ef80f92efaf174b4e9d9253101b46129147a46a3d"
+    },
+    {
+      "name": "minimap/base/minimap_lane_3_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_lane_3_psd.png",
+      "file": "assets/minimap__base__minimap_lane_3_psd.png",
+      "status": "saved",
+      "bytes": 15357,
+      "sha256": "0c7f518e3e80360a7f0f666068906ea8b8479b5b1493bf98d785dc5fc018d3d0"
+    },
+    {
+      "name": "minimap/base/minimap_frame_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_frame_psd.png",
+      "file": "assets/minimap__base__minimap_frame_psd.png",
+      "status": "saved",
+      "bytes": 167523,
+      "sha256": "4275cda35b2bdc2961df8c0fc5620bbca136cd8bd28527b985c76e3d7a32a273"
+    },
+    {
+      "name": "minimap/base/minimap_bg_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_bg_psd.png",
+      "file": "assets/minimap__base__minimap_bg_psd.png",
+      "status": "saved",
+      "bytes": 23371,
+      "sha256": "67a5e629c928a8a6693341fc2f8a77345e790533df09bd040bfeeeb1b807c7d2"
+    },
+    {
+      "name": "minimap/base/minimap_lane_2_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_lane_2_psd.png",
+      "file": "assets/minimap__base__minimap_lane_2_psd.png",
+      "status": "saved",
+      "bytes": 15400,
+      "sha256": "99eef257005640e0711b7b511deb102e51bc5ecee4fe21f4936969bb8e8460e2"
+    },
+    {
+      "name": "minimap/base/minimap_midtown_rat_tunnels_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_midtown_rat_tunnels_psd.png",
+      "file": "assets/minimap__base__minimap_midtown_rat_tunnels_psd.png",
+      "status": "saved",
+      "bytes": 222732,
+      "sha256": "5175463cf7511a3a77fa4d8b531e7ee27e03d0b17210560146e3fcee688235a5"
+    },
+    {
+      "name": "minimap/base/minimap_midtown_mid_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/base/minimap_midtown_mid_psd.png",
+      "file": "assets/minimap__base__minimap_midtown_mid_psd.png",
+      "status": "saved",
+      "bytes": 306273,
+      "sha256": "b98847d1b35bf6775a00f97e33bd11e7510f03bbdb1ebf2e4ab5ee50b252a932"
+    },
+    {
+      "name": "minimap/archer_guided_arrow_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/archer_guided_arrow_psd.png",
+      "file": "assets/minimap__archer_guided_arrow_psd.png",
+      "status": "saved",
+      "bytes": 1044,
+      "sha256": "bb68f92cf1cc206930088f835961e9eed5071ab74ee0101ff8a7cba003c9f5a1"
+    },
+    {
+      "name": "minimap/doorman_doorway_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/doorman_doorway_psd.png",
+      "file": "assets/minimap__doorman_doorway_psd.png",
+      "status": "saved",
+      "bytes": 763,
+      "sha256": "cc9a1ed67ef571bac969420e03703d81b3f63e02df6e2b7319a2f497d0f87ab7"
+    },
+    {
+      "name": "minimap/soul_jar_marker_return_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/soul_jar_marker_return_psd.png",
+      "file": "assets/minimap__soul_jar_marker_return_psd.png",
+      "status": "saved",
+      "bytes": 3625,
+      "sha256": "56bf5a80bc7ec4936287f0afd25369fb205ed3c959c3879d52c78131ec66efa3"
+    },
+    {
+      "name": "minimap/player_arrow_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_arrow_enemy_psd.png",
+      "file": "assets/minimap__player_arrow_enemy_psd.png",
+      "status": "saved",
+      "bytes": 7976,
+      "sha256": "1c32d1c5eface80acfb1ba8f60c2d0f8bde39d4e2798cb1b1ec2cfb4d00b1c2c"
+    },
+    {
+      "name": "minimap/escort_enemy_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/escort_enemy_psd.png",
+      "file": "assets/minimap__escort_enemy_psd.png",
+      "status": "saved",
+      "bytes": 10515,
+      "sha256": "fb6163a2ab506d94f48cbd0f1b179f364ece2c1a8be80e990e93ffaef9c27016"
+    },
+    {
+      "name": "minimap/powerup_health_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_health_unfilled.svg",
+      "file": "assets/minimap__powerup_health_unfilled.svg",
+      "status": "saved",
+      "bytes": 3562,
+      "sha256": "467ca5ec534cb34651f46dd18c373b2f3e62d5faa3b756ce6892f3958165c528"
+    },
+    {
+      "name": "minimap/boss_health_final_stage2_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_final_stage2_psd.png",
+      "file": "assets/minimap__boss_health_final_stage2_psd.png",
+      "status": "saved",
+      "bytes": 2285,
+      "sha256": "4c32e8bfd0869f66d07b9f84846b2c28661d0be963d93a1be22c0fb3d3ab6ed0"
+    },
+    {
+      "name": "minimap/boss_health_final_stage2_fill_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_final_stage2_fill_psd.png",
+      "file": "assets/minimap__boss_health_final_stage2_fill_psd.png",
+      "status": "saved",
+      "bytes": 248,
+      "sha256": "768b465d5c0c50d0d52a1f7477e96278bcf28e9a8ce988c999d7501b060a3c77"
+    },
+    {
+      "name": "minimap/hero_flag_mm_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/hero_flag_mm_psd.png",
+      "file": "assets/minimap__hero_flag_mm_psd.png",
+      "status": "saved",
+      "bytes": 3601,
+      "sha256": "c93c7725d399e610709e5ebd6da5c42bd2a4bd8509c606a77bee37c4e1fcfa7e"
+    },
+    {
+      "name": "minimap/health_pad_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/health_pad_psd.png",
+      "file": "assets/minimap__health_pad_psd.png",
+      "status": "saved",
+      "bytes": 177,
+      "sha256": "0c7dc76553ff117aaee8044760360a96af1e19cf1493b6716fe032cf818b855d"
+    },
+    {
+      "name": "minimap/bookworm_knight_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/bookworm_knight_psd.png",
+      "file": "assets/minimap__bookworm_knight_psd.png",
+      "status": "saved",
+      "bytes": 1271,
+      "sha256": "30aff0c1464dfba402a22cdb996eb7a6bbe730aed34af7b9765fba8322102297"
+    },
+    {
+      "name": "minimap/neutral_small_down_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_small_down_psd.png",
+      "file": "assets/minimap__neutral_small_down_psd.png",
+      "status": "saved",
+      "bytes": 434,
+      "sha256": "79a4ba30ed56281741aad0c6cd5f241129d045109c57081e34fa1045af8fe6cb"
+    },
+    {
+      "name": "minimap/player_cone_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_cone_psd.png",
+      "file": "assets/minimap__player_cone_psd.png",
+      "status": "saved",
+      "bytes": 71085,
+      "sha256": "d75392f1a2288f485eeb03c3a3502cea716337b66993d0ffdc4f45495fefa4dc"
+    },
+    {
+      "name": "minimap/icon_stairs_mid_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/icon_stairs_mid_unfilled.svg",
+      "file": "assets/minimap__icon_stairs_mid_unfilled.svg",
+      "status": "saved",
+      "bytes": 882,
+      "sha256": "451d0d9534bc85feb6bf12470a2fe73f9825f6d888a58450d2e34dfce6b94ced"
+    },
+    {
+      "name": "minimap/objective_icon_t1.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/objective_icon_t1.svg",
+      "file": "assets/minimap__objective_icon_t1.svg",
+      "status": "saved",
+      "bytes": 1049,
+      "sha256": "c7e6a4e36fa07c7d7eb07621a654ba6a0a3818583a3706e0e3e9fe8be5ecf74d"
+    },
+    {
+      "name": "minimap/unsecured_souls_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/unsecured_souls_unfilled.svg",
+      "file": "assets/minimap__unsecured_souls_unfilled.svg",
+      "status": "saved",
+      "bytes": 1853,
+      "sha256": "3b953af37b57641b89e286c313d7ab6b0f1711aa5f43d165ae87b5123b5bf34e"
+    },
+    {
+      "name": "minimap/player_marker_self_spec_highlight_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_marker_self_spec_highlight_psd.png",
+      "file": "assets/minimap__player_marker_self_spec_highlight_psd.png",
+      "status": "saved",
+      "bytes": 234,
+      "sha256": "a9bee641d65649ff296ba23b77da4f3306341ec7bca38804ff82c71524cf6bd2"
+    },
+    {
+      "name": "minimap/rejuv_crystal_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/rejuv_crystal_psd.png",
+      "file": "assets/minimap__rejuv_crystal_psd.png",
+      "status": "saved",
+      "bytes": 2001,
+      "sha256": "fe36356d5af42b5f66c652fd74ddbc21065c6fec696651421adbd08ff9fe090e"
+    },
+    {
+      "name": "minimap/neutral_small_up_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_small_up_psd.png",
+      "file": "assets/minimap__neutral_small_up_psd.png",
+      "status": "saved",
+      "bytes": 434,
+      "sha256": "030dd4635921612e4ced8df258ba93e67437ec8f9fc0b388f4cd81a57db31a6d"
+    },
+    {
+      "name": "minimap/zip_line_marker_friend_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/zip_line_marker_friend_psd.png",
+      "file": "assets/minimap__zip_line_marker_friend_psd.png",
+      "status": "saved",
+      "bytes": 234,
+      "sha256": "90431576f78f3b2e4410ceb28af06e5bc723d7a8d4fa41189918a393d341b57b"
+    },
+    {
+      "name": "minimap/boss_health_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_psd.png",
+      "file": "assets/minimap__boss_health_psd.png",
+      "status": "saved",
+      "bytes": 870,
+      "sha256": "51972393bc3e9e5e0053721964e6f57f2bd397921f474ad201282da2952a868d"
+    },
+    {
+      "name": "minimap/item_crate_spawn_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/item_crate_spawn_psd.png",
+      "file": "assets/minimap__item_crate_spawn_psd.png",
+      "status": "saved",
+      "bytes": 231,
+      "sha256": "b9b08249410cb5385ed3a7253a1e38f5ea18586a30be03851e47513aacec84dc"
+    },
+    {
+      "name": "minimap/boss_health_fill_t2_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_fill_t2_psd.png",
+      "file": "assets/minimap__boss_health_fill_t2_psd.png",
+      "status": "saved",
+      "bytes": 344,
+      "sha256": "322b9ef029d83b8e71f0feb959f4dc8f0e87070cecf6f7f9f516e107916a7645"
+    },
+    {
+      "name": "minimap/neutral_vault_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_vault_psd.png",
+      "file": "assets/minimap__neutral_vault_psd.png",
+      "status": "saved",
+      "bytes": 395,
+      "sha256": "a07288a7b722a65b9ee5f3bd69ae46f2dec236f8d0ef4f7b01d14f1965f98aa7"
+    },
+    {
+      "name": "minimap/player_marker_self_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/player_marker_self_psd.png",
+      "file": "assets/minimap__player_marker_self_psd.png",
+      "status": "saved",
+      "bytes": 8092,
+      "sha256": "591dd0bbefa1e8922c9aa26b910197970a3ad134b527634c13b09abcf81f2fd5"
+    },
+    {
+      "name": "minimap/minimap_teleporter_go_right_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_teleporter_go_right_unfilled.svg",
+      "file": "assets/minimap__minimap_teleporter_go_right_unfilled.svg",
+      "status": "saved",
+      "bytes": 2991,
+      "sha256": "95ecbef0b9a5318211201f98a156a97dc5232bf2191caf752b73a93843023617"
+    },
+    {
+      "name": "minimap/powerup_weapon_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_weapon_unfilled.svg",
+      "file": "assets/minimap__powerup_weapon_unfilled.svg",
+      "status": "saved",
+      "bytes": 3957,
+      "sha256": "db37f8c4efdf0f6ffce2ef681b12bd0cbc9c44dc28da63c765ebe1f5dd36c43f"
+    },
+    {
+      "name": "minimap/gold_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/gold_psd.png",
+      "file": "assets/minimap__gold_psd.png",
+      "status": "saved",
+      "bytes": 272,
+      "sha256": "d610aba5ac0a0e2e4fd808059b992363793709ddb9923606472e695fbae77706"
+    },
+    {
+      "name": "minimap/escort_capture_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/escort_capture_psd.png",
+      "file": "assets/minimap__escort_capture_psd.png",
+      "status": "saved",
+      "bytes": 5511,
+      "sha256": "71f022ecec2d9347cb53de0c158e4a84757926c66366668b1c3848d0c58db39f"
+    },
+    {
+      "name": "minimap/zip_line_marker_neutral_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/zip_line_marker_neutral_psd.png",
+      "file": "assets/minimap__zip_line_marker_neutral_psd.png",
+      "status": "saved",
+      "bytes": 95,
+      "sha256": "5cdc5b600924c5d141d3b699b69dbf7030f3d0bd92abbfd57e2ac0282e65b3f6"
+    },
+    {
+      "name": "minimap/minimap_icon_koth.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_icon_koth.svg",
+      "file": "assets/minimap__minimap_icon_koth.svg",
+      "status": "saved",
+      "bytes": 14787,
+      "sha256": "7bf13f4a5e5fec1360fe5c3ddd91157fe8bcc54375a0e01b9fc8e7fab73e1b5b"
+    },
+    {
+      "name": "minimap/minimap_icon_koth.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_icon_koth.png",
+      "file": "assets/minimap__minimap_icon_koth.png",
+      "status": "saved",
+      "bytes": 8802,
+      "sha256": "d5dab78f8223a3dca133546659049ace1597aea4717147d4be56beba36667c7b"
+    },
+    {
+      "name": "minimap/minimap_icon_koth_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_icon_koth_unfilled.svg",
+      "file": "assets/minimap__minimap_icon_koth_unfilled.svg",
+      "status": "saved",
+      "bytes": 14802,
+      "sha256": "48339f5ad7308fe95f07ef1a954f8edb13502fe6ea6f261c9f04848731084b7a"
+    },
+    {
+      "name": "minimap/powerup_souls.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/powerup_souls.png",
+      "file": "assets/minimap__powerup_souls.png",
+      "status": "saved",
+      "bytes": 1717,
+      "sha256": "7668c92c8f586e74d685ce67ac35b2f7fe75ca61040d924486c66847e3bd5280"
+    },
+    {
+      "name": "minimap/minimap_icon_broker_unfilled.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_icon_broker_unfilled.svg",
+      "file": "assets/minimap__minimap_icon_broker_unfilled.svg",
+      "status": "saved",
+      "bytes": 1215,
+      "sha256": "ed751dc05818e3aa00b1d9ef1c457da6482d654eca187585410b0c4aed131522"
+    },
+    {
+      "name": "minimap/compass_frame_mask_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/compass_frame_mask_psd.png",
+      "file": "assets/minimap__compass_frame_mask_psd.png",
+      "status": "saved",
+      "bytes": 34468,
+      "sha256": "92af1344681e98586f6bdadf858c3f54fb65a54ee021e60052891d700cf850b9"
+    },
+    {
+      "name": "minimap/compass_frame_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/compass_frame_psd.png",
+      "file": "assets/minimap__compass_frame_psd.png",
+      "status": "saved",
+      "bytes": 87055,
+      "sha256": "d8d9f104047b41dde4e20be521ab8e607e9a6513d380b2ada7d61afe52edc184"
+    },
+    {
+      "name": "minimap/minimap_icon_broker.svg",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_icon_broker.svg",
+      "file": "assets/minimap__minimap_icon_broker.svg",
+      "status": "saved",
+      "bytes": 1200,
+      "sha256": "211e173fae2f80409b64a0e5197950e37e87aa3c4a640223fe49fb435c2b0f94"
+    },
+    {
+      "name": "minimap/chessmaster_bishop_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/chessmaster_bishop_psd.png",
+      "file": "assets/minimap__chessmaster_bishop_psd.png",
+      "status": "saved",
+      "bytes": 284,
+      "sha256": "e9404a44124e19ac0907df06269c1db0ae2045a5a54b97c9cc27a4831db44fd4"
+    },
+    {
+      "name": "minimap/chessmaster_queen_psd.png",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/chessmaster_queen_psd.png",
+      "file": "assets/minimap__chessmaster_queen_psd.png",
+      "status": "saved",
+      "bytes": 1197,
+      "sha256": "47b3d6f7970e48b8ca4b4a3c6e457d61fa9412fd7107b3bb53ad409c1ad08aab"
+    },
+    {
+      "name": "map/mid",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid.png",
+      "file": "assets/map-mid.png",
+      "status": "saved",
+      "bytes": 213336,
+      "sha256": "1407c740783776bb52f075e2cc535c4ab7f3f047bb60d339f2277fd627e6fc06"
+    },
+    {
+      "name": "map/mid_tunnels",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid_tunnels.png",
+      "file": "assets/map-mid_tunnels.png",
+      "status": "saved",
+      "bytes": 133782,
+      "sha256": "e4e9370521be53ee0ce2ad95628f6d6fbefe604e88c0e300c5fd99065608702e"
+    },
+    {
+      "name": "map/rat_tunnels",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_rat_tunnels.png",
+      "file": "assets/map-rat_tunnels.png",
+      "status": "saved",
+      "bytes": 167643,
+      "sha256": "45a1d7c9bd132ef8b5741caa45acf7c5f59ada2ab238fd1fb0afa44629a784d5"
+    }
+  ]
+}

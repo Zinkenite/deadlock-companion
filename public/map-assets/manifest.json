@@ -1,0 +1,107 @@
+{
+  "checkedAt": "2026-10-27T02:11:02.952Z",
+  "sourceRevisions": {
+    "checkedAt": "2026-10-27T02:11:02.952Z",
+    "api": {
+      "repo": "deadlock-api/deadlock-api",
+      "sha": "03e6bc15ddbbc0b7c90950472d42357afcf70b0f",
+      "date": "2026-10-26T21:31:28Z"
+    },
+    "game": {
+      "repo": "SteamTracking/GameTracking-Deadlock",
+      "sha": "d251cf9d9a796061c90f58724230b7e17b97121b",
+      "date": "2026-10-26T20:03:09Z"
+    }
+  },
+  "assets": [
+    {
+      "file": "/map-assets/minimap__boss_health_final_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/boss_health_final_psd.png",
+      "sha256": "a8df78ab83b3c4aaa778eba522c1fb6e661170ad4e0a10e7042d5e49d4a57057"
+    },
+    {
+      "file": "/map-assets/minimap__objective_icon_t2.svg",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/objective_icon_t2.svg",
+      "sha256": "93a22f141d144373d7740d4014b3e74ce13ffe5b5bc83574d8df849656e3bd33"
+    },
+    {
+      "file": "/map-assets/minimap__objective_icon_t1.svg",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/objective_icon_t1.svg",
+      "sha256": "c7e6a4e36fa07c7d7eb07621a654ba6a0a3818583a3706e0e3e9fe8be5ecf74d"
+    },
+    {
+      "file": "/map-assets/minimap__neutral_vault_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_vault_psd.png",
+      "sha256": "a07288a7b722a65b9ee5f3bd69ae46f2dec236f8d0ef4f7b01d14f1965f98aa7"
+    },
+    {
+      "file": "/map-assets/minimap__neutral_large_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_large_psd.png",
+      "sha256": "1cfbd52313af82a3faf67684c308921f29677f0218318043d5a963d498b4fc82"
+    },
+    {
+      "file": "/map-assets/minimap__neutral_medium_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_medium_psd.png",
+      "sha256": "2ccb9463a8d608d77726b2d74161de46b03d058a4c15d459b46b8ae02d9f695c"
+    },
+    {
+      "file": "/map-assets/minimap__neutral_small_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/neutral_small_psd.png",
+      "sha256": "ea2e144e6e4ac4e9760eb5a11bfa4eaf54c3d1bb9f5823f82793c4935e6688d8"
+    },
+    {
+      "file": "/map-assets/minimap__gold_crate_marker_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/gold_crate_marker_psd.png",
+      "sha256": "cd970e256386accd292590df1c4dfe8c967e077ef3d1895d70a2634e44157bb5"
+    },
+    {
+      "file": "/map-assets/minimap__minimap_teleporter_go_right.svg",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_teleporter_go_right.svg",
+      "sha256": "fd5866d74501f8fc255c96f39ac4c7aa6bfb551f88d471a279b94e22b12851ac"
+    },
+    {
+      "file": "/map-assets/minimap__minimap_shop_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_shop_psd.png",
+      "sha256": "10a54a0138da7662d4b6e6fa80434c3f866f5c34bc5b25d81a18a3d8f957927e"
+    },
+    {
+      "file": "/map-assets/minimap__soul_jar_marker_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/soul_jar_marker_psd.png",
+      "sha256": "068503fcf91440713c5d096d4d15b7e5f2a2e7f15012e3db5303baed987890c8"
+    },
+    {
+      "file": "/map-assets/minimap__soul_jar_marker_return_psd.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/soul_jar_marker_return_psd.png",
+      "sha256": "56bf5a80bc7ec4936287f0afd25369fb205ed3c959c3879d52c78131ec66efa3"
+    },
+    {
+      "file": "/map-assets/minimap__minimap_icon_koth.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/icons/minimap/minimap_icon_koth.png",
+      "sha256": "d5dab78f8223a3dca133546659049ace1597aea4717147d4be56beba36667c7b"
+    },
+    {
+      "file": "/map-assets/map-mid.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid.png",
+      "sha256": "1407c740783776bb52f075e2cc535c4ab7f3f047bb60d339f2277fd627e6fc06"
+    },
+    {
+      "file": "/map-assets/map-mid_tunnels.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid_tunnels.png",
+      "sha256": "e4e9370521be53ee0ce2ad95628f6d6fbefe604e88c0e300c5fd99065608702e"
+    },
+    {
+      "file": "/map-assets/map-rat_tunnels.png",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_rat_tunnels.png",
+      "sha256": "45a1d7c9bd132ef8b5741caa45acf7c5f59ada2ab238fd1fb0afa44629a784d5"
+    }
+  ],
+  "limitations": [
+    "API is an unversioned snapshot; tracked game build does not prove every API point was re-extracted for that build.",
+    "Every marker is a static reference; alive, available, cleared and respawn states are unknown.",
+    "Entity origins can differ from visual centers or trigger extents.",
+    "Z height is retained; height alone cannot reliably select a tunnel layer.",
+    "Six urn spawn points are possible locations, not six simultaneous urns.",
+    "Only one base-shop record exists in this response; a missing counterpart is unresolved.",
+    "API lane-guardian references come from super-trooper spawns, not an explicit guardian entity."
+  ]
+}

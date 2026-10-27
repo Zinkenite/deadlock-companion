@@ -1,0 +1,10 @@
+{
+  "map-current.json": "https://api.deadlock-api.com/v1/assets/map",
+  "icons-current.json": "https://api.deadlock-api.com/v1/assets/icons",
+  "map-service.rs": "https://raw.githubusercontent.com/deadlock-api/deadlock-api/03e6bc15ddbbc0b7c90950472d42357afcf70b0f/api/src/services/assets/versions/map/mod.rs",
+  "geometry.rs": "https://raw.githubusercontent.com/deadlock-api/deadlock-api/03e6bc15ddbbc0b7c90950472d42357afcf70b0f/api/src/services/assets/versions/map/geometry.rs",
+  "city-never-sleeps.rs": "https://raw.githubusercontent.com/deadlock-api/deadlock-api/03e6bc15ddbbc0b7c90950472d42357afcf70b0f/api/src/services/assets/versions/map/city_never_sleeps.rs",
+  "hud_minimap.css": "https://raw.githubusercontent.com/SteamTracking/GameTracking-Deadlock/d251cf9d9a796061c90f58724230b7e17b97121b/game/citadel/pak01_dir/panorama/styles/hud_minimap.css",
+  "hud_minimap.xml": "https://raw.githubusercontent.com/SteamTracking/GameTracking-Deadlock/d251cf9d9a796061c90f58724230b7e17b97121b/game/citadel/pak01_dir/panorama/layout/hud_minimap.xml",
+  "steam.inf": "https://raw.githubusercontent.com/SteamTracking/GameTracking-Deadlock/d251cf9d9a796061c90f58724230b7e17b97121b/game/citadel/steam.inf"
+}

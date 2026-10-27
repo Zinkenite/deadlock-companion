@@ -1,0 +1,25 @@
+{
+  "heroEndpoint": "https://api.deadlock-api.com/v1/assets/heroes/1",
+  "retrieved": "2026-10-26",
+  "assets": [
+    {
+      "sha256": "1407C740783776BB52F075E2CC535C4AB7F3F047BB60D339F2277FD627E6FC06",
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/images/maps/minimap_midtown_mid.png",
+      "file": "public/map.png"
+    },
+    {
+      "source": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_mm.png",
+      "file": "src-tauri/icons/icon.ico",
+      "sourceSha256": "0DD23ABD2D0778D98D7F9CDB84DAE75C6B1DA356C9BCCFCDB4DDBF76B0E908D0",
+      "sha256": "c6cdc2d56d4c3f315e4f881c3143c870ae66f09a1e5bea1b232ce9fcb07dbfa9"
+    }
+  ],
+  "mapEndpoint": "https://api.deadlock-api.com/v1/assets/map",
+  "radius": 10752,
+  "mapReferenceBundle": {
+    "research": "docs/map-research/RESEARCH.md",
+    "markers": 913,
+    "checked": "2026-10-27",
+    "manifest": "public/map-assets/manifest.json"
+  }
+}
