@@ -1,12 +1,21 @@
+import {defaultNotifications,sanitizeNotifications,type NotificationSettings} from './notifications';
+import {sanitizeCustomMarkers} from './customMarkerData';
+import type {MapMarker} from './map';
+import {defaultIconSettings,sanitizeIconSettings,type IconSettings} from './iconSettings';
+import {defaultCompass,sanitizeCompass,type CompassSettings} from './compass';
 import {create} from 'zustand';
 import {defaultMapLayers,migrateMapLayers,defaultMapIconSizes,migrateMapIconSizes,type MapIconSizes,type MapLayers,type MapLevel} from './map';
 import {persist} from 'zustand/middleware';
 import {ScreenReader,defaultCapture,defaultAlignment,type CaptureSettings} from './screen';
 import {validate,type Snapshot,type Status} from './readings';
-export type Settings={readingEnabled:boolean;capture:CaptureSettings;alwaysOnTop:boolean;autostart:boolean;startMinimized:boolean;tray:boolean;markerSize:number;zoom:number;uiScale:number;performance:boolean;animations:boolean;objectives:boolean;mapLayers:MapLayers;mapLevel:MapLevel;mapIconSize:number;mapIconSizes:MapIconSizes};
-const defaults:Settings={readingEnabled:false,capture:defaultCapture,alwaysOnTop:false,autostart:false,startMinimized:false,tray:true,markerSize:22,zoom:1,uiScale:1,performance:false,animations:true,objectives:true,mapLayers:defaultMapLayers,mapLevel:'street',mapIconSize:20,mapIconSizes:defaultMapIconSizes};
+export type Settings={notifications:NotificationSettings;customMarkers:MapMarker[];iconSettings:IconSettings;compass:CompassSettings;readingEnabled:boolean;capture:CaptureSettings;alwaysOnTop:boolean;autostart:boolean;startMinimized:boolean;tray:boolean;markerSize:number;zoom:number;uiScale:number;performance:boolean;animations:boolean;objectives:boolean;mapLayers:MapLayers;mapLevel:MapLevel;mapIconSize:number;mapIconSizes:MapIconSizes};
+const defaults:Settings={notifications:defaultNotifications,customMarkers:[],iconSettings:defaultIconSettings(),compass:defaultCompass,readingEnabled:false,capture:defaultCapture,alwaysOnTop:false,autostart:false,startMinimized:false,tray:true,markerSize:22,zoom:1,uiScale:1,performance:false,animations:true,objectives:true,mapLayers:defaultMapLayers,mapLevel:'street',mapIconSize:20,mapIconSizes:defaultMapIconSizes};
 export function migrateSettings(raw:any):Settings{
  const old=raw?.settings??{};const result={...defaults};for(const key of Object.keys(defaults))if(key!=='capture'&&key!=='readingEnabled'&&old[key]!==undefined)(result as any)[key]=old[key];
+ result.notifications=sanitizeNotifications(old.notifications);
+ result.customMarkers=sanitizeCustomMarkers(old.customMarkers);
+ result.compass=sanitizeCompass(old.compass);
+ result.iconSettings=sanitizeIconSettings(old.iconSettings,old.compass);
  result.mapLayers=migrateMapLayers(old.mapLayers);
  result.mapLevel=['street','mid_tunnels','rat_tunnels'].includes(old.mapLevel)?old.mapLevel:'street';
  result.mapIconSize=typeof old.mapIconSize==='number'&&Number.isFinite(old.mapIconSize)?Math.max(12,Math.min(32,old.mapIconSize)):20;

@@ -1,0 +1,10 @@
+{
+  "identifier": "compass-overlay",
+  "windows": [
+    "compass"
+  ],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging"
+  ]
+}

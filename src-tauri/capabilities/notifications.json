@@ -1,0 +1,10 @@
+{
+  "identifier": "notifications-overlay",
+  "windows": [
+    "notifications"
+  ],
+  "permissions": [
+    "core:default",
+    "core:window:allow-start-dragging"
+  ]
+}

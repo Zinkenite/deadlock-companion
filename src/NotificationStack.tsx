@@ -1,0 +1,4 @@
+import {Bell} from 'lucide-react';
+import type {CSSProperties} from 'react';
+import {notificationTime,type NotificationCard} from './notifications';
+export default function NotificationStack({items,preview=false}:{items:NotificationCard[];preview?:boolean}){return <div className={'notification-stack '+(preview?'notification-stack-preview':'')} aria-live="polite" aria-label="Match notifications">{items.map((item,i)=><article className="notification-card" key={item.id} style={{top:i*108,'--notification-duration':(item.expiresAt-item.createdAt)+'ms','--notification-exit':Math.max(0,item.expiresAt-item.createdAt-900)+'ms'}as CSSProperties}><div className="notification-art">{item.icon?<img src={item.icon} alt=""/>:<Bell size={25}/>}</div><div className="notification-copy"><small>MATCH REMINDER <span>· {notificationTime(item.seconds)}</span></small><p>{item.text}</p></div><span className="notification-progress"/></article>)}</div>;}
