@@ -38,6 +38,7 @@ export function readMapCatalog(raw:unknown):MapCatalog {
 }
 export const layerTitle=(key:MapLayer)=>mapLayerInfo[key].label;
 export function markerTitle(m:MapMarker){
+ if(m.category==='patron')return m.label;
  if(m.category==='shops')return m.kind==='secret'?'Secret shop':m.kind==='base'?'Base shop':'Lane shop';
  if(m.category==='camp_weak')return 'Small camp';
  if(m.category==='camp_medium')return 'Medium camp';

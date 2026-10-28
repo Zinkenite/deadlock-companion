@@ -1,0 +1,107 @@
+{
+  "conditions": {
+    "sampleSeconds": 3,
+    "viewport": "1280x800",
+    "browser": "Headless Chromium",
+    "trackingHz": 15,
+    "notes": "Browser task time, not game FPS. Separate map, compass and notification workloads."
+  },
+  "before": [
+    {
+      "mode": "map-idle",
+      "taskMs": 95,
+      "layoutMs": 0,
+      "draws": 0,
+      "text": 0,
+      "clears": 0
+    },
+    {
+      "mode": "map-tracking",
+      "taskMs": 587,
+      "layoutMs": 5,
+      "draws": 91,
+      "text": 0,
+      "clears": 0
+    },
+    {
+      "mode": "compass-idle",
+      "taskMs": 130,
+      "layoutMs": 0,
+      "draws": 728,
+      "text": 1001,
+      "clears": 91
+    },
+    {
+      "mode": "compass-moving",
+      "taskMs": 227,
+      "layoutMs": 0,
+      "draws": 557,
+      "text": 834,
+      "clears": 90
+    },
+    {
+      "mode": "notifications-stacked",
+      "taskMs": 4,
+      "layoutMs": 0,
+      "draws": 0,
+      "text": 0,
+      "clears": 0
+    }
+  ],
+  "after": [
+    {
+      "mode": "map-idle",
+      "taskMs": 76,
+      "layoutMs": 0,
+      "draws": 0,
+      "text": 0,
+      "clears": 0
+    },
+    {
+      "mode": "map-tracking",
+      "taskMs": 203,
+      "layoutMs": 6,
+      "draws": 90,
+      "text": 0,
+      "clears": 0
+    },
+    {
+      "mode": "compass-idle",
+      "taskMs": 35,
+      "layoutMs": 0,
+      "draws": 0,
+      "text": 0,
+      "clears": 0
+    },
+    {
+      "mode": "compass-moving",
+      "taskMs": 149,
+      "layoutMs": 0,
+      "draws": 561,
+      "text": 842,
+      "clears": 91
+    },
+    {
+      "mode": "notifications-stacked",
+      "taskMs": 4,
+      "layoutMs": 0,
+      "draws": 0,
+      "text": 0,
+      "clears": 0
+    }
+  ],
+  "nativeTimerFixture": {
+    "crop": "150x70 from tests/fixtures/hud-values.rgba",
+    "before": {
+      "prepareMs": 1.547,
+      "newEngineReadMs": 11.301,
+      "reusedEngineReadMs": 8.881
+    },
+    "after": {
+      "prepareMs": 0.04,
+      "newEngineReadMs": 3.167,
+      "reusedEngineReadMs": 1.044
+    },
+    "notes": "Actual Windows OCR; excludes capture. Preparation mean of 100 runs, OCR mean of 8 runs."
+  }
+}

@@ -7,12 +7,12 @@ export type Candidate={x:number;y:number;pixels:number;quality:number;angle?:num
 export type MarkerTemplate={width:number;height:number;rgba:number[];spanX:number;spanY:number;centerX:number;centerY:number;threshold:number;rotate:boolean;initialHeading?:number};
 export type CaptureSettings={matchMode:'template'|'color';simpleDirection?:boolean;markerTemplate?:MarkerTemplate;configured:boolean;mapEnabled:boolean;alignment:Alignment;textRegions:Partial<Record<TextKey,HudRegion>>;ocrInterval:number;rotation:number;region:Region;color:string;tolerance:number;minPixels:number;maxPixels:number;hz:number;reference:number[];anchor:{x:number;y:number};sceneTolerance:number};
 export type Alignment={offsetX:number;offsetY:number;scaleX:number;scaleY:number;rotation:number};
-export type HudRegion={region:Region;mode:'original'|'adaptive'|'light'|'dark';threshold:number;angle?:number;slant?:number;scale?:number;retry?:boolean};
+export type HudRegion={region:Region};
 export const defaultAlignment:Alignment={offsetX:0,offsetY:0,scaleX:1,scaleY:1,rotation:0};
 export const defaultCapture:CaptureSettings={matchMode:'template',simpleDirection:false,configured:false,mapEnabled:true,alignment:defaultAlignment,textRegions:{},ocrInterval:1000,rotation:0,region:{x:0,y:.65,width:.25,height:.35},color:'#f4df96',tolerance:25,minPixels:3,maxPixels:180,hz:5,reference:[],anchor:{x:.5,y:.5},sceneTolerance:22};
 export type CaptureFrame={width:number;height:number;rgba:number[]|Uint8ClampedArray;signature:number[]};
 export type Detection={candidates:Candidate[];signature:number[];processingMs:number;width:number;height:number};
-export const useCapture=create<{message:string;confidence:number;processingMs:number;candidates:number;lastAttempt:number;acceptedAt:number;sceneDifference:number;facing?:number;rawPoint?:MapPoint;rawAt?:number;text:Partial<Record<TextKey,{text:string;error?:string;at:number;accepted:boolean}>>}>(()=>({message:'Screen reading is off.',confidence:0,processingMs:0,candidates:0,lastAttempt:0,acceptedAt:0,sceneDifference:0,text:{}}));
+export const useCapture=create<{message:string;timerProcessingMs:number;confidence:number;processingMs:number;candidates:number;lastAttempt:number;acceptedAt:number;sceneDifference:number;facing?:number;rawPoint?:MapPoint;rawAt?:number;text:Partial<Record<TextKey,{text:string;error?:string;at:number;accepted:boolean}>>}>(()=>({message:'Screen reading is off.',timerProcessingMs:0,confidence:0,processingMs:0,candidates:0,lastAttempt:0,acceptedAt:0,sceneDifference:0,text:{}}));
 export function sceneDifference(a:number[],b:number[]){if(a.length!==144||b.length!==144||a.some(n=>!Number.isFinite(n))||b.some(n=>!Number.isFinite(n)))return Infinity;return a.reduce((sum,n,i)=>sum+Math.abs(n-b[i]),0)/144;}
 export function orientMapPoint(p:{x:number;y:number},degrees:number){const a=(degrees||0)*Math.PI/180;return{x:Math.max(0,Math.min(1,.5+(p.x-.5)*Math.cos(a)-(p.y-.5)*Math.sin(a))),y:Math.max(0,Math.min(1,.5+(p.x-.5)*Math.sin(a)+(p.y-.5)*Math.cos(a)))};}
 export function parseColor(hex:string):[number,number,number]{if(!/^#[0-9a-f]{6}$/i.test(hex))throw Error('Choose a valid marker colour.');return [1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)) as [number,number,number];}
@@ -67,41 +67,38 @@ export type ScreenBatch={marker?:Detection;mapAt:number;text:{key:TextKey;text:s
 export class ScreenReader{
  constructor(private options:()=>CaptureSettings,private lowPower:()=>boolean=()=>false){}
  start(emit:(data:Snapshot)=>void,status:(s:Status)=>void){
-  let active=true,timeout:ReturnType<typeof setTimeout>|undefined,lastOcr=0,lastRead=0,previous:CaptureSettings|undefined,tracker=new MarkerTracker(this.options().anchor),gate=new ReadingGate();
-  const tick=async()=>{
-   if(!active)return;const start=performance.now(),config=this.options();let delay=1000/Math.max(0.5,Math.min(this.lowPower()?5:15,config.hz));
+  let active=true,mapTimeout:ReturnType<typeof setTimeout>|undefined,timerTimeout:ReturnType<typeof setTimeout>|undefined;
+  const tracker=new MarkerTracker(this.options().anchor),gate=new ReadingGate();let mapTracking=false,lastTimer=0,failures=0;
+  const hasMap=(config:CaptureSettings)=>config.mapEnabled&&config.configured&&config.reference.length===144;
+  const report=()=>status(mapTracking?'tracking':Date.now()-lastTimer<Math.max(3000,this.options().ocrInterval*2.5)?'reading':'waiting');
+  const mapTick=async()=>{
+   if(!active)return;const config=this.options();if(!hasMap(config))return;const start=performance.now();let delay=1000/Math.max(.5,Math.min(this.lowPower()?5:15,config.hz));
    try{
     if(!isTauri())throw Error('Screen reading requires the Windows desktop app.');
-    const hasMap=config.mapEnabled&&config.configured&&config.reference.length===144;
-    if(!hasMap&&!Object.keys(config.textRegions).length)throw Error('Set up at least one screen region.');
-    if(config!==previous){tracker=new MarkerTracker(config.anchor);gate=new ReadingGate();previous=config;lastOcr=0;useCapture.setState({facing:undefined});}
-    if(!hasMap)delay=Math.max(1000,config.ocrInterval);
-    const due=Date.now()-lastOcr>=Math.max(1000,config.ocrInterval);const textRegions=due&&config.textRegions.timer?[{key:'timer',...config.textRegions.timer}]:[];
-    if(due)lastOcr=Date.now();
     const last=useCapture.getState(),hint=last.rawAt&&Date.now()-last.rawAt<3000?last.rawPoint:config.anchor;
-    const batch=await invoke<ScreenBatch>('read_screen',{request:{marker:hasMap?markerRequest(config,hint):null,textRegions}});
-    if(!active)return;let tracking=false,message='Reading visible HUD';const values:Snapshot={};
-    if(batch.marker){const data=batch.marker,difference=sceneDifference(config.reference,data.signature);let result:{point?:Candidate;confidence:number;reason:string};
-     if(difference>config.sceneTolerance){tracker.lose();result={confidence:0,reason:'Minimap obscured or changed'};}else result=tracker.update(data.candidates,batch.mapAt);
-     const point=result.point?alignPoint(result.point,config):undefined;
-     if(point){values.mapPosition=sample(point,batch.mapAt);tracking=true;}
-     message=result.point&&!point?'Map point outside calibrated bounds':result.reason;
-     useCapture.setState({message,confidence:result.confidence,candidates:data.candidates.length,sceneDifference:difference,...result.point?{rawPoint:{x:result.point.x,y:result.point.y},rawAt:batch.mapAt,acceptedAt:batch.mapAt,facing:config.matchMode==='color'&&!config.simpleDirection?undefined:result.point.angle??useCapture.getState().facing}:{}});
-    }
-    const diagnostic={...useCapture.getState().text};
-    for(const item of batch.text){const parsed=item.error?undefined:parseHud(item.key,item.text);const accepted=parsed?gate.accept(parsed,item.at):{};if(!parsed)gate.reject(item.key);
-     for(const[key,value]of Object.entries(accepted))(values as any)[key]=sample(value,item.at);
-     diagnostic[item.key]={text:item.text,error:item.error??(!parsed?'Unreadable or invalid text':Object.keys(accepted).length?undefined:'Confirming next reading'),at:item.at,accepted:Object.keys(accepted).length>0};
-    }
-    if(Object.keys(values).length){emit(values);lastRead=Date.now();}
-    status(tracking?'tracking':Date.now()-lastRead<Math.max(3000,config.ocrInterval*2)?'reading':'waiting');
-    useCapture.setState({message,processingMs:batch.processingMs,lastAttempt:Date.now(),text:diagnostic});
-   }catch(error){if(!active)return;tracker.lose();delay=1000;status('waiting');useCapture.setState({message:String(error),confidence:0,lastAttempt:Date.now()});}
-   if(active)timeout=setTimeout(tick,Math.max(0,delay-(performance.now()-start)));
-  };status('waiting');void tick();return()=>{active=false;if(timeout)clearTimeout(timeout);useCapture.setState({message:'Screen reading stopped.',confidence:0});};
+    const batch=await invoke<ScreenBatch>('read_screen',{request:{marker:markerRequest(config,hint),textRegions:[]}});if(!active)return;
+    const data=batch.marker;if(!data)throw Error('No minimap capture returned.');const difference=sceneDifference(config.reference,data.signature);
+    let result:{point?:Candidate;confidence:number;reason:string};if(difference>config.sceneTolerance){tracker.lose();result={confidence:0,reason:'Minimap obscured or changed'};}else result=tracker.update(data.candidates,batch.mapAt);
+    const point=result.point?alignPoint(result.point,config):undefined;mapTracking=!!point;if(point)emit({mapPosition:sample(point,batch.mapAt)});
+    useCapture.setState({message:result.point&&!point?'Map point outside calibrated bounds':result.reason,confidence:result.confidence,candidates:data.candidates.length,sceneDifference:difference,processingMs:batch.processingMs,lastAttempt:Date.now(),...result.point?{rawPoint:{x:result.point.x,y:result.point.y},rawAt:batch.mapAt,acceptedAt:batch.mapAt,facing:config.matchMode==='color'&&!config.simpleDirection?undefined:result.point.angle??useCapture.getState().facing}:{}});report();
+   }catch(error){if(!active)return;tracker.lose();mapTracking=false;delay=1000;useCapture.setState({message:String(error),confidence:0,lastAttempt:Date.now()});report();}
+   if(active)mapTimeout=setTimeout(mapTick,Math.max(0,delay-(performance.now()-start)));
+  };
+  const timerTick=async()=>{
+   if(!active)return;const config=this.options(),region=config.textRegions.timer;if(!region)return;const start=performance.now();let delay=Math.max(this.lowPower()?1000:500,config.ocrInterval);
+   try{
+    if(!isTauri())throw Error('Screen reading requires the Windows desktop app.');
+    const batch=await invoke<ScreenBatch>('read_screen',{request:{marker:null,textRegions:[{key:'timer',region:region.region}]}});if(!active)return;
+    const item=batch.text.find(r=>r.key==='timer');if(!item)throw Error('No timer capture returned.');const parsed=item.error?undefined:parseHud('timer',item.text),accepted=parsed?gate.accept(parsed,item.at):{},valid=accepted.timer!==undefined;
+    if(valid){emit({timer:sample(accepted.timer!,item.at)});lastTimer=Date.now();failures=0;}else{gate.reject('timer');failures++;if(!this.lowPower()&&failures<=2)delay=500;}
+    const diagnostic={text:item.text,error:item.error??(!parsed?'Timer unreadable · select just the clock digits':valid?undefined:'Checking an unexpected timer jump'),at:item.at,accepted:valid};
+    useCapture.setState({timerProcessingMs:batch.processingMs,text:{...useCapture.getState().text,timer:diagnostic},...!hasMap(config)?{message:valid?'Reading match timer':diagnostic.error??'Reading match timer',lastAttempt:Date.now()}:{}});report();
+   }catch(error){if(!active)return;delay=Math.max(1000,config.ocrInterval);failures++;useCapture.setState({text:{...useCapture.getState().text,timer:{text:'',error:String(error),at:Date.now(),accepted:false}},...!hasMap(config)?{message:String(error),lastAttempt:Date.now()}:{}});report();}
+   if(active)timerTimeout=setTimeout(timerTick,Math.max(0,delay-(performance.now()-start)));
+  };
+  useCapture.setState({facing:undefined});status('waiting');void mapTick();void timerTick();return()=>{active=false;if(mapTimeout)clearTimeout(mapTimeout);if(timerTimeout)clearTimeout(timerTimeout);useCapture.setState({message:'Screen reading stopped.',confidence:0});};
  }
 }
-
 
 export function decodeCapture(buffer:ArrayBuffer):CaptureFrame{
  if(buffer.byteLength<8)throw Error('Invalid capture response.');const header=new DataView(buffer),width=header.getUint32(0,true),height=header.getUint32(4,true);if(width<1||height<1||width>1920||height>1920||buffer.byteLength!==8+width*height*4)throw Error('Invalid capture dimensions.');return{width,height,rgba:new Uint8ClampedArray(buffer,8),signature:[]};

@@ -79,7 +79,7 @@
     {
       "id": "team0_titan",
       "category": "patron",
-      "label": "team0 titan",
+      "label": "Hidden King",
       "x": 0.44047619047619047,
       "y": 0.8736049107142857,
       "world": [
@@ -89,7 +89,7 @@
       "team": 0,
       "entityClass": "npc_boss_tier3",
       "entityName": "",
-      "icon": "assets/minimap__boss_health_final_psd.png",
+      "icon": "/map-assets/patron-hidden-king.png",
       "source": "sources/city-never-sleeps.rs",
       "apiTopLeft": {
         "left_relative": 0.3905,
@@ -100,7 +100,7 @@
     {
       "id": "team1_titan",
       "category": "patron",
-      "label": "team1 titan",
+      "label": "Arch Mother",
       "x": 0.5595238095238095,
       "y": 0.12574404761904762,
       "world": [
@@ -110,7 +110,7 @@
       "team": 1,
       "entityClass": "npc_boss_tier3",
       "entityName": "",
-      "icon": "assets/minimap__boss_health_final_psd.png",
+      "icon": "/map-assets/patron-arch-mother.png",
       "source": "sources/city-never-sleeps.rs",
       "apiTopLeft": {
         "left_relative": 0.5095,
