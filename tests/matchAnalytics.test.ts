@@ -140,3 +140,23 @@ describe('live match analytics', () => {
 it('calculates damage tags and measured damage-window evidence',()=>{const e=new MatchEngine(),p=roster();p.forEach(x=>{x.heroDamage=1000;x.netWorth=3000;});p[0].heroDamage=10000;feed(e,p,120);for(let t=121;t<=181;t++){p.forEach((x,i)=>x.heroDamage!+=i===0?50:10);feed(e,p,t);}const m=feed(e,p,182);expect(tags(m)).toEqual(expect.arrayContaining(['damage-leader','heavy-hitter','damage-carry','damage-efficient']));expect(m.players[0].recentDpm).toBeGreaterThan(2900);expect(m.players[0].badges.find(b=>b.id==='heavy-hitter')?.reason).toMatch(/hero damage over 1:02/);});
 it('clears recent damage on missing readings and counter rollback',()=>{const e=new MatchEngine(),p=roster();p.forEach(x=>x.heroDamage=1000);feed(e,p,120);for(let t=121;t<=181;t++){p.forEach(x=>x.heroDamage!+=10);feed(e,p,t);}expect(feed(e,p,182).players[0].recentDpm).not.toBeNull();p[0].heroDamage=null;expect(feed(e,p,183).players[0].recentDpm).toBeNull();p[0].heroDamage=500;expect(feed(e,p,184).players[0].recentDpm).toBeNull();for(let t=185;t<=245;t++){p[0].heroDamage!+=10;feed(e,p,t);}p[0].heroDamage=0;expect(feed(e,p,246).players[0].recentDpm).toBeNull();});
 it('uses damage for rank and win estimate but omits incomplete damage comparisons',()=>{const e=new MatchEngine(),p=roster();p.forEach(x=>x.heroDamage=1000);p[5].heroDamage=10000;const m=feed(e,p,600),a=m.players.filter(x=>x.player.team===2),b=m.players.filter(x=>x.player.team===3);expect(rankTeam(a)[0].player.slot).toBe(5);expect(estimateWinChance(a,b,600)).toBeGreaterThan(50);expect(estimateWinChance(a,b,60)).toBe(50);a[0].player.heroDamage=null;expect(estimateWinChance(a,b,600)).toBe(50);expect(estimateWinChance(b,a,600)).toBe(50);});
+
+
+describe('reader snapshot gating', () => {
+ it('reuses analysis for duplicate roster readings and still publishes status changes', () => {
+  const e=new MatchEngine(), p=roster(), first=feed(e,p,60);
+  expect(feed(e,p,60)).toBe(first);
+  const paused=feed(e,p,60,{paused:true});
+  expect(paused).not.toBe(first);
+  expect(paused.status).toBe('paused');
+  expect(paused.players).toBe(first.players);
+ });
+ it('does not process leftover roster data while the reader is disabled', () => {
+  const e=new MatchEngine(), p=roster(), first=feed(e,p,60);
+  p[0].kills=5;
+  const disabled=feed(e,p,61,{enabled:false});
+  expect(disabled.status).toBe('disabled');
+  expect(disabled.players).toBe(first.players);
+  expect(disabled.players[0].player.kills).toBe(0);
+ });
+});

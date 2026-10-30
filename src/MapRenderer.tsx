@@ -33,6 +33,7 @@ export default function MapRenderer({calibration,onPin}:{calibration?:MapCalibra
  },[]);
  useEffect(()=>{
   const el=canvas.current!,output=el.getContext('2d')!,images=new Map<string,HTMLImageElement>(),controller=new AbortController();let meta:Meta|undefined,data:MapCatalog|undefined,frame=0,lastPaint=0,lastFrame=performance.now(),active=true,assetVersion=0,layer:HTMLCanvasElement|undefined,layerKey='',lastKeys:unknown[]=[],displayedFacing:number|undefined;
+  let sleep:ReturnType<typeof setTimeout>|undefined;
   let ctx=output,scene:HTMLCanvasElement|undefined,sceneKeys:unknown[]=[],sceneHits:Hit[]=[],thresholds:number[]=[],customSource:unknown,dataSource:unknown;
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
   const icons=createIconCache(()=>{assetVersion++;});
@@ -50,7 +51,7 @@ export default function MapRenderer({calibration,onPin}:{calibration?:MapCalibra
    layer=c;layerKey=key;return c;
   };
   const draw=(now:number)=>{
-   if(!active)return;frame=requestAnimationFrame(draw);if(!el.clientWidth||!el.clientHeight)return;const s=useSettings.getState().settings,state=useMatch.getState(),current=props.current,p=state.data.mapPosition,observed=useCapture.getState();
+   if(!active)return;frame=0;if(document.hidden||!el.clientWidth||!el.clientHeight){lastFrame=now;sleep=setTimeout(()=>{frame=requestAnimationFrame(draw);},250);return;}frame=requestAnimationFrame(draw);const s=useSettings.getState().settings,state=useMatch.getState(),current=props.current,p=state.data.mapPosition,observed=useCapture.getState();
    let point=current.calibration?alignPoint(current.calibration.raw,current.calibration.config):p&&observed.rawPoint&&observed.rawAt===p.at?alignPoint(observed.rawPoint,s.capture):p?.value;
    const isFresh=fresh(p),isLive=!!current.calibration||isFresh&&state.status==='tracking',timerSample=state.data.timer,timerValue=timerSample?.value,directionConfig=current.calibration?.config??s.capture,targetFacing=markerFacing(observed.facing??0,directionConfig);
    if(!current.calibration&&point&&p&&state.previousMapPosition&&s.animations&&isFresh&&state.status==='tracking'){const a=state.previousMapPosition.value,t=Math.max(0,Math.min(1,(Date.now()-p.at)/200));point={x:a.x+(point.x-a.x)*t,y:a.y+(point.y-a.y)*t};}
@@ -85,7 +86,7 @@ export default function MapRenderer({calibration,onPin}:{calibration?:MapCalibra
    const size=fit*v.zoom,ox=(w-size)/2+v.x,oy=(h-size)/2+v.y;
    if(point){const shown=rotateMapPoint(point,angle),x=ox+shown.x*size,y=oy+shown.y*size,radius=s.markerSize/2;ctx.strokeStyle=isLive?'#f2cc80':'#788678';ctx.fillStyle='#171c18';ctx.lineWidth=current.calibration?3:2;ctx.shadowColor='#e5bf70';ctx.shadowBlur=isLive?14:0;ctx.beginPath();ctx.arc(x,y,radius+5,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.shadowBlur=0;ctx.fillStyle=isLive?'#f2cc80':'#788678';ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fill();if(facing!==undefined){ctx.save();ctx.translate(x,y);ctx.rotate(facing*Math.PI/180);ctx.fillStyle=isLive?'#f2cc80':'#788678';ctx.strokeStyle='#101615';ctx.lineWidth=1.5;ctx.shadowColor='#000';ctx.shadowBlur=3;ctx.beginPath();ctx.moveTo(0,-radius-11);ctx.lineTo(-5,-radius-2);ctx.lineTo(0,-radius-5);ctx.lineTo(5,-radius-2);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();}}
   };
-  frame=requestAnimationFrame(draw);return()=>{active=false;controller.abort();cancelAnimationFrame(frame);hits.current=[];};
+  frame=requestAnimationFrame(draw);return()=>{active=false;controller.abort();clearTimeout(sleep);cancelAnimationFrame(frame);hits.current=[];};
  },[]);
  const pin=(e:React.PointerEvent<HTMLCanvasElement>)=>{const r=e.currentTarget.getBoundingClientRect(),p=screenPoint(view.current,e.clientX-r.left,e.clientY-r.top,r.width,r.height,base(r.width,r.height));if(p.x>=0&&p.x<=1&&p.y>=0&&p.y<=1)props.current.onPin?.(p);};
  const showTip=(marker:MapMarker,x:number,y:number)=>{const r=canvas.current!.getBoundingClientRect();hover.current=marker;setTip({marker,x:Math.max(8,Math.min(r.width-250,x+15)),y:Math.max(8,Math.min(r.height-125,y+15))});};

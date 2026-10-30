@@ -72,8 +72,10 @@ export class MatchEngine {
         if (local !== null)
             this.lastLocal = local;
         const status: MatchAnalysis['status'] = !s.enabled ? 'disabled' : s.inMatch === false && this.result.players.length ? 'ended' : s.inMatch !== true ? 'waiting' : clock === null || !s.players?.length ? 'stale' : s.paused ? 'paused' : 'live';
-        this.result = { ...this.result, status, paused: s.paused, matchId: s.inMatch === true ? s.matchId ?? this.result.matchId : this.result.matchId };
-        if (s.inMatch !== true || clock === null || !s.players?.length || s.playersAt <= this.lastAt)
+        const matchId = s.inMatch === true ? s.matchId ?? this.result.matchId : this.result.matchId;
+        if (this.result.status !== status || this.result.paused !== s.paused || this.result.matchId !== matchId)
+            this.result = { ...this.result, status, paused: s.paused, matchId };
+        if (!s.enabled || s.inMatch !== true || clock === null || !s.players?.length || s.playersAt <= this.lastAt)
             return this.result;
         const players = s.players.filter(p => (p.team === 2 || p.team === 3) && [p.netWorth, p.level, p.kills, p.deaths, p.assists].every(n => Number.isFinite(n) && n >= 0)).slice(0, 12);
         if (!players.length)

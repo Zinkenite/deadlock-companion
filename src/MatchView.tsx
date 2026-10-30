@@ -6,6 +6,8 @@ import heroes from './heroAssets.json';
 import './match.css';
 const number = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 });
 const format = (n: number) => number.format(n);
+const compactNumber = new Intl.NumberFormat('en-US', {notation:'compact',maximumFractionDigits:1});
+const compact = (v:number|null) => v===null?'—':compactNumber.format(v);
 const heroArt = heroes as Record<string, {
     name: string;
     portrait?: string;
@@ -29,7 +31,7 @@ const PlayerCard = memo(function PlayerCard({ metric, party, rank, clock }: {
     const [failed, setFailed] = useState(false);
     useEffect(() => setFailed(false), [p.heroId]);
     const damage=typeof p.heroDamage==='number'&&Number.isFinite(p.heroDamage)&&p.heroDamage>=0?p.heroDamage:null,dpm=damage!==null&&clock!==null&&clock>=1?damage/(clock/60):null;
-    const compact=(v:number|null)=>v===null?'—':new Intl.NumberFormat('en-US',{notation:'compact',maximumFractionDigits:1}).format(v);
+
     const standout = badges.find(b => ['unstoppable', 'on-fire', 'dominating', 'comeback'].includes(b.id));
     return <article className={'match-player' + (p.isUs ? ' is-you' : '') + (standout ? ' performance-' + standout.tone : '')} aria-description={(art?.name ?? 'Hero '+p.heroId)+' · '+(spm===null?'—':format(spm))+' SPM · '+(laneDelta===null?share.toFixed(1)+'% team share':(laneDelta>=0?'+':'−')+format(Math.abs(laneDelta))+' souls versus lane')} aria-label={p.name + (p.isUs ? ' (You)' : '')} data-rank={rank}>
   <div className="match-identity"><div className="match-portrait">{art?.portrait && !failed ? <img src={art.portrait} alt={art.name} width="32" height="32" onError={() => setFailed(true)}/> : <span title={'Hero ID ' + p.heroId}>{art?.name.slice(0, 2) ?? p.heroId}</span>}<b className="match-rank" title="Team performance rank: With complete team damage: 35% combat efficiency, 35% net worth, 15% levels, 15% hero damage. Without it: 45% combat, 40% net worth, 15% levels. Estimated from observed stats.">{rank}</b></div><div className="match-player-name"><strong title={p.name}>{p.name || 'Unknown player'}{p.isUs && <b className="match-you">YOU</b>}{party && <b className="match-party" title="Shared party ID reported by the reader">PARTY</b>}</strong><span>{art?.name ?? 'Hero ' + p.heroId}</span></div>

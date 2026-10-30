@@ -19,6 +19,7 @@ export function parseColor(hex:string):[number,number,number]{if(!/^#[0-9a-f]{6}
 /** Heading clockwise from up, corrected from the saved pose into the displayed map. */
 export function markerFacing(rotation:number,config:CaptureSettings){const initial=(config.matchMode==='template'||config.simpleDirection)?(config.markerTemplate?.initialHeading??0):0;return((rotation+initial+config.rotation+(config.alignment?.rotation??0))%360+360)%360;}
 export function markerRequest(config:CaptureSettings,hint?:MapPoint){
+ if(config.matchMode==='template'&&!config.markerTemplate)throw Error('Learn a marker template before starting template tracking.');
 
  return{region:config.region,color:parseColor(config.color),tolerance:config.tolerance,minPixels:config.minPixels,maxPixels:config.maxPixels,markerTemplate:config.matchMode==='template'&&config.markerTemplate?{...config.markerTemplate,rotate:true}:null,directionTemplate:config.matchMode==='color'&&config.simpleDirection&&config.markerTemplate?{...config.markerTemplate,rotate:true}:null,hint:hint??null};
 }
