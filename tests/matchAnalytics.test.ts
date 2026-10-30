@@ -92,7 +92,8 @@ describe('live match analytics', () => {
             feed(e, p, t);
         }
         const m = feed(e, p, 124), x = m.players[0];
-        expect(tags(m)).toEqual(expect.arrayContaining(['soul-leader', 'level-advantage', 'bounty-target', 'breadwinner', 'playmaker', 'power-spike']));
+        expect(tags(m)).toEqual(expect.arrayContaining(['soul-leader', 'level-advantage', 'breadwinner', 'power-spike']));
+        expect(tags(m)).not.toContain('playmaker');expect(tags(m)).not.toContain('bounty-target');
         expect(x.badges[0].id).toBe('on-fire');
         expect(x.spm).toBeCloseTo(10000 / (124 / 60));
         expect(x.laneDelta).toBe(9000);

@@ -172,11 +172,11 @@ export class MatchEngine {
             const active: Badge[] = [];
             const add = (id: string, label: string, detail: string, priority: number, tone: Badge['tone']) => active.push({ ...h.badges.get(id), id, label, detail, priority, tone, since: h.badges.get(id)?.since ?? clock });
             if (clock >= 300 && players.length === 12 && allDamage && damage !== null && damageAverage >= 5000 && damage < damageAverage * (h.badges.has('low-damage') ? .5 : .4))
-                add('low-damage', 'PEA SHOOTER', 'Hero damage below 40% of the full lobby average after 5 minutes; clears at 50%. Requires all 12 damage readings and at least 5,000 average damage.', 97, 'danger');
+                add('low-damage', 'LOW DAMAGE', 'Hero damage below 40% of the full lobby average after 5 minutes; clears at 50%. Requires all 12 damage readings and at least 5,000 average damage.', 97, 'danger');
             if (key === this.firstKill)
                 add('first-blood', 'FIRST BLOOD', 'Observed first kill of the match.', clock < 600 ? 90 : 35, 'gold');
             if (key === this.firstDeath)
-                add('first-death', 'FIRST TO DROP', 'Observed first death of the match.', clock < 600 ? 85 : 30, 'neutral');
+                add('first-death', 'FIRST DEATH', 'Observed first death of the match.', clock < 600 ? 85 : 30, 'neutral');
             if (h.kills >= 6)
                 add('unstoppable', 'UNSTOPPABLE', '6 or more observed kills without dying. Replaces On Fire.', 120, 'epic');
             else if (h.kills >= 3 || recent >= 5)
@@ -187,14 +187,12 @@ export class MatchEngine {
             if (p.deaths >= 20 || (p.deaths >= 8 && p.deaths > (p.kills + p.assists) * 1.5) || four.filter(e => e.time > lastContribution).reduce((n, e) => n + e.d, 0) >= 3)
                 add('feeding', 'FEEDING', '20+ total deaths, or 8+ deaths exceeding kills and assists combined by 50%, or 3 observed deaths in 4 minutes since the last contribution.', 95, 'danger');
             if (h.deaths >= 4)
-                add('death-streak', 'ENEMY ATM', '4 consecutive observed deaths without a kill.', 94, 'danger');
-            if (p.assists >= Math.max(4, clock / 60 * .6) && (p.kills + p.assists) / Math.max(1, team.reduce((n, x) => n + x.kills, 0)) >= .5)
-                add('playmaker', 'PLAYMAKER', 'At least 4 assists, 0.6 assists per match minute, and participation in at least half of team kills.', 68, 'teal');
+                add('death-streak', 'DEATH STREAK', '4 consecutive observed deaths without a kill.', 94, 'danger');
             if (clock >= 60 && players.length >= 10 && p.netWorth >= worth * 1.05 && p.netWorth === maxWorth)
                 add('soul-leader', 'SOUL LEADER', 'Highest net worth in the observed lobby, at least 5% above average. Requires 10 observed players and 1 minute elapsed.', 55, 'gold');
             const rate = pace(h);
             if (clock >= 120 && observedRates.length === players.length && averageRate > 0 && rate !== null && rate > averageRate * (h.badges.has('hyper-farming') ? 1.15 : 1.25))
-                add('hyper-farming', 'FARM MACHINE', 'Soul gain per minute over the observed last 1–5 minutes is over 25% above lobby average (held until below +15%). Requires at least 60 seconds of history for every observed player.', 65, 'good');
+                add('hyper-farming', 'FAST FARMER', 'Soul gain per minute over the observed last 1–5 minutes is over 25% above lobby average (held until below +15%). Requires at least 60 seconds of history for every observed player.', 65, 'good');
             const starved = clock >= 120 && baseline > 0 && p.netWorth < baseline * (h.badges.has('starved') ? .8 : .75);
             if (starved) {
                 if (h.starvedAt === null) {
@@ -202,7 +200,7 @@ export class MatchEngine {
                     h.starvedWorth = p.netWorth;
                 }
                 h.comebackUntil = 0;
-                add('starved', 'BROKE', peers.length >= 2 ? 'Net worth fell over 25% below assigned-lane average; clears after recovering to 80%.' : 'Net worth fell over 25% below lobby average; clears at 80%. Lane unavailable.', 96, 'danger');
+                add('starved', 'UNDERFARMED', peers.length >= 2 ? 'Net worth fell over 25% below assigned-lane average; clears after recovering to 80%.' : 'Net worth fell over 25% below lobby average; clears at 80%. Lane unavailable.', 96, 'danger');
             }
             else if (h.starvedAt !== null) {
                 const sample = h.souls[0], gain = p.netWorth - (sample?.value ?? h.starvedWorth);
@@ -221,16 +219,14 @@ export class MatchEngine {
             if (comparison.length && p.level >= compLevel + (h.badges.has('level-advantage') ? 1.5 : 2))
                 add('level-advantage', 'LEVEL LEAD', opponents.length ? 'At least 2 levels ahead of opposing lane average.' : 'At least 2 levels ahead of teammates average.', 70, 'blue');
             if (p.level <= level - 2)
-                add('underleveled', 'DEAD WEIGHT', 'At least 2 levels below lobby average.', 75, 'danger');
-            if (h.kills >= 3 && worth > 0 && p.netWorth >= worth * 1.2)
-                add('bounty-target', 'BOUNTY TARGET', 'Observed 3+ kill streak and net worth at least 20% above lobby average. Heuristic, not a game bounty value.', 88, 'fire');
+                add('underleveled', 'UNDERLEVELED', 'At least 2 levels below lobby average.', 75, 'danger');
             if (team.length >= 5 && teamWorth > 0 && p.netWorth / teamWorth > .3)
-                add('breadwinner', 'SOLO PROVIDER', 'More than 30% of team net worth.', 72, 'gold');
+                add('breadwinner', 'BREADWINNER', 'More than 30% of team net worth.', 72, 'gold');
             if(clock>=120&&damage!==null){
                 if(allDamage&&players.length>=10&&damage>=5000&&damage===maxDamage&&damage>=damageAverage*1.25)add('damage-leader','DAMAGE LEADER','Highest observed lobby hero damage, at least 5,000 total and 25% above lobby average. Requires 2 match minutes and damage readings for the lobby.',79,'gold');
                 if(allRecent&&players.length===12&&damageWindow&&damageWindow.dpm>=800&&damageWindow.dpm>recentDamageAverage*(h.badges.has('heavy-hitter')?1.2:1.35))add('heavy-hitter','HEAVY HITTER','Recent hero damage per minute over 1–5 minutes exceeds 800 and is over 35% above lobby average; held until below +20%. Requires 60 seconds of continuous history for every player.',103,'fire');
                 if(teamDamageKnown&&teamDamage>=10000&&damage>=4000&&damage/teamDamage>(h.badges.has('damage-carry')?.28:.30))add('damage-carry','DAMAGE CARRY','Over 30% of team hero damage, at least 4,000 personal and 10,000 team damage. Held until below 28% team share.',87,'violet');
-                if(allDamage&&players.length===12&&damage>=5000&&p.netWorth>=3000&&damageEfficiency>efficiencyAverage*(h.badges.has('damage-efficient')?1.15:1.3))add('damage-efficient','HITS LIKE A TRUCK','Hero damage per 1,000 net worth is over 30% above lobby average. Requires 5,000 damage and 3,000 net worth; held until below +15%.',67,'teal');
+                if(allDamage&&players.length===12&&damage>=5000&&p.netWorth>=3000&&damageEfficiency>efficiencyAverage*(h.badges.has('damage-efficient')?1.15:1.3))add('damage-efficient','HIGH IMPACT','Hero damage per 1,000 net worth is over 30% above lobby average. Requires 5,000 damage and 3,000 net worth; held until below +15%.',67,'teal');
             }
             const fmt=(n:number)=>Math.round(n).toLocaleString('en-US');
             const pct=(n:number)=>n.toFixed(1)+'%';
@@ -245,7 +241,6 @@ export class MatchEngine {
                 'dominating':participation+' kills + assists across '+recentTeam+' observed team kills in the last 5 minutes ('+pct(participation/Math.max(1,recentTeam)*100)+').',
                 'feeding':four.filter(e=>e.time>lastContribution).reduce((n,e)=>n+e.d,0)+' deaths in the last 4 minutes since the last observed kill or assist.',
                 'death-streak':h.deaths+' consecutive observed deaths without a kill.',
-                'playmaker':p.assists+' assists ('+(clock?p.assists/(clock/60):0).toFixed(2)+'/min); '+pct((p.kills+p.assists)/Math.max(1,teamKills)*100)+' team kill participation.',
                 'soul-leader':fmt(p.netWorth)+' net worth; lobby average '+fmt(worth)+' ('+pct((p.netWorth/Math.max(1,worth)-1)*100)+' ahead). '+players.length+' players observed.',
                 'hyper-farming':fmt(gain)+' net worth gained over '+duration(elapsed)+' — '+fmt(rate??0)+'/min versus lobby '+fmt(averageRate)+'/min ('+pct(((rate??0)/Math.max(1,averageRate)-1)*100)+' ahead).',
                 'starved':fmt(p.netWorth)+' net worth versus '+fmt(baseline)+' '+(peers.length>=2?'lane':'lobby')+' average ('+pct(p.netWorth/Math.max(1,baseline)*100)+' of average).',
@@ -253,7 +248,6 @@ export class MatchEngine {
                 'power-spike':'First observed level '+(p.level>=20?20:10)+' threshold on the side. Current level '+p.level+'; '+Math.max(0,Math.ceil((this.spikes.get(key)??clock)-clock))+' seconds remaining.',
                 'level-advantage':'Level '+p.level+' versus '+compLevel.toFixed(1)+' '+(opponents.length?'opposing lane':'teammate')+' average (+'+(p.level-compLevel).toFixed(1)+'). Held until below +1.5 levels.',
                 'underleveled':'Level '+p.level+' versus '+level.toFixed(1)+' lobby average ('+(level-p.level).toFixed(1)+' behind).',
-                'bounty-target':h.kills+' observed kills without dying; '+fmt(p.netWorth)+' net worth versus '+fmt(worth)+' lobby average ('+pct((p.netWorth/Math.max(1,worth)-1)*100)+' ahead).',
                 'breadwinner':fmt(p.netWorth)+' of '+fmt(teamWorth)+' observed team net worth ('+pct(p.netWorth/Math.max(1,teamWorth)*100)+').'
             };
             reasons['damage-leader']=fmt(damage??0)+' total hero damage ('+fmt(clock?(damage??0)*60/clock:0)+' DPM); lobby average '+fmt(damageAverage)+'.';
