@@ -160,3 +160,6 @@ describe('reader snapshot gating', () => {
   expect(disabled.players[0].player.kills).toBe(0);
  });
 });
+
+it('flags extreme deaths and low damage even when joining late',()=>{const e=new MatchEngine(),p=roster();for(const x of p)x.heroDamage=20000;p[0].deaths=20;p[0].assists=40;p[0].heroDamage=1000;const m=feed(e,p,600);expect(tags(m)).toContain('feeding');expect(tags(m)).toContain('low-damage');expect(m.players[0].badges.find(b=>b.id==='feeding')?.label).toBe('FEEDING');});
+it('does not label missing damage or early readings as low damage',()=>{const p=roster();for(const x of p)x.heroDamage=20000;p[0].heroDamage=0;expect(tags(feed(new MatchEngine(),p,60))).not.toContain('low-damage');p[1].heroDamage=null;expect(tags(feed(new MatchEngine(),p,600))).not.toContain('low-damage');});
