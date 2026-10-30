@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 import {invoke,isTauri} from '@tauri-apps/api/core';
 import {ReadingGate,parseHud,type TextKey} from './ocr';
-import {sample,type Snapshot,type Status,type MapPoint} from './readings';
+import {sample,type Snapshot,type Status,type MapPoint,type Sample} from './readings';
 export type Region={x:number;y:number;width:number;height:number};
 export type Candidate={x:number;y:number;pixels:number;quality:number;angle?:number};
 export type MarkerTemplate={width:number;height:number;rgba:number[];spanX:number;spanY:number;centerX:number;centerY:number;threshold:number;rotate:boolean;initialHeading?:number};
@@ -9,7 +9,7 @@ export type CaptureSettings={matchMode:'template'|'color';simpleDirection?:boole
 export type Alignment={offsetX:number;offsetY:number;scaleX:number;scaleY:number;rotation:number};
 export type HudRegion={region:Region};
 export const defaultAlignment:Alignment={offsetX:0,offsetY:0,scaleX:1,scaleY:1,rotation:0};
-export const defaultCapture:CaptureSettings={matchMode:'template',simpleDirection:false,configured:false,mapEnabled:true,alignment:defaultAlignment,textRegions:{},ocrInterval:1000,rotation:0,region:{x:0,y:.65,width:.25,height:.35},color:'#f4df96',tolerance:25,minPixels:3,maxPixels:180,hz:5,reference:[],anchor:{x:.5,y:.5},sceneTolerance:22};
+export const defaultCapture:CaptureSettings={matchMode:'color',simpleDirection:false,configured:false,mapEnabled:true,alignment:defaultAlignment,textRegions:{},ocrInterval:1000,rotation:0,region:{x:0,y:.65,width:.25,height:.35},color:'#f4df96',tolerance:25,minPixels:3,maxPixels:180,hz:5,reference:[],anchor:{x:.5,y:.5},sceneTolerance:22};
 export type CaptureFrame={width:number;height:number;rgba:number[]|Uint8ClampedArray;signature:number[]};
 export type Detection={candidates:Candidate[];signature:number[];processingMs:number;width:number;height:number};
 export const useCapture=create<{message:string;timerProcessingMs:number;confidence:number;processingMs:number;candidates:number;lastAttempt:number;acceptedAt:number;sceneDifference:number;facing?:number;rawPoint?:MapPoint;rawAt?:number;text:Partial<Record<TextKey,{text:string;error?:string;at:number;accepted:boolean}>>}>(()=>({message:'Screen reading is off.',timerProcessingMs:0,confidence:0,processingMs:0,candidates:0,lastAttempt:0,acceptedAt:0,sceneDifference:0,text:{}}));
@@ -19,7 +19,7 @@ export function parseColor(hex:string):[number,number,number]{if(!/^#[0-9a-f]{6}
 /** Heading clockwise from up, corrected from the saved pose into the displayed map. */
 export function markerFacing(rotation:number,config:CaptureSettings){const initial=(config.matchMode==='template'||config.simpleDirection)?(config.markerTemplate?.initialHeading??0):0;return((rotation+initial+config.rotation+(config.alignment?.rotation??0))%360+360)%360;}
 export function markerRequest(config:CaptureSettings,hint?:MapPoint){
- if(config.matchMode==='template'&&!config.markerTemplate)throw Error('Select the whole player marker in screen setup.');
+
  return{region:config.region,color:parseColor(config.color),tolerance:config.tolerance,minPixels:config.minPixels,maxPixels:config.maxPixels,markerTemplate:config.matchMode==='template'&&config.markerTemplate?{...config.markerTemplate,rotate:true}:null,directionTemplate:config.matchMode==='color'&&config.simpleDirection&&config.markerTemplate?{...config.markerTemplate,rotate:true}:null,hint:hint??null};
 }
 /** Store at most 64x64 pixels; spans preserve its scale when capture resolution changes. */
@@ -65,7 +65,7 @@ export function pinPoint(raw:MapPoint,target:MapPoint,config:CaptureSettings):Al
 }
 export type ScreenBatch={marker?:Detection;mapAt:number;text:{key:TextKey;text:string;error?:string;at:number;method?:string;alternatives?:string[];preview?:CaptureFrame}[];processingMs:number};
 export class ScreenReader{
- constructor(private options:()=>CaptureSettings,private lowPower:()=>boolean=()=>false){}
+ constructor(private options:()=>CaptureSettings,private lowPower:()=>boolean=()=>false,private externalTimer:()=>Sample<'timer'>|'inactive'|undefined=()=>undefined){}
  start(emit:(data:Snapshot)=>void,status:(s:Status)=>void){
   let active=true,mapTimeout:ReturnType<typeof setTimeout>|undefined,timerTimeout:ReturnType<typeof setTimeout>|undefined;
   const tracker=new MarkerTracker(this.options().anchor),gate=new ReadingGate();let mapTracking=false,lastTimer=0,failures=0;
@@ -85,11 +85,11 @@ export class ScreenReader{
    if(active)mapTimeout=setTimeout(mapTick,Math.max(0,delay-(performance.now()-start)));
   };
   const timerTick=async()=>{
-   if(!active)return;const config=this.options(),region=config.textRegions.timer;if(!region)return;const start=performance.now();let delay=Math.max(this.lowPower()?1000:500,config.ocrInterval);
+   if(!active)return;const external=this.externalTimer();if(external){if(external!=='inactive'){lastTimer=external.at;report();}timerTimeout=setTimeout(timerTick,500);return;}const config=this.options(),region=config.textRegions.timer;if(!region)return;const start=performance.now();let delay=Math.max(this.lowPower()?1000:500,config.ocrInterval);
    try{
     if(!isTauri())throw Error('Screen reading requires the Windows desktop app.');
     const batch=await invoke<ScreenBatch>('read_screen',{request:{marker:null,textRegions:[{key:'timer',region:region.region}]}});if(!active)return;
-    const item=batch.text.find(r=>r.key==='timer');if(!item)throw Error('No timer capture returned.');const parsed=item.error?undefined:parseHud('timer',item.text),accepted=parsed?gate.accept(parsed,item.at):{},valid=accepted.timer!==undefined;
+    if(this.externalTimer()){timerTimeout=setTimeout(timerTick,500);return;}const item=batch.text.find(r=>r.key==='timer');if(!item)throw Error('No timer capture returned.');const parsed=item.error?undefined:parseHud('timer',item.text),accepted=parsed?gate.accept(parsed,item.at):{},valid=accepted.timer!==undefined;
     if(valid){emit({timer:sample(accepted.timer!,item.at)});lastTimer=Date.now();failures=0;}else{gate.reject('timer');failures++;if(!this.lowPower()&&failures<=2)delay=500;}
     const diagnostic={text:item.text,error:item.error??(!parsed?'Timer unreadable · select just the clock digits':valid?undefined:'Checking an unexpected timer jump'),at:item.at,accepted:valid};
     useCapture.setState({timerProcessingMs:batch.processingMs,text:{...useCapture.getState().text,timer:diagnostic},...!hasMap(config)?{message:valid?'Reading match timer':diagnostic.error??'Reading match timer',lastAttempt:Date.now()}:{}});report();

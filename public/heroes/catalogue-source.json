@@ -1,0 +1,333 @@
+{
+  "endpoint": "https://api.deadlock-api.com/v1/assets/heroes",
+  "retrievedAt": "2026-10-28T05:52:51.860Z",
+  "catalogueSha256": "058e0cfadbc6da38b67e03381eb2ef22929403a9c13acad68d201c685e5693eb",
+  "extractedMetadata": {
+    "source": "heroes.vdata",
+    "count": 67,
+    "build_id": "1422451_7027095991257036524_1422452_7517640817608725397_1422456_2676828593797519091",
+    "captured_at": "2026-10-27T12:27:25.773859+00:00",
+    "manifests": {
+      "1422451": "7027095991257036524",
+      "1422452": "7517640817608725397",
+      "1422456": "2676828593797519091"
+    }
+  },
+  "portraits": {
+    "1": {
+      "name": "Infernus",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/inferno_sm.webp",
+      "sha256": "5e6a17141ac0e67d7dbb83c7cf9b7c313f8bc218e35761930b4322fa8cc8f787"
+    },
+    "2": {
+      "name": "Seven",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gigawatt_sm.webp",
+      "sha256": "feaa12969d1e3a939bd9311bd95eafd4fb046b7c45e465dbde96bc9bf5992706"
+    },
+    "3": {
+      "name": "Vindicta",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp",
+      "sha256": "a5ef83ece3f120366c57b34ba1afee192ffb1c5e78d2260e400bc5d728f47263"
+    },
+    "4": {
+      "name": "Lady Geist",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/spectre_sm.webp",
+      "sha256": "4737638bb4ffbfdc5c6e37e272decd9626c25386bc2ce09f388f0abd04b6a3a9"
+    },
+    "6": {
+      "name": "Abrams",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bull_sm.webp",
+      "sha256": "9805f81c31a1e0bf2bde1c6c7447dbb6203df384aee1497f9a9f7ea1fa74e5a7"
+    },
+    "7": {
+      "name": "Wraith",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wraith_sm.webp",
+      "sha256": "a4825c12ae6f1be101c099a07c86f19bd4e228114fa7bf05092041c00a15a757"
+    },
+    "8": {
+      "name": "McGinnis",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/engineer_sm.webp",
+      "sha256": "3a40790e757fb767ed62be6a27313c6100cfcb7e457fa41003048987d3765958"
+    },
+    "10": {
+      "name": "Paradox",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chrono_sm.webp",
+      "sha256": "6b6671af6588fc1c5a7cbe9af15c8e3282c8218f0ddf2d85c9bc5c308a9a93f4"
+    },
+    "11": {
+      "name": "Dynamo",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/sumo_sm.webp",
+      "sha256": "bf7551f03ac41f58001f31c0731afa910e130d5642f790fd0b9d4323d4ffe31e"
+    },
+    "12": {
+      "name": "Kelvin",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kelvin_sm.webp",
+      "sha256": "178cd187e1bcbcc1074895964e51844b99bfb1877e732fce616101ab74be0209"
+    },
+    "13": {
+      "name": "Haze",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/haze_sm.webp",
+      "sha256": "e7b307c3f737156d9cabc7fa546a6518402a9d4164acb3d9f53967e4c748c112"
+    },
+    "14": {
+      "name": "Holliday",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/astro_sm.webp",
+      "sha256": "c62566b7612bece8e3dae21f3760dd444a9e87cca12c41a16f8bf5eef9fcf382"
+    },
+    "15": {
+      "name": "Bebop",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bebop_sm.webp",
+      "sha256": "75b30e7fc3c529bab3fb6c6cce7ad87320f5e99edfe4d89e778eaf8e3117acd2"
+    },
+    "16": {
+      "name": "Calico",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+      "sha256": "7c8b3efdd09bb13a931ba40e54bfb889d211fb533f0e8990977dde31dd7794c9"
+    },
+    "17": {
+      "name": "Grey Talon",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/archer_sm.webp",
+      "sha256": "02856737797db9cf0c50770c7d14af117915f248474696aa138f7d700d2289ef"
+    },
+    "18": {
+      "name": "Mo & Krill",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/digger_sm.webp",
+      "sha256": "a3a97f059ffa332711738aeb5dcefbf8597c2340a4d7264d3a76aa8aea554f0d"
+    },
+    "19": {
+      "name": "Shiv",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/shiv_sm.webp",
+      "sha256": "5cc50fa3ba0183658b095499542a5fd8839039beb5175da47925f95f678ce4af"
+    },
+    "20": {
+      "name": "Ivy",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/tengu_sm.webp",
+      "sha256": "57a75c06e06c65f514910923fc51510d6f2cc61574875bffd4a81aaeed068ba5"
+    },
+    "21": {
+      "name": "Kali",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp",
+      "sha256": "9cc10fab46e5bbb2a9208b59b4dc6e9d926445dd4ee7a4f65c68519488562fc3"
+    },
+    "25": {
+      "name": "Warden",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/warden_sm.webp",
+      "sha256": "0823160e26822026d5859f94f4c71ab15e1a03189fd1ee31f442748bd32f0453"
+    },
+    "27": {
+      "name": "Yamato",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yamato_sm.webp",
+      "sha256": "493ef030833e193a9783024f8f3eb9d6de8b039a2ab9a93881354c32d0c9b907"
+    },
+    "31": {
+      "name": "Lash",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/lash_sm.webp",
+      "sha256": "144b735004d30e3dfbfad7b23d8e6d7c7d8591c14ba160ebc83b4017b583303a"
+    },
+    "35": {
+      "name": "Viscous",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/viscous_sm.webp",
+      "sha256": "a2e2e5a5af22a6835909086262ceb8e62791aed916e4685dc3026e84afa2ae49"
+    },
+    "38": {
+      "name": "Gunslinger",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/gunslinger_sm.webp",
+      "sha256": "997798c923d5e731350be1bd329dcf12b7f7b7d6637d1df3dadd006f57aacb9d"
+    },
+    "39": {
+      "name": "The Boss",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/yakuza_sm.webp",
+      "sha256": "bb7c1f96090968deadd75a1470eb68888088c96fb21cbc58b2f1faf60a60eb59"
+    },
+    "48": {
+      "name": "Wrecker",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/wrecker_sm.webp",
+      "sha256": "6b477b19bc2d5fa66c587c7a14686cec05e8fd7f37729d85be4e2fc9cf77526e"
+    },
+    "49": {
+      "name": "Rutger",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/rutger_sm.webp",
+      "sha256": "0a59e83a2b76bf63cdb2557fc5c785ea9249a9835737cbcc0304b38d1a3ef70e"
+    },
+    "50": {
+      "name": "Pocket",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/synth_sm.webp",
+      "sha256": "294825b5fc13dc2b20b1e2b1e47acfae62dd15d705f8aa979309c2b64fe04f33"
+    },
+    "51": {
+      "name": "Thumper",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/thumper_sm.webp",
+      "sha256": "f75382bde1d3832c691219b06d6a3b2f4ec07225207fd23c5cde2278ec534f7b"
+    },
+    "52": {
+      "name": "Mirage",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/mirage_sm.webp",
+      "sha256": "ba6bbf78fbe2a7576de88129b12ccb2df936ec37e40157c0aa6c40ce2d7590c1"
+    },
+    "53": {
+      "name": "Fathom",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/slork_sm.webp",
+      "sha256": "7036bab525af1e86bddbbdc231b20037dad268fdcaed62fc7726b1135fc7a8c0"
+    },
+    "54": {
+      "name": "Cadence",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/cadence_sm.webp",
+      "sha256": "c74115d3f008a1ea06b769ec9ed35d22d9be6c6a6d1d6bf9b39d04dd1002452f"
+    },
+    "58": {
+      "name": "Vyper",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/kali_sm.webp",
+      "sha256": "9cc10fab46e5bbb2a9208b59b4dc6e9d926445dd4ee7a4f65c68519488562fc3"
+    },
+    "59": {
+      "name": "Vandal",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vandal_sm.webp",
+      "sha256": "c0990398437e6ff424b0e4811a8f461cdd5716d9dd59833ac7310f2ee6263cf4"
+    },
+    "60": {
+      "name": "Sinclair",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/magician_sm.webp",
+      "sha256": "bab426330d91d9fdd69fb1745ddc3a354087504625b4a39ed97985743bcfee91"
+    },
+    "61": {
+      "name": "Trapper",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/trapper_sm.webp",
+      "sha256": "a709513cf3529859ccf0c0cfbac8547fa6eb76c86e118bf588eec48ca15aa142"
+    },
+    "62": {
+      "name": "Raven",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/operative_sm.webp",
+      "sha256": "5a872bb74051af5b73c0581ebbbcc4a57281fc8c30386a8489bc740a7be3d28c"
+    },
+    "63": {
+      "name": "Mina",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/vampirebat_sm.webp",
+      "sha256": "00a8559569c2749eb65d85c7f27566ceb932e3fa5f0a19d50263ddeca66ccdac"
+    },
+    "64": {
+      "name": "Drifter",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/drifter_sm.webp",
+      "sha256": "4b914e7a86ee41ff7767cd7e66d127094cb9359a945ce0e00def7beb75d153b7"
+    },
+    "65": {
+      "name": "Venator",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/priest_sm.webp",
+      "sha256": "8d44ce52860d07868bcc46dea4377f81b4414dfb87610102df1370c09c78eab3"
+    },
+    "66": {
+      "name": "Victor",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/frank_sm.webp",
+      "sha256": "2ab9991ff1526f1d6e75f473dba46a1533bf744607bcefdeb5057822cbe571c3"
+    },
+    "67": {
+      "name": "Paige",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/bookworm_sm.webp",
+      "sha256": "cba85e25bd6d6b270df2039ff9b7c5ab4cbf89afedeaa2289a35eddaccf9e8f0"
+    },
+    "68": {
+      "name": "Boho",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/hornet_sm.webp",
+      "sha256": "a5ef83ece3f120366c57b34ba1afee192ffb1c5e78d2260e400bc5d728f47263"
+    },
+    "69": {
+      "name": "The Doorman",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/doorman_sm.webp",
+      "sha256": "e1540ebc28069a59e93c439c41dc082e2fed4e78acce13e576a2ebc742c756ca"
+    },
+    "70": {
+      "name": "Skyrunner",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/skyrunner_sm.webp",
+      "sha256": "cef0199148349a3d5d47a6cb95a2cf1391b44a57fd4107e66ee711e4791bfa69"
+    },
+    "71": {
+      "name": "Swan",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/swan_sm.webp",
+      "sha256": "7899f991a0068f3f76cb0119ba2ecac19f3855c54205206ec71ceeea0c2a63b0"
+    },
+    "72": {
+      "name": "Billy",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/punkgoat_sm.webp",
+      "sha256": "d5c03af19131805bca18f7f977d027696af2438f0f3f40183b1e848385f684f4"
+    },
+    "73": {
+      "name": "Druid",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/druid_sm.webp",
+      "sha256": "e1310b3ec15ec3c420a69416cf8b933d9854bb68cc213d56ba95bdbbf229c3ac"
+    },
+    "74": {
+      "name": "Graf",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/graf_sm.webp",
+      "sha256": "12e6cacacbce46b9a0a8633b735a83608648d631362b3e4f667f4fd7e8d4d6ed"
+    },
+    "75": {
+      "name": "Fortuna",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fortuna_sm.webp",
+      "sha256": "036908caeaae2619ecff793360d863ac5ce846e533a1520a0855506a097f7c77"
+    },
+    "76": {
+      "name": "Graves",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/necro_sm.webp",
+      "sha256": "12de410d34706a14ae0db171a2899facd1ec74e383f160d0b40ee73e7b6ddcb3"
+    },
+    "77": {
+      "name": "Apollo",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/fencer_sm.webp",
+      "sha256": "36f73552ce0b10e6276d9c6dd6b6203a54af8885a382c51ada8d3698af8756c3"
+    },
+    "78": {
+      "name": "Deadman Danny",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/deadpack_sm.webp",
+      "sha256": "4494ab34db1077dba3b78dc0e0322ae106a10bc18854fa2d199bc1a9d355b082"
+    },
+    "79": {
+      "name": "Rem",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/familiar_sm.webp",
+      "sha256": "29ff42e1e7c47214ca503804287a8d19a0c9227418c18487876a99e8b5ad8ec3"
+    },
+    "80": {
+      "name": "Silver",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/werewolf_sm.webp",
+      "sha256": "cad549b6167f0d9fc324311ace744a5c506104ef6f34d3c1c636152dcd475d1d"
+    },
+    "81": {
+      "name": "Celeste",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/unicorn_sm.webp",
+      "sha256": "10f48b3eeb9f955728247aafcd9999633b9bb3941bf15a60ec5238b5301befba"
+    },
+    "83": {
+      "name": "hero_testhero",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nano_sm.webp",
+      "sha256": "7c8b3efdd09bb13a931ba40e54bfb889d211fb533f0e8990977dde31dd7794c9"
+    },
+    "84": {
+      "name": "Rat King",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/ratking_sm.webp",
+      "sha256": "8a956f2f34085e18901673dc7061a49557c7d120d3d932d6f6d0c44671933003"
+    },
+    "85": {
+      "name": "Solomon",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/chessmaster_sm.webp",
+      "sha256": "5f09fea2c7918c36c59ab33cb7ead266ad9ab20116cdf731f3b761964f223942"
+    },
+    "86": {
+      "name": "Violet",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/artist_sm.webp",
+      "sha256": "3ff38cc6bb98f53be2f38dbb2069f139a1c0b5b7452615f0facf6ab5e51456bf"
+    },
+    "87": {
+      "name": "Nurse Harrow",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/nurse_sm.webp",
+      "sha256": "8d642035d6c07bffda86f50dca5471137eee66e8e1519681cd62e72053147131"
+    },
+    "88": {
+      "name": "Baba",
+      "url": "https://assets-bucket.deadlock-api.com/assets-api-res/images/heroes/baba_sm.webp",
+      "sha256": "f244fcb7c72f86d66c2c5a247761aea2d2263e427dc5c49db8865ac71639f239"
+    }
+  },
+  "missing": [
+    56,
+    57,
+    82
+  ]
+}

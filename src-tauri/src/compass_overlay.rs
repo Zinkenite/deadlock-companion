@@ -31,6 +31,6 @@ pub fn compass_placement(app:tauri::AppHandle,window:WebviewWindow)->Result<Plac
  Ok(Placement{monitor,x:((position.x-current.position().x)as f64/dx*100.0).clamp(0.0,100.0),y:((position.y-current.position().y)as f64/dy*100.0).clamp(0.0,100.0)})
 }
 
-fn should_display(app:&tauri::AppHandle)->bool{let state=app.state::<crate::NativeState>();if !state.compass_enabled.load(Ordering::Relaxed){return false;}if state.compass_editing.load(Ordering::Relaxed)||!state.compass_hide_on_focus_loss.load(Ordering::Relaxed){return true;}#[cfg(target_os="windows")]{crate::capture::ensure_game().is_ok()}#[cfg(not(target_os="windows"))]{false}}
+fn should_display(app:&tauri::AppHandle)->bool{let state=app.state::<crate::NativeState>();if !state.compass_enabled.load(Ordering::Relaxed){return false;}if state.compass_editing.load(Ordering::Relaxed){return true;}if state.reader.hides_compass(){return false;}if !state.compass_hide_on_focus_loss.load(Ordering::Relaxed){return true;}#[cfg(target_os="windows")]{crate::capture::ensure_game().is_ok()}#[cfg(not(target_os="windows"))]{false}}
 // Poll independently of the capture loop so Alt-Tab hides even when reading is paused.
 pub fn start_visibility_monitor(app:tauri::AppHandle){let _=std::thread::Builder::new().name("compass-focus".into()).spawn(move||loop{std::thread::sleep(Duration::from_millis(200));if let Some(overlay)=app.get_webview_window("compass"){let wanted=should_display(&app);if wanted!=overlay.is_visible().unwrap_or(false){if wanted{let _=overlay.show();}else{let _=overlay.hide();}}}});}

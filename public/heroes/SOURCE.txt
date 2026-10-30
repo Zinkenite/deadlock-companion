@@ -1,0 +1,6 @@
+Valve Deadlock artwork, bundled from the community Deadlock API. Artwork belongs to Valve.
+Names and numeric IDs: https://api.deadlock-api.com/v1/assets/heroes
+Cross-checked with https://deadlock-data-api.iainfox.dev/heroes (extracted game data).
+See catalogue-source.json for capture date, build metadata and image URLs/hashes.
+Refresh manually: node scripts/update-hero-assets.mjs
+No runtime network requests. Unknown heroes use an ID fallback.

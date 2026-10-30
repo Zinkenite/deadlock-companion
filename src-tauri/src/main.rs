@@ -1,5 +1,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 mod compass_overlay;
+mod game_reader;
 mod notifications_overlay;
 mod tracking;
 mod template_match;
@@ -12,7 +13,7 @@ use serde::{Serialize,Deserialize};
 #[derive(Default,Serialize,Deserialize)]
 #[serde(rename_all="camelCase")]
 struct Preferences {tray:bool,start_minimized:bool}
-struct NativeState {tray:AtomicBool,config_lock:Mutex<()>,compass_lock:tauri::async_runtime::Mutex<()>,compass_enabled:AtomicBool,compass_editing:AtomicBool,compass_hide_on_focus_loss:AtomicBool,notifications_lock:tauri::async_runtime::Mutex<()>,notifications_enabled:AtomicBool,notifications_editing:AtomicBool,notifications_previewing:AtomicBool,notifications_hide_on_focus_loss:AtomicBool}
+struct NativeState {reader:game_reader::Reader,tray:AtomicBool,config_lock:Mutex<()>,compass_lock:tauri::async_runtime::Mutex<()>,compass_enabled:AtomicBool,compass_editing:AtomicBool,compass_hide_on_focus_loss:AtomicBool,notifications_lock:tauri::async_runtime::Mutex<()>,notifications_enabled:AtomicBool,notifications_editing:AtomicBool,notifications_previewing:AtomicBool,notifications_hide_on_focus_loss:AtomicBool}
 #[tauri::command]
 fn configure(app:tauri::AppHandle,state:tauri::State<NativeState>,tray:bool,start_minimized:bool)->Result<(),String>{
  let _guard=state.config_lock.lock().map_err(|e|e.to_string())?;
@@ -30,6 +31,12 @@ async fn capture_preview(region:Option<tracking::Region>)->Result<tauri::ipc::Re
   #[cfg(not(target_os="windows"))]{let _=region;Err("Screen tracking requires Windows.".into())}
  }).await.map_err(|e|e.to_string())?
 }
+
+#[tauri::command]
+async fn loot_red_fraction(region:tracking::Region,color:[u8;3],tolerance:f64)->Result<f64,String>{if !tolerance.is_finite()||!(10.0..=200.0).contains(&tolerance){return Err("Invalid shade tolerance".into());}tauri::async_runtime::spawn_blocking(move||{
+ #[cfg(target_os="windows")]{let f=capture::capture(Some(region),640)?;let mut red=0usize;let count=f.rgba.len()/4;for pixel in f.rgba.chunks_exact(4){let r=pixel[0]as f64;let g=pixel[1]as f64;let b=pixel[2]as f64;if (r-color[0]as f64).powi(2)+(g-color[1]as f64).powi(2)+(b-color[2]as f64).powi(2)<=tolerance*tolerance{red+=1;}}Ok(red as f64/count.max(1)as f64)}
+ #[cfg(not(target_os="windows"))]{let _=region;Err("Screen capture requires Windows".into())}
+}).await.map_err(|e|e.to_string())?}
 #[derive(Deserialize)]
 #[serde(rename_all="camelCase")]
 struct ScreenRequest {marker:Option<tracking::DetectionConfig>,text_regions:Vec<ocr::TextRegion>,#[serde(default)]preview_key:Option<String>}
@@ -56,8 +63,8 @@ fn main(){
  tauri::Builder::default()
  .plugin(tauri_plugin_autostart::init(tauri_plugin_autostart::MacosLauncher::LaunchAgent,None))
  .plugin(tauri_plugin_window_state::Builder::default().with_denylist(&["compass","notifications"]).build())
- .manage(NativeState{tray:AtomicBool::new(true),config_lock:Mutex::new(()),compass_lock:tauri::async_runtime::Mutex::new(()),compass_enabled:AtomicBool::new(false),compass_editing:AtomicBool::new(false),compass_hide_on_focus_loss:AtomicBool::new(true),notifications_lock:tauri::async_runtime::Mutex::new(()),notifications_enabled:AtomicBool::new(false),notifications_editing:AtomicBool::new(false),notifications_previewing:AtomicBool::new(false),notifications_hide_on_focus_loss:AtomicBool::new(true)})
- .invoke_handler(tauri::generate_handler![configure,capture_preview,read_screen,compass_overlay::configure_compass,compass_overlay::compass_placement,notifications_overlay::configure_notifications,notifications_overlay::notifications_placement,notifications_overlay::notification_sound])
+ .manage(NativeState{reader:game_reader::Reader::new(),tray:AtomicBool::new(true),config_lock:Mutex::new(()),compass_lock:tauri::async_runtime::Mutex::new(()),compass_enabled:AtomicBool::new(false),compass_editing:AtomicBool::new(false),compass_hide_on_focus_loss:AtomicBool::new(true),notifications_lock:tauri::async_runtime::Mutex::new(()),notifications_enabled:AtomicBool::new(false),notifications_editing:AtomicBool::new(false),notifications_previewing:AtomicBool::new(false),notifications_hide_on_focus_loss:AtomicBool::new(true)})
+ .invoke_handler(tauri::generate_handler![loot_red_fraction,game_reader::configure_game_reader,game_reader::game_reader_state,configure,capture_preview,read_screen,compass_overlay::configure_compass,compass_overlay::compass_placement,notifications_overlay::configure_notifications,notifications_overlay::notifications_placement,notifications_overlay::notification_sound])
  .setup(|app|{
   let prefs=app.path().app_config_dir().ok().and_then(|p|std::fs::read(p.join("preferences.json")).ok()).and_then(|b|serde_json::from_slice::<Preferences>(&b).ok()).unwrap_or(Preferences{tray:true,start_minimized:false});
   app.state::<NativeState>().tray.store(prefs.tray,Ordering::Relaxed);
@@ -67,6 +74,7 @@ fn main(){
   let menu=Menu::with_items(app,&[&show,&quit])?;
   let mut tray=TrayIconBuilder::new().tooltip("Deadlock Companion").menu(&menu).on_menu_event(|app,event|match event.id.as_ref(){"show"=>{if let Some(w)=app.get_webview_window("main"){let _=w.show();let _=w.unminimize();let _=w.set_focus();}},"quit"=>app.exit(0),_=>{}});
   if let Some(icon)=app.default_window_icon(){tray=tray.icon(icon.clone());}tray.build(app)?;
+  game_reader::start(app.handle().clone());
   compass_overlay::start_visibility_monitor(app.handle().clone());
   notifications_overlay::start_visibility_monitor(app.handle().clone());
   Ok(())

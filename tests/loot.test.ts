@@ -1,0 +1,3 @@
+import {it,expect} from 'vitest';import {RedRingGate,sanitizeLoot} from '../src/loot';
+it('requires confirmation, clear rearm and cooldown',()=>{const g=new RedRingGate();expect(g.sample(.06,.01,.025,0)).toBe(false);expect(g.sample(.06,.01,.025,1000)).toBe(true);expect(g.sample(.06,.01,.025,40000)).toBe(false);for(let t=41000;t<=43000;t+=1000)g.sample(.01,.01,.025,t);expect(g.sample(.06,.01,.025,44000)).toBe(false);expect(g.sample(.06,.01,.025,45000)).toBe(true);});
+it('does not bridge missed frames or accept invalid calibration',()=>{const g=new RedRingGate();g.sample(.1,0,.02,1000);g.gap();expect(g.sample(.1,0,.02,2000)).toBe(false);expect(sanitizeLoot({enabled:true,baseline:NaN,region:{x:0,y:0,width:2,height:1}}).enabled).toBe(false);});

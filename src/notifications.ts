@@ -1,6 +1,6 @@
-export type NotificationRule={id:string;enabled:boolean;text:string;icon:string|null;seconds:number};
+export type NotificationRule={showTime?:boolean;id:string;enabled:boolean;text:string;icon:string|null;seconds:number};
 export type NotificationSettings={enabled:boolean;editing:boolean;hideOnFocusLoss:boolean;monitor:number;x:number;y:number;width:number;duration:number;maxVisible:number;sound:boolean;volume:number;rules:NotificationRule[]};
-export type NotificationCard={id:string;ruleId?:string;text:string;icon:string|null;seconds:number;createdAt:number;expiresAt:number;preview?:boolean};
+export type NotificationCard={showTime?:boolean;id:string;ruleId?:string;text:string;icon:string|null;seconds:number;createdAt:number;expiresAt:number;preview?:boolean};
 export const defaultNotifications:NotificationSettings={enabled:false,editing:false,hideOnFocusLoss:true,monitor:0,x:98,y:18,width:370,duration:6,maxVisible:4,sound:true,volume:.6,rules:[]};
 export const notificationTime=(seconds:number)=>Math.floor(seconds/60)+':'+String(Math.floor(seconds%60)).padStart(2,'0');
 export function parseNotificationTime(value:string){const m=/^(\d{1,3}):([0-5]\d)$/.exec(value.trim());if(!m)return undefined;const seconds=Number(m[1])*60+Number(m[2]);return seconds<=43200?seconds:undefined;}
@@ -9,7 +9,7 @@ export class NotificationEngine{
  private ruleSource?:NotificationRule[];private sortedRules:NotificationRule[]=[];private allowed=new Set<string>();
  private fired=new Set<string>();private pending:Omit<NotificationCard,'createdAt'|'expiresAt'>[]=[];private visible:NotificationCard[]=[];private sequence=0;
  reset(){this.fired.clear();this.pending=[];this.visible=[];}
- preview(rule?:NotificationRule){this.pending.push({id:'preview-'+(++this.sequence),text:rule?.text??'Your next opportunity is ready.',icon:rule?.icon??null,seconds:rule?.seconds??120,preview:true});}
+ preview(rule?:NotificationRule){this.pending.push({id:'preview-'+(++this.sequence),text:rule?.text??'Your next opportunity is ready.',icon:rule?.icon??null,seconds:rule?.seconds??120,showTime:rule?.showTime!==false,preview:true});}
  step(settings:NotificationSettings,timer:{value:number;at:number}|undefined,now:number,canTrigger=true,ttl=5000){
   if(!settings.enabled&&!this.pending.length&&!this.visible.length)return{items:this.visible,appeared:[]};
   if(this.ruleSource!==settings.rules){this.ruleSource=settings.rules;this.sortedRules=settings.rules.filter(r=>r.enabled).sort((a,b)=>a.seconds-b.seconds);this.allowed=new Set(this.sortedRules.map(r=>r.id));}const allowed=this.allowed;

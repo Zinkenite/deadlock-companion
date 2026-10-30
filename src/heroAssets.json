@@ -1,0 +1,259 @@
+{
+  "1": {
+    "name": "Infernus",
+    "portrait": "/heroes/1.webp"
+  },
+  "2": {
+    "name": "Seven",
+    "portrait": "/heroes/2.webp"
+  },
+  "3": {
+    "name": "Vindicta",
+    "portrait": "/heroes/3.webp"
+  },
+  "4": {
+    "name": "Lady Geist",
+    "portrait": "/heroes/4.webp"
+  },
+  "6": {
+    "name": "Abrams",
+    "portrait": "/heroes/6.webp"
+  },
+  "7": {
+    "name": "Wraith",
+    "portrait": "/heroes/7.webp"
+  },
+  "8": {
+    "name": "McGinnis",
+    "portrait": "/heroes/8.webp"
+  },
+  "10": {
+    "name": "Paradox",
+    "portrait": "/heroes/10.webp"
+  },
+  "11": {
+    "name": "Dynamo",
+    "portrait": "/heroes/11.webp"
+  },
+  "12": {
+    "name": "Kelvin",
+    "portrait": "/heroes/12.webp"
+  },
+  "13": {
+    "name": "Haze",
+    "portrait": "/heroes/13.webp"
+  },
+  "14": {
+    "name": "Holliday",
+    "portrait": "/heroes/14.webp"
+  },
+  "15": {
+    "name": "Bebop",
+    "portrait": "/heroes/15.webp"
+  },
+  "16": {
+    "name": "Calico",
+    "portrait": "/heroes/16.webp"
+  },
+  "17": {
+    "name": "Grey Talon",
+    "portrait": "/heroes/17.webp"
+  },
+  "18": {
+    "name": "Mo & Krill",
+    "portrait": "/heroes/18.webp"
+  },
+  "19": {
+    "name": "Shiv",
+    "portrait": "/heroes/19.webp"
+  },
+  "20": {
+    "name": "Ivy",
+    "portrait": "/heroes/20.webp"
+  },
+  "21": {
+    "name": "Kali",
+    "portrait": "/heroes/21.webp"
+  },
+  "25": {
+    "name": "Warden",
+    "portrait": "/heroes/25.webp"
+  },
+  "27": {
+    "name": "Yamato",
+    "portrait": "/heroes/27.webp"
+  },
+  "31": {
+    "name": "Lash",
+    "portrait": "/heroes/31.webp"
+  },
+  "35": {
+    "name": "Viscous",
+    "portrait": "/heroes/35.webp"
+  },
+  "38": {
+    "name": "Gunslinger",
+    "portrait": "/heroes/38.webp"
+  },
+  "39": {
+    "name": "The Boss",
+    "portrait": "/heroes/39.webp"
+  },
+  "48": {
+    "name": "Wrecker",
+    "portrait": "/heroes/48.webp"
+  },
+  "49": {
+    "name": "Rutger",
+    "portrait": "/heroes/49.webp"
+  },
+  "50": {
+    "name": "Pocket",
+    "portrait": "/heroes/50.webp"
+  },
+  "51": {
+    "name": "Thumper",
+    "portrait": "/heroes/51.webp"
+  },
+  "52": {
+    "name": "Mirage",
+    "portrait": "/heroes/52.webp"
+  },
+  "53": {
+    "name": "Fathom",
+    "portrait": "/heroes/53.webp"
+  },
+  "54": {
+    "name": "Cadence",
+    "portrait": "/heroes/54.webp"
+  },
+  "56": {
+    "name": "Bomber"
+  },
+  "57": {
+    "name": "Shield Guy"
+  },
+  "58": {
+    "name": "Vyper",
+    "portrait": "/heroes/58.webp"
+  },
+  "59": {
+    "name": "Vandal",
+    "portrait": "/heroes/59.webp"
+  },
+  "60": {
+    "name": "Sinclair",
+    "portrait": "/heroes/60.webp"
+  },
+  "61": {
+    "name": "Trapper",
+    "portrait": "/heroes/61.webp"
+  },
+  "62": {
+    "name": "Raven",
+    "portrait": "/heroes/62.webp"
+  },
+  "63": {
+    "name": "Mina",
+    "portrait": "/heroes/63.webp"
+  },
+  "64": {
+    "name": "Drifter",
+    "portrait": "/heroes/64.webp"
+  },
+  "65": {
+    "name": "Venator",
+    "portrait": "/heroes/65.webp"
+  },
+  "66": {
+    "name": "Victor",
+    "portrait": "/heroes/66.webp"
+  },
+  "67": {
+    "name": "Paige",
+    "portrait": "/heroes/67.webp"
+  },
+  "68": {
+    "name": "Boho",
+    "portrait": "/heroes/68.webp"
+  },
+  "69": {
+    "name": "The Doorman",
+    "portrait": "/heroes/69.webp"
+  },
+  "70": {
+    "name": "Skyrunner",
+    "portrait": "/heroes/70.webp"
+  },
+  "71": {
+    "name": "Swan",
+    "portrait": "/heroes/71.webp"
+  },
+  "72": {
+    "name": "Billy",
+    "portrait": "/heroes/72.webp"
+  },
+  "73": {
+    "name": "Druid",
+    "portrait": "/heroes/73.webp"
+  },
+  "74": {
+    "name": "Graf",
+    "portrait": "/heroes/74.webp"
+  },
+  "75": {
+    "name": "Fortuna",
+    "portrait": "/heroes/75.webp"
+  },
+  "76": {
+    "name": "Graves",
+    "portrait": "/heroes/76.webp"
+  },
+  "77": {
+    "name": "Apollo",
+    "portrait": "/heroes/77.webp"
+  },
+  "78": {
+    "name": "Deadman Danny",
+    "portrait": "/heroes/78.webp"
+  },
+  "79": {
+    "name": "Rem",
+    "portrait": "/heroes/79.webp"
+  },
+  "80": {
+    "name": "Silver",
+    "portrait": "/heroes/80.webp"
+  },
+  "81": {
+    "name": "Celeste",
+    "portrait": "/heroes/81.webp"
+  },
+  "82": {
+    "name": "Opera"
+  },
+  "83": {
+    "name": "hero_testhero",
+    "portrait": "/heroes/83.webp"
+  },
+  "84": {
+    "name": "Rat King",
+    "portrait": "/heroes/84.webp"
+  },
+  "85": {
+    "name": "Solomon",
+    "portrait": "/heroes/85.webp"
+  },
+  "86": {
+    "name": "Violet",
+    "portrait": "/heroes/86.webp"
+  },
+  "87": {
+    "name": "Nurse Harrow",
+    "portrait": "/heroes/87.webp"
+  },
+  "88": {
+    "name": "Baba",
+    "portrait": "/heroes/88.webp"
+  }
+}
