@@ -12,3 +12,5 @@ describe('timer notifications',()=>{
  it('drops queued entries when deleted or disabled',()=>{const engine=new NotificationEngine(),s={...settings([rule('one'),rule('two')]),maxVisible:1};engine.step(s,{value:200,at:now},now);expect(engine.step({...s,rules:[]},undefined,now+1000).items).toHaveLength(0);});
  it('sanitizes saved settings and icon data and locks placement on startup',()=>{const s=sanitizeNotifications({enabled:true,editing:true,width:999,duration:-1,maxVisible:99,rules:[rule('one'),rule('one'),{...rule('bad'),seconds:NaN},{...rule('icon'),icon:'https://example.com/icon.png'}]});expect(s.editing).toBe(false);expect(s.width).toBe(600);expect(s.duration).toBe(3);expect(s.maxVisible).toBe(6);expect(s.rules).toHaveLength(2);expect(s.rules[1].icon).toBeNull();expect(parseNotificationTime('2:30')).toBe(150);expect(parseNotificationTime('2:60')).toBeUndefined();});
 });
+
+it('keeps spoken notifications opt-in and restores a saved preference',()=>{expect(sanitizeNotifications({}).readAloud).toBe(false);expect(sanitizeNotifications({readAloud:true}).readAloud).toBe(true);expect(sanitizeNotifications({readAloud:'true'}).readAloud).toBe(false);});
