@@ -34,16 +34,9 @@
 .match-connection-copy { animation: match-connection-enter 260ms ease-out both; }
 .match-connection h2 { margin: 0; font-size: clamp(18px, 2.4vw, 24px); line-height: 1.2; }
 .match-connection p { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 22px; margin: 8px 0 0; color: var(--connection-accent); }
-.match-connection-progress { display: flex; justify-content: center; gap: 5px; margin-top: 19px; }
-.match-connection-progress i { width: 24px; height: 3px; border-radius: 3px; background: var(--connection-accent); opacity: .19; transition: opacity 240ms; }
-.match-connection-progress i:first-child,
-.match-connection[data-side] i:nth-child(2),
-.match-connection:is([data-stage="ready"], [data-stage="leaving"]) i { opacity: 1; }
-.match-connection:is([data-stage="connecting"], [data-stage="roster"]) i:last-child { animation: match-connection-pulse 1.4s ease-in-out infinite alternate; }
 @keyframes match-connection-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes match-connection-emblem { from { opacity: 0; transform: scale(.82); } to { opacity: 1; transform: scale(1); } }
 @keyframes match-connection-exit { to { opacity: 0; transform: translateY(-6px); } }
-@keyframes match-connection-pulse { to { opacity: .65; } }
 [data-motion="off"] .match-connection, [data-motion="off"] .match-connection * { animation: none !important; transition: none !important; }
 @media (prefers-reduced-motion: reduce) {
  .match-connection, .match-connection * { animation: none !important; transition: none !important; }

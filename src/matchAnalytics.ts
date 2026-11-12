@@ -56,6 +56,7 @@ export class MatchEngine {
     private state = new Map<string, State>();
     private result = empty();
     private lastAt = 0;
+    private rosterOnlyAt = 0;
     private lastClock: number | null = null;
     private firstArmed = false;
     private firstResolved = false;
@@ -64,7 +65,7 @@ export class MatchEngine {
     private thresholds = new Set<string>();
     private spikes = new Map<string, number>();
     private lastLocal: number | null = null;
-    reset() { this.state.clear(); this.result = empty(); this.lastAt = 0; this.lastClock = null; this.firstArmed = false; this.firstResolved = false; this.firstKill = null; this.firstDeath = null; this.thresholds.clear(); this.spikes.clear(); this.lastLocal = null; }
+    reset() { this.state.clear(); this.result = empty(); this.lastAt = 0; this.rosterOnlyAt = 0; this.lastClock = null; this.firstArmed = false; this.firstResolved = false; this.firstKill = null; this.firstDeath = null; this.thresholds.clear(); this.spikes.clear(); this.lastLocal = null; }
     update(s: GameReaderSnapshot): MatchAnalysis {
         const clock = s.timer, local = s.players?.find(p => p.isUs)?.accountId ?? null;
         if (s.inMatch === true && ((s.matchId !== null && this.result.matchId !== null && s.matchId !== this.result.matchId) || (clock !== null && this.lastClock !== null && clock < this.lastClock - 15) || (local !== null && this.lastLocal !== null && local !== this.lastLocal) || (this.result.status === 'ended' && clock !== null && this.lastClock !== null && clock < this.lastClock)))
@@ -75,11 +76,29 @@ export class MatchEngine {
         const matchId = s.inMatch === true ? s.matchId ?? this.result.matchId : this.result.matchId;
         if (this.result.status !== status || this.result.paused !== s.paused || this.result.matchId !== matchId)
             this.result = { ...this.result, status, paused: s.paused, matchId };
-        if (!s.enabled || s.inMatch !== true || clock === null || !s.players?.length || s.playersAt <= this.lastAt)
+        if (!s.enabled || s.inMatch !== true || !s.players?.length || s.playersAt <= this.lastAt || s.playersAt < this.rosterOnlyAt)
             return this.result;
         const players = s.players.filter(p => (p.team === 2 || p.team === 3) && [p.netWorth, p.level, p.kills, p.deaths, p.assists].every(n => Number.isFinite(n) && n >= 0)).slice(0, 12);
         if (!players.length)
             return this.result;
+        const localTeam = players.find(p => p.isUs)?.team
+            ?? (s.side === 'hiddenKing' ? 2 : s.side === 'archMother' ? 3 : this.result.localTeam);
+        if (clock === null) {
+            if (s.playersAt === this.rosterOnlyAt) {
+                if (this.result.localTeam !== localTeam) this.result = {...this.result, localTeam};
+                return this.result;
+            }
+            const teamWorth = new Map<number, number>();
+            for (const player of players)
+                teamWorth.set(player.team, (teamWorth.get(player.team) ?? 0) + player.netWorth);
+            const metrics = players.map(player => ({
+                player, key: playerKey(player), badges: [], spm: null, laneDelta: null,
+                share: player.netWorth / Math.max(1, teamWorth.get(player.team) ?? 0) * 100,
+            }));
+            this.rosterOnlyAt = s.playersAt;
+            this.result = {...this.result, players: metrics, clock: null, localTeam};
+            return this.result;
+        }
         const continuous = this.lastClock !== null && clock - this.lastClock <= 10 && s.playersAt - this.lastAt <= 10000;
         const totalKills = players.reduce((n, p) => n + p.kills, 0), complete = players.length === 12 && [2, 3].every(team => players.filter(p => p.team === team).length === 6);
         if (!this.state.size) {
@@ -265,7 +284,7 @@ export class MatchEngine {
                 this.state.delete(key);
         this.lastAt = s.playersAt;
         this.lastClock = clock;
-        this.result = { ...this.result, players: metrics, clock, localTeam: players.find(p => p.isUs)?.team ?? this.result.localTeam };
+        this.result = { ...this.result, players: metrics, clock, localTeam };
         return this.result;
     }
 }

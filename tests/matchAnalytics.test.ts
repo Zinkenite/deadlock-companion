@@ -164,3 +164,15 @@ describe('reader snapshot gating', () => {
 
 it('flags extreme deaths and low damage even when joining late',()=>{const e=new MatchEngine(),p=roster();for(const x of p)x.heroDamage=20000;p[0].deaths=20;p[0].assists=40;p[0].heroDamage=1000;const m=feed(e,p,600);expect(tags(m)).toContain('feeding');expect(tags(m)).toContain('low-damage');expect(m.players[0].badges.find(b=>b.id==='feeding')?.label).toBe('FEEDING');});
 it('does not label missing damage or early readings as low damage',()=>{const p=roster();for(const x of p)x.heroDamage=20000;p[0].heroDamage=0;expect(tags(feed(new MatchEngine(),p,60))).not.toContain('low-damage');p[1].heroDamage=null;expect(tags(feed(new MatchEngine(),p,600))).not.toContain('low-damage');});
+
+it('shows both teams and heroes before the clock and starts timed analysis on the same roster reading', () => {
+ const engine = new MatchEngine(), players = roster();
+ players.forEach(p => { p.isUs = false; });
+ const early = feed(engine, players, 5, {timer:null, side:'archMother'});
+ expect(early.players.map(p => [p.player.team, p.player.heroId])).toEqual(players.map(p => [p.team, p.heroId]));
+ expect(early.localTeam).toBe(3);
+ expect(early.players.every(p => p.spm === null)).toBe(true);
+ const live = feed(engine, players, 5, {side:'archMother'});
+ expect(live.status).toBe('live');
+ expect(live.players[0].spm).toBe(12000);
+});
