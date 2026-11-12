@@ -289,16 +289,23 @@ export class MatchEngine {
     }
 }
 export const matchEngine = new MatchEngine();
-/** Damage is optional; missing readings retain the original ranking weights. */
+/** Validate the reader’s optional hero damage field. */
 export function heroDamage(p:MatchPlayer):number|null{return typeof p.heroDamage==='number'&&Number.isFinite(p.heroDamage)&&p.heroDamage>=0&&p.heroDamage<=5000000?p.heroDamage:null;}
 export function rankTeam(players: PlayerMetrics[]): PlayerMetrics[] {
     const count = Math.max(1, players.length);
-    const impact = (p: MatchPlayer) => (p.kills + p.assists * .65) / (p.deaths + 1);
+    const averageDeaths = players.reduce((total, {player}) => total + player.deaths, 0) / count;
+    const impact = (player: MatchPlayer) => {
+        const contribution = player.kills + player.assists * .65;
+        const relativeDeaths = player.deaths / Math.max(1, averageDeaths);
+        const deathShare = player.deaths / Math.max(1, player.deaths + contribution);
+        const heavyDeaths = Math.max(0, player.deaths - 12) / 4;
+        return contribution / (1 + relativeDeaths * deathShare + heavyDeaths);
+    };
     const averageImpact = players.reduce((n, x) => n + impact(x.player), 0) / count;
     const averageWorth = players.reduce((n, x) => n + x.player.netWorth, 0) / count;
     const averageLevel = players.reduce((n, x) => n + x.player.level, 0) / count;
     const damageReady=players.length===6&&players.every(x=>heroDamage(x.player)!==null)&&players.some(x=>(heroDamage(x.player)??0)>0),averageDamage=players.reduce((n,x)=>n+(heroDamage(x.player)??0),0)/count;
-    const scores = new Map(players.map(x => [x.key, Math.round(10 * ((damageReady?35:45) * Math.min(2.5, (impact(x.player) + 1) / (averageImpact + 1)) + (damageReady?35:40) * Math.min(2.5, averageWorth ? x.player.netWorth / averageWorth : 1) + 15 * (averageLevel ? x.player.level / averageLevel : 1)+(damageReady?15*Math.min(2,averageDamage?(heroDamage(x.player)??0)/averageDamage:1):0))) / 10]));
+    const scores = new Map(players.map(x => [x.key, Math.round(10 * ((damageReady?35:45) * Math.min(2.5, (impact(x.player) + 1) / (averageImpact + 1)) + (damageReady?30:40) * Math.min(2.5, averageWorth ? x.player.netWorth / averageWorth : 1) + 15 * (averageLevel ? x.player.level / averageLevel : 1)+(damageReady?20*Math.min(2,averageDamage?(heroDamage(x.player)??0)/averageDamage:1):0))) / 10]));
     return [...players].sort((a, b) => scores.get(b.key)! - scores.get(a.key)! || b.player.netWorth - a.player.netWorth || b.player.kills - a.player.kills || a.player.slot - b.player.slot);
 }
 

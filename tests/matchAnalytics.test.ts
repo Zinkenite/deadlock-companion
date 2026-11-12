@@ -176,3 +176,14 @@ it('shows both teams and heroes before the clock and starts timed analysis on th
  expect(live.status).toBe('live');
  expect(live.players[0].spm).toBe(12000);
 });
+
+it('ranks strong contribution with moderate deaths above a low-kill clean score and a high-death score', () => {
+ const players = roster();
+ Object.assign(players[0], {kills: 12, deaths: 4});
+ Object.assign(players[1], {kills: 3, deaths: 0});
+ Object.assign(players[2], {kills: 12, deaths: 20});
+ const analysis = feed(new MatchEngine(), players, 1200);
+ const ranked = rankTeam(analysis.players.filter(p => p.player.team === 2)).map(p => p.player.slot);
+ expect(ranked[0]).toBe(0);
+ expect(ranked.indexOf(1)).toBeLessThan(ranked.indexOf(2));
+});
