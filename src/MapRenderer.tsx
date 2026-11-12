@@ -14,13 +14,24 @@ type Meta={radius:number;zipline_paths:{origin:number[];color:string;P0_points:n
 type Hit={marker:MapMarker;x:number;y:number;radius:number};
 type Tip={marker:MapMarker;x:number;y:number};
 export type MapCalibration={config:CaptureSettings;raw:MapPoint};
-export default function MapRenderer({calibration,onPin}:{calibration?:MapCalibration;onPin?:(target:MapPoint)=>void}){
+export default function MapRenderer({calibration,onPin,matchStarted=false,matchSequence=0}:{calibration?:MapCalibration;onPin?:(target:MapPoint)=>void;matchStarted?:boolean;matchSequence?:number}){
  const canvas=useRef<HTMLCanvasElement>(null),view=useRef(newView()),follow=useRef(false),drag=useRef<{x:number;y:number;pin:boolean}|undefined>(undefined),space=useRef(false),props=useRef({calibration,onPin});props.current={calibration,onPin};
  const hits=useRef<Hit[]>([]),hover=useRef<MapMarker|undefined>(undefined),menu=useRef<HTMLDivElement>(null),layerButton=useRef<HTMLButtonElement>(null);
  const [zoom,setZoom]=useState(1),[catalog,setCatalog]=useState<MapCatalog>(),[layersOpen,showLayers]=useState(false),[tip,setTip]=useState<Tip>(),[mapError,setMapError]=useState('');
  const [placing,setPlacing]=useState<string>();
  const customMarkers=useSettings(s=>s.settings.customMarkers);
  const level=useSettings(s=>s.settings.mapLevel),side=useSettings(s=>s.settings.mapSide),turn=useRef({angle:sideRotation(side),from:sideRotation(side),to:sideRotation(side),started:0});
+ // Apply the configured zoom once per match. Manual map controls can then take over.
+ useEffect(()=>{
+  if(!matchStarted)return;
+  const settings=useSettings.getState().settings;
+  if(!settings.followOnMatchStart)return;
+  hover.current=undefined;
+  setTip(undefined);
+  follow.current=true;
+  view.current.targetZoom=settings.matchStartZoom;
+  setZoom(settings.matchStartZoom);
+ },[matchStarted,matchSequence]);
  const base=(w:number,h:number)=>Math.max(20,Math.min(w-36,h-30));
  const clearTip=()=>{hover.current=undefined;setTip(undefined);};
  const changeZoom=(z:number,px?:number,py?:number)=>{const r=canvas.current!.getBoundingClientRect();follow.current=false;clearTip();zoomAt(view.current,z,px??r.width/2,py??r.height/2,r.width,r.height,base(r.width,r.height),.5,8);setZoom(view.current.targetZoom);};

@@ -57,7 +57,7 @@ export default function MatchConnection({side, started}: {side: MapSide | null; 
    </div>
    <h2>Match found</h2>
    {patron && <p className="match-connection-patron" key={side}>{patron.name}</p>}
-   <div className="match-connection-status"><span aria-hidden="true"/>{started ? 'Waiting for player data' : 'Waiting for match timer'}</div>
+   <div className="match-connection-status"><span aria-hidden="true"/>{started ? 'Waiting for player data' : 'Waiting for match start'}</div>
   </div>
  </section>;
 }
