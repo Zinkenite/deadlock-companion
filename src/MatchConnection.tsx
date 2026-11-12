@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Check, Radio, Users} from 'lucide-react';
-import {useGameReader} from './gameReader';
+import {countRosterSeats, useGameReader} from './gameReader';
 import type {MapSide} from './mapOrientation';
 import './matchConnection.css';
 
@@ -11,9 +11,10 @@ const patrons: Record<MapSide, {name: string; image: string}> = {
  archMother: {name: 'Arch Mother', image: '/map-assets/patron-arch-mother.png'},
 };
 
-function ConnectionSequence({visible}: {visible: boolean}) {
+function ConnectionSequence() {
  const side = useGameReader(s => s.side);
- const hasRoster = useGameReader(s => s.players.length > 0);
+ const rosterSeats = useGameReader(s => countRosterSeats(s.players));
+ const hasRoster = useGameReader(s => s.inMatch === true && countRosterSeats(s.players) === 12);
  const matchId = useGameReader(s => s.matchId);
  const [stage, setStage] = useState<Stage>('connecting');
  const [patronSide, setPatronSide] = useState<MapSide>();
@@ -47,7 +48,7 @@ function ConnectionSequence({visible}: {visible: boolean}) {
   const transitions: Partial<Record<Stage, [Stage, number]>> = {
    patron: ['roster', 1050],
    roster: hasRoster ? ['ready', 650] : undefined,
-   ready: ['leaving', 850],
+   ready: ['leaving', 1450],
    leaving: ['done', 240],
   };
   const transition = transitions[stage];
@@ -56,17 +57,14 @@ function ConnectionSequence({visible}: {visible: boolean}) {
   return () => clearTimeout(timer);
  }, [stage, hasRoster]);
 
- const [dismissed, setDismissed] = useState(false);
- useEffect(() => { if (stage === 'connecting') setDismissed(false); }, [stage, knownMatch]);
- if (!visible || dismissed || stage === 'done') return null;
+ if (stage === 'done') return null;
 
  const patron = patronSide && patrons[patronSide];
  const ready = stage === 'ready' || stage === 'leaving';
  const title = ready ? 'Roster found' : patron ? 'Match found on ' + patron.name : 'Connecting to match';
- const caption = ready ? 'Your match view is ready.' : stage === 'roster' ? 'Waiting for roster…' : patron ? 'Side confirmed' : 'Waiting for side detection…';
+ const caption = ready ? 'Your match view is ready.' : stage === 'roster' ? 'Waiting for roster… ' + rosterSeats + '/12' : patron ? 'Side confirmed' : 'Waiting for side detection…';
 
  return <section className="match-connection" data-stage={stage} data-side={patronSide} aria-label="Match connection">
-  <button type="button" className="match-connection-dismiss" aria-label="Dismiss match connection" onClick={() => setDismissed(true)}>×</button>
   <div className="match-connection-emblem" key={'emblem-' + (patronSide ?? 'connecting')}>
    {patron ? <img src={patron.image} alt="" /> : <Radio size={38} aria-hidden="true"/>}
   </div>
@@ -78,7 +76,26 @@ function ConnectionSequence({visible}: {visible: boolean}) {
  </section>;
 }
 
-export default function MatchConnection({visible}: {visible: boolean}) {
- const connected = useGameReader(s => s.enabled && s.attached && s.inMatch === true);
- return connected ? <ConnectionSequence visible={visible}/> : null;
+export default function MatchConnection() {
+ const enabled = useGameReader(s => s.enabled && s.attached);
+ const inMatch = useGameReader(s => s.inMatch);
+ const [active, setActive] = useState(false);
+
+ useEffect(() => {
+  if (!enabled) {
+   setActive(false);
+   return;
+  }
+  if (inMatch === true) {
+   setActive(true);
+   return;
+  }
+  if (inMatch === false) {
+   // Give the reader a chance to recover from a brief loss of match data.
+   const timer = setTimeout(() => setActive(false), 2500);
+   return () => clearTimeout(timer);
+  }
+ }, [enabled, inMatch]);
+
+ return enabled && active ? <ConnectionSequence/> : null;
 }
