@@ -48,28 +48,16 @@ const patrons: Record<MapSide, {name: string; image: string}> = {
  archMother: {name: 'Arch Mother', image: '/map-assets/patron-arch-mother.png'},
 };
 
-export default function MatchConnection({match, cardsVisible}: {match: MatchPresentation; cardsVisible: boolean}) {
- const [stage, setStage] = useState<'found' | 'leaving' | 'done'>(cardsVisible ? 'done' : 'found');
-
- useEffect(() => {
-  if (stage === 'found' && cardsVisible) setStage('leaving');
- }, [stage, cardsVisible]);
-
- useEffect(() => {
-  if (stage !== 'leaving') return;
-  const timeout = setTimeout(() => setStage('done'), 240);
-  return () => clearTimeout(timeout);
- }, [stage]);
-
- if (stage === 'done') return null;
- const patron = match.side && patrons[match.side];
- return <section className="match-connection" data-stage={stage} data-side={match.side ?? undefined} aria-label="Match connection">
-  <div className="match-connection-emblem" key={match.side ?? 'unknown'}>
-   {patron ? <img src={patron.image} alt="" /> : <Check size={38} aria-hidden="true"/>}
-  </div>
-  <div className="match-connection-copy" role="status" aria-atomic="true">
+export default function MatchConnection({side, started}: {side: MapSide | null; started: boolean}) {
+ const patron = side && patrons[side];
+ return <section className="match-connection" data-side={side ?? undefined} aria-label="Match connection" role="status">
+  <div className="match-connection-content">
+   <div className="match-connection-emblem" key={side ?? 'unknown'}>
+    {patron ? <img src={patron.image} alt="" /> : <Check size={38} aria-hidden="true"/>}
+   </div>
    <h2>Match found</h2>
-   {patron && <p>{patron.name}</p>}
+   {patron && <p className="match-connection-patron" key={side}>{patron.name}</p>}
+   <div className="match-connection-status"><span aria-hidden="true"/>{started ? 'Waiting for player data' : 'Waiting for match timer'}</div>
   </div>
  </section>;
 }
