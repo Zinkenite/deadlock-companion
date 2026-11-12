@@ -62,7 +62,7 @@ async fn read_screen(request:ScreenRequest)->Result<ScreenResult,String>{
 fn main(){
  tauri::Builder::default()
  .plugin(tauri_plugin_autostart::init(tauri_plugin_autostart::MacosLauncher::LaunchAgent,None))
- .plugin(tauri_plugin_window_state::Builder::default().with_denylist(&["compass","notifications"]).build())
+ .plugin(tauri_plugin_window_state::Builder::default().with_state_flags(tauri_plugin_window_state::StateFlags::all() & !tauri_plugin_window_state::StateFlags::DECORATIONS).with_denylist(&["compass","notifications"]).build())
  .manage(NativeState{reader:game_reader::Reader::new(),tray:AtomicBool::new(true),config_lock:Mutex::new(()),compass_lock:tauri::async_runtime::Mutex::new(()),compass_enabled:AtomicBool::new(false),compass_editing:AtomicBool::new(false),compass_hide_on_focus_loss:AtomicBool::new(true),notifications_lock:tauri::async_runtime::Mutex::new(()),notifications_enabled:AtomicBool::new(false),notifications_editing:AtomicBool::new(false),notifications_previewing:AtomicBool::new(false),notifications_hide_on_focus_loss:AtomicBool::new(true)})
  .invoke_handler(tauri::generate_handler![loot_red_fraction,game_reader::configure_game_reader,game_reader::game_reader_state,configure,capture_preview,read_screen,compass_overlay::configure_compass,compass_overlay::compass_placement,notifications_overlay::configure_notifications,notifications_overlay::notifications_placement,notifications_overlay::notification_sound])
  .setup(|app|{
