@@ -1,4 +1,4 @@
-# Deadlock Screen Companion 0.5.0
+# SpiritLocker 0.5.0
 
 Windows companion using local screen reading for the minimap and match timer only. Quit the old companion from its tray before starting the new portable executable. Saved timer regions and alignment are retained; other HUD regions are discarded.
 

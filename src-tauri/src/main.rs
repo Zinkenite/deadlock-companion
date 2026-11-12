@@ -72,7 +72,7 @@ fn main(){
   let show=MenuItem::with_id(app,"show","Open companion",true,None::<&str>)?;
   let quit=MenuItem::with_id(app,"quit","Quit",true,None::<&str>)?;
   let menu=Menu::with_items(app,&[&show,&quit])?;
-  let mut tray=TrayIconBuilder::new().tooltip("Deadlock Companion").menu(&menu).on_menu_event(|app,event|match event.id.as_ref(){"show"=>{if let Some(w)=app.get_webview_window("main"){let _=w.show();let _=w.unminimize();let _=w.set_focus();}},"quit"=>app.exit(0),_=>{}});
+  let mut tray=TrayIconBuilder::new().tooltip("SpiritLocker").menu(&menu).on_menu_event(|app,event|match event.id.as_ref(){"show"=>{if let Some(w)=app.get_webview_window("main"){let _=w.show();let _=w.unminimize();let _=w.set_focus();}},"quit"=>app.exit(0),_=>{}});
   if let Some(icon)=app.default_window_icon(){tray=tray.icon(icon.clone());}tray.build(app)?;
   game_reader::start(app.handle().clone());
   compass_overlay::start_visibility_monitor(app.handle().clone());
@@ -80,5 +80,5 @@ fn main(){
   Ok(())
  })
  .on_window_event(|window,event|{if let tauri::WindowEvent::CloseRequested{api,..}=event{if window.label()=="main"{if window.state::<NativeState>().tray.load(Ordering::Relaxed){api.prevent_close();let _=window.hide();}else {for label in ["compass","notifications"]{if let Some(overlay)=window.app_handle().get_webview_window(label){let _=overlay.destroy();}}}}}})
- .run(tauri::generate_context!()).expect("Could not launch Deadlock Companion");
+ .run(tauri::generate_context!()).expect("Could not launch SpiritLocker");
 }

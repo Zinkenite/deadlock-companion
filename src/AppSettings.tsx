@@ -5,8 +5,8 @@ import {useEffect,useState} from 'react';
 import {Monitor,SlidersHorizontal,Compass,Bell,Radio,ArrowLeft} from 'lucide-react';
 import {useSettings,type Settings} from './store';
 import {isTauri,monitors,moveMonitor,setWindowSize,setAutostart} from './native';
-export default function AppSettings({close}:{close:()=>void}){
- const{settings:s,set}=useSettings(),[tab,go]=useState('desktop'),[message,msg]=useState(''),[displays,list]=useState<Awaited<ReturnType<typeof monitors>>>([]);useEffect(()=>{monitors().then(list).catch(e=>msg(String(e)));},[]);
+export default function AppSettings({close,tab,go}:{close:()=>void;tab:string;go:(tab:string)=>void}){
+ const{settings:s,set}=useSettings(),[message,msg]=useState(''),[displays,list]=useState<Awaited<ReturnType<typeof monitors>>>([]);useEffect(()=>{monitors().then(list).catch(e=>msg(String(e)));},[]);
  const finish=()=>{set({compass:{...s.compass,editing:false},notifications:{...s.notifications,editing:false}});close();};
  const action=async(fn:()=>Promise<unknown>)=>{try{await fn();msg('Saved.');}catch(e){msg(String(e));}};
  const toggle=(key:keyof Settings,label:string,native=false)=><label className="setting"><span>{label}</span><input aria-label={label} type="checkbox" checked={!!s[key]} disabled={native&&!isTauri()} onChange={e=>{const next=e.target.checked;if(key==='autostart')void action(async()=>{await setAutostart(next);set({autostart:next});});else set({[key]:next});}}/></label>;
