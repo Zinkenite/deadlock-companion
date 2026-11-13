@@ -59,12 +59,26 @@ async fn read_screen(request:ScreenRequest)->Result<ScreenResult,String>{
  }).await.map_err(|e|e.to_string())?
 }
 
+#[tauri::command]
+fn open_release_page(window:tauri::WebviewWindow)->Result<(),String>{
+ if window.label()!="main"{return Err("Open releases from the main window.".into());}
+ #[cfg(target_os="windows")]
+ {
+ use std::os::windows::process::CommandExt;
+ std::process::Command::new("rundll32.exe")
+ .args(["url.dll,FileProtocolHandler","https://github.com/Zinkenite/deadlock-companion/releases/latest"])
+ .creation_flags(0x08000000).spawn().map_err(|e|e.to_string())?;
+ Ok(())
+ }
+ #[cfg(not(target_os="windows"))]
+ Err("Open github.com/Zinkenite/deadlock-companion/releases in your browser.".into())
+}
 fn main(){
  tauri::Builder::default()
  .plugin(tauri_plugin_autostart::init(tauri_plugin_autostart::MacosLauncher::LaunchAgent,None))
  .plugin(tauri_plugin_window_state::Builder::default().with_state_flags(tauri_plugin_window_state::StateFlags::all() & !tauri_plugin_window_state::StateFlags::DECORATIONS).with_denylist(&["compass","notifications"]).build())
  .manage(NativeState{reader:game_reader::Reader::new(),tray:AtomicBool::new(true),config_lock:Mutex::new(()),compass_lock:tauri::async_runtime::Mutex::new(()),compass_enabled:AtomicBool::new(false),compass_editing:AtomicBool::new(false),compass_hide_on_focus_loss:AtomicBool::new(true),notifications_lock:tauri::async_runtime::Mutex::new(()),notifications_enabled:AtomicBool::new(false),notifications_editing:AtomicBool::new(false),notifications_previewing:AtomicBool::new(false),notifications_hide_on_focus_loss:AtomicBool::new(true)})
- .invoke_handler(tauri::generate_handler![loot_red_fraction,game_reader::configure_game_reader,game_reader::game_reader_state,configure,capture_preview,read_screen,compass_overlay::configure_compass,compass_overlay::compass_placement,notifications_overlay::configure_notifications,notifications_overlay::notifications_placement,notifications_overlay::notification_sound])
+ .invoke_handler(tauri::generate_handler![open_release_page,loot_red_fraction,game_reader::configure_game_reader,game_reader::game_reader_state,configure,capture_preview,read_screen,compass_overlay::configure_compass,compass_overlay::compass_placement,notifications_overlay::configure_notifications,notifications_overlay::notifications_placement,notifications_overlay::notification_sound])
  .setup(|app|{
   let prefs=app.path().app_config_dir().ok().and_then(|p|std::fs::read(p.join("preferences.json")).ok()).and_then(|b|serde_json::from_slice::<Preferences>(&b).ok()).unwrap_or(Preferences{tray:true,start_minimized:false});
   app.state::<NativeState>().tray.store(prefs.tray,Ordering::Relaxed);
