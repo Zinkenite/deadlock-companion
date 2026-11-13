@@ -32,7 +32,7 @@ Updates open the fixed repository release page in the browser. Portable users qu
 ## Release readiness
 - [x] Windows portable production build path exists
 - [x] Existing automated tests pass
-- [x] License present (MIT code license; assets have separate ownership)
+- [x] License present (GNU General Public License v3.0 (GPLv3) code license; assets have separate ownership)
 - [x] Basic release comparison tests exist
 - [ ] Live GitHub response, offline and rate-limit integration tests
 - [ ] Full audit of capture preference validation and malformed saved state

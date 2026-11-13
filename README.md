@@ -30,7 +30,7 @@ See docs/VALIDATION.md for tested coverage and limits. Verify recognition with y
 
 Node.js 22+, Rust MSVC, Microsoft C++ desktop tools and WebView2 are required. Run npm ci, npm test, npm run build and npm run desktop. Portable native build: npm run tauri -- build --no-bundle. Native tests: cargo test --release in src-tauri.
 
-The executable is unsigned. Map/icon artwork belongs to Valve; see docs/ASSETS.json. Objective locations are static references. The MIT code license does not grant artwork rights.
+The executable is unsigned. Map/icon artwork belongs to Valve; see docs/ASSETS.json. Objective locations are static references. The GNU General Public License v3.0 (GPLv3) code license does not grant artwork rights.
 
 ## Integrated map references
 
