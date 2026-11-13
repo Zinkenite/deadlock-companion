@@ -37,7 +37,7 @@ export default function MapRenderer({calibration,onPin,matchStarted=false,matchS
  const changeZoom=(z:number,px?:number,py?:number)=>{const r=canvas.current!.getBoundingClientRect();follow.current=false;clearTip();zoomAt(view.current,z,px??r.width/2,py??r.height/2,r.width,r.height,base(r.width,r.height),.5,8);setZoom(view.current.targetZoom);};
  const closeLayers=()=>{showLayers(false);layerButton.current?.focus();};
  useEffect(()=>{if(!layersOpen)return;const key=(e:KeyboardEvent)=>{if(e.key==='Escape'){setPlacing(undefined);showLayers(false);layerButton.current?.focus();}};document.addEventListener('keydown',key);return()=>document.removeEventListener('keydown',key);},[layersOpen]); useEffect(()=>{
-  const el=canvas.current!,prevent=(e:WheelEvent)=>e.preventDefault();el.addEventListener('wheel',prevent,{passive:false});view.current=newView(useSettings.getState().settings.zoom);setZoom(view.current.zoom);
+  const el=canvas.current!,prevent=(e:WheelEvent)=>e.preventDefault();el.addEventListener('wheel',prevent,{passive:false});view.current=newView();setZoom(view.current.zoom);
   const key=(e:KeyboardEvent)=>{if(e.code==='Space'&&!(e.target instanceof HTMLInputElement)&&!(e.target instanceof HTMLSelectElement)&&!(e.target instanceof HTMLButtonElement)&&!(e.target instanceof HTMLTextAreaElement)){space.current=e.type==='keydown';if(space.current)e.preventDefault();}};
   const blur=()=>{space.current=false;drag.current=undefined;};window.addEventListener('keydown',key);window.addEventListener('keyup',key);window.addEventListener('blur',blur);
   return()=>{el.removeEventListener('wheel',prevent);window.removeEventListener('keydown',key);window.removeEventListener('keyup',key);window.removeEventListener('blur',blur);};
