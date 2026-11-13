@@ -18,7 +18,7 @@ Windows companion using local screen reading for the minimap and match timer onl
 4. Read HUD in 3 seconds verifies the candidates with Deadlock focused. Ambiguous markers, missing matches, large jumps and changed minimap scenes are rejected; tracking needs three consistent observations.
 5. Select Match timer to tune its OCR and inspect the processed input. Save and start reading. Use Save & calibrate on main map or Calibrate position to drag your frozen observation to its actual map location. Save alignment commits the change.
 
-Use Reset readings between matches to reset clock validation. Stale readings are marked. Captures are local and temporary; the selected small marker image, regions and alignment are saved on this PC. No video recording, cloud processing, game-memory access or network data collection is used. Deadlock must be foreground for capture.
+Use Reset readings between matches to reset clock validation. Stale readings are marked. Captures are local and temporary; the selected small marker image, regions and alignment are saved on this PC. The optional Game reader uses the bundled DeadChaps reader to read the running game process for match state and roster statistics. It is disabled by default. Screen capture and OCR are local. Game reader compatibility after game updates requires verification. Deadlock must be foreground for capture.
 
 ## Performance and validation
 

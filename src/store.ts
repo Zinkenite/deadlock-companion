@@ -15,6 +15,12 @@ export type Settings={loot:LootSettings;gameReader:GameReaderSettings;mapSide:Ma
 const defaults:Settings={loot:defaultLoot,gameReader:defaultGameReader,mapSide:'hiddenKing',notifications:defaultNotifications,customMarkers:[],iconSettings:defaultIconSettings(),compass:defaultCompass,readingEnabled:false,capture:defaultCapture,alwaysOnTop:false,autostart:false,startMinimized:false,tray:true,markerSize:22,followOnMatchStart:false,matchStartZoom:2,uiScale:1,performance:false,animations:true,objectives:true,mapLayers:defaultMapLayers,mapLevel:'street',mapIconSize:20,mapIconSizes:defaultMapIconSizes};
 export function migrateSettings(raw:any):Settings{
  const old=raw?.settings??{};const result={...defaults};for(const key of Object.keys(defaults))if(key!=='capture'&&key!=='readingEnabled'&&old[key]!==undefined)(result as any)[key]=old[key];
+ for (const key of ['alwaysOnTop','autostart','startMinimized','tray','performance','animations','objectives'] as const) {
+  result[key]=typeof old[key]==='boolean'?old[key]:defaults[key];
+ }
+ for (const [key,min,max] of [['markerSize',14,40],['uiScale',.8,1.3]] as const) {
+  result[key]=typeof old[key]==='number'&&Number.isFinite(old[key])?Math.max(min,Math.min(max,old[key])):defaults[key];
+ }
  result.followOnMatchStart=old.followOnMatchStart===true;
  result.matchStartZoom=typeof old.matchStartZoom==='number'&&Number.isFinite(old.matchStartZoom)?Math.max(.5,Math.min(8,old.matchStartZoom)):defaults.matchStartZoom;
  result.gameReader=sanitizeGameReader(old.gameReader);
