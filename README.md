@@ -9,9 +9,9 @@ SpiritLocker is an unofficial Windows companion for Valve's Deadlock. Keep a tac
 - **Tactical map:** Browse camps, shops, objectives, loot, and tunnels. Toggle layers, search for locations, and add your own markers.
 - **Match roster:** With the optional Game reader enabled, see both teams, player performance, and the team soul lead or deficit.
 - **Player tracking:** Select your minimap and player marker so SpiritLocker can show your position on the tactical map. Enable **Follow player on match start** in **Settings > Map & display** if you want the map to center on you automatically.
-- **Overlays and reminders:** Set up a compass and timer reminders, with optional sound and spoken notifications.
-
-![SpiritLocker match view](docs/match/match-desktop.png)
+- **Bell Tower notification:** Get an alert when SpiritLocker detects the Bell Tower looting ring on your minimap. Set it up in **Screen setup > Bell Tower alert**.
+- **Compass overlay:** See nearby map locations on an in-game compass. Enable and position it in **Settings > Compass overlay**.
+- **Timer reminders:** Schedule custom match-clock notifications with optional sound and spoken text.
 
 ## Download and run
 
