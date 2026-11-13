@@ -26,3 +26,15 @@
 .window-controls button:hover { background: #ffffff13; color: #fff; }
 .window-controls .window-close:hover { background: #bd3139; color: #fff; }
 .window-controls button:focus-visible { outline-offset: -4px; }
+
+.update-card { margin-block: 20px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-raised); }
+.update-card-header, .update-card-title, .update-card .update-check { display: flex; align-items: center; gap: 10px; }
+.update-card-header { justify-content: space-between; flex-wrap: wrap; }
+.update-card-title > svg { color: var(--accent); flex-shrink: 0; }
+.update-card h2 { margin: 0; font: inherit; font-size: 15px; font-weight: 600; }
+.update-card-title p { margin: 3px 0 0; color: var(--muted); font-size: 12px; }
+.update-card .update-check, .update-release button { padding: 8px 11px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.update-card .update-check { color: var(--accent); }
+.update-card .update-status { margin: 14px 0 0; padding: 10px 12px; border-radius: 6px; background: var(--surface); font-size: 12px; }
+.update-card .help { margin: 12px 0 0; }
+.update-release button { margin: 0 6px 6px 0; }
