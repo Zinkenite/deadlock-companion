@@ -24,3 +24,28 @@ input[type=range]{height:5px!important;background:#1b2a20!important;border-radiu
 .capture-workspace .setup-regions-body,.capture-workspace .verification-body{animation:setup-page-enter 240ms cubic-bezier(.22,1,.36,1) both}.capture-workspace .verification-body{gap:16px;padding:1px 1px 4px;align-items:stretch}.capture-workspace .verify-controls,.capture-workspace .verify-results{border:1px solid #b6c3aa1c;border-radius:10px;padding:15px;background:linear-gradient(135deg,#1b281e66,#0e181244);overflow:auto;scrollbar-width:thin}.capture-workspace .verify-controls>.setting:first-child{padding-bottom:8px;margin-bottom:8px}.capture-workspace .verification-body h3{font-size:13px;font-weight:500;color:#d7c9a6;margin:2px 0 12px}.capture-workspace .verification-body .help,.capture-workspace .legacy-color-info p{font-size:10px;line-height:1.8;color:#8e9f84}.capture-workspace .verification-body .setting{border-bottom-color:#b7c5a411;min-height:38px}.capture-workspace .verification-body .tuning-grid{gap:4px 12px;padding:10px 0}.capture-workspace .verification-body .legacy-color-picker{display:flex;flex-direction:column;min-height:180px;flex:1;margin:10px 0;border-radius:8px;overflow:hidden}.capture-workspace .verification-body .legacy-color-picker .region-editor{min-height:180px}.capture-workspace .timer-setup-help{padding:13px;background:#c4b47b06;border:1px solid #c4b47b1c;border-radius:8px;margin-top:12px}.capture-workspace .verify-result-top{gap:8px;margin-bottom:8px}.capture-workspace .verify-result-top h3{margin:0}.capture-workspace .verify-result-top button{border-radius:6px;padding:8px 10px;font-size:9px}.capture-workspace .preview-stage{border-color:#c5b47b22;border-radius:8px;background:#09110d}.capture-workspace .reading-tests>div{border-radius:7px;background:#152119;border-color:#a6b88d1c}.capture-workspace .legacy-color-info{padding:3px 0 12px}@keyframes setup-page-enter{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 /* Round handle and a muted sage fill showing the selected amount. */
 input[type=range]{height:5px!important;border-radius:8px;background:linear-gradient(to right,#8fa589 0%,#8fa589 var(--range-progress,0%),#26382c var(--range-progress,0%),#26382c 100%)!important;box-shadow:none}input[type=range]::-webkit-slider-runnable-track{height:5px;background:transparent;border:0;border-radius:8px}input[type=range]::-webkit-slider-thumb{width:13px;height:13px;margin-top:-4px;border-radius:50%;border:1px solid #c8d3b78c;background:#b7c8a8;box-shadow:0 1px 4px #0005;transition:background .15s,box-shadow .15s}input[type=range]:hover::-webkit-slider-thumb{background:#d0ddc1;border-color:#dce5cc;box-shadow:0 0 0 3px #99b48a16,0 1px 4px #0004}input[type=range]:active::-webkit-slider-thumb{background:#deebce}input[type=range]::-moz-range-track{height:5px;background:#26382c;border:0;border-radius:8px}input[type=range]::-moz-range-progress{height:5px;background:#8fa589;border-radius:8px}input[type=range]::-moz-range-thumb{width:12px;height:12px;background:#b7c8a8;border:1px solid #c8d3b78c;border-radius:50%}@media(max-width:1000px){.capture-workspace .verify-controls,.capture-workspace .verify-results{padding:11px}.capture-workspace .verification-body{gap:12px}}
+
+/* Keep setup readable at both native and scaled 1440p viewport sizes. */
+.capture-workspace .setup-shared-capture,
+.capture-workspace .setup-footer {
+  flex-wrap: wrap;
+  height: auto;
+}
+.capture-workspace .setup-footer { flex-basis: auto; }
+@media (min-width: 1500px) and (min-height: 850px) {
+  .capture-workspace > .setup-panel {
+    max-width: 1920px;
+    margin-inline: auto;
+    padding-inline: clamp(24px, 2vw, 48px);
+  }
+  .capture-workspace .setup-steps button,
+  .capture-workspace .setup-panel .setting,
+  .capture-workspace .setup-panel .help,
+  .capture-workspace .setup-status,
+  .capture-workspace .setup-footer button,
+  .capture-workspace .setup-panel select {
+    font-size: 13px;
+  }
+  .capture-workspace .setup-steps button,
+  .capture-workspace .setup-panel .setting { min-height: 42px; }
+}
