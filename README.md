@@ -1,41 +1,52 @@
-# SpiritLocker 0.5.0
+# SpiritLocker
 
-Windows companion using local screen reading for the minimap and match timer only. Quit the old companion from its tray before starting the new portable executable. Saved timer regions and alignment are retained; other HUD regions are discarded.
+SpiritLocker is an unofficial Windows companion for Valve's Deadlock. Keep a tactical map, match roster, and timer reminders on a second screen while you play.
 
-## Changes
+[Download the latest release](https://github.com/Zinkenite/deadlock-companion/releases/latest) · [Report a bug](https://github.com/Zinkenite/deadlock-companion/issues)
 
-- Map and clock workspace. Removed compact view, slogans, extra reading panels, souls, health, hero/team and match metadata collection.
-- Whole marker appearance selection with zoom/pan/resize handles, adjustable center, match threshold and optional eight-direction matching. Legacy single-colour tracking remains available for existing profiles.
-- Small image template (at most 64 by 64 pixels), bounded minimap search (at most 384 by 384 pixels), default 5 Hz. No overlapping read requests.
-- Existing timer contrast, angle/slant correction, one bounded retry and local Windows OCR are retained. The clock never advances between observations.
-- Main-map drag calibration and smooth cursor-anchored zoom remain.
+## Features
 
-## Setup
+- **Tactical map:** Browse camps, shops, objectives, loot, and tunnels. Toggle layers, search for locations, and add your own markers.
+- **Match roster:** With the optional Game reader enabled, see both teams, player performance, and the team soul lead or deficit.
+- **Player tracking:** Select your minimap and player marker so SpiritLocker can show your position on the tactical map. Enable **Follow player on match start** in **Settings > Map & display** if you want the map to center on you automatically.
+- **Overlays and reminders:** Set up a compass and timer reminders, with optional sound and spoken notifications.
 
-1. Open Screen setup. Capture the game after the three-second delay or load a screenshot with the same HUD layout. Select Player minimap and Match timer, drawing each region. Wheel zooms, Space + drag pans, and the gold handles refine the box.
-2. In Verify text & marker, select Whole marker appearance. Draw a tight box around your whole player icon, including a thin border; click Use this marker. The selection must be at least four source pixels across and no more than one fifth of the minimap in either direction.
-3. Click the enlarged preview to adjust the center crosshair. The tracker reports this point within the matched icon, rather than the centroid of one bright colour. Enable rotated matching only if your icon rotates; it checks eight directions and costs more work. Moving/animated shapes or substantial HUD scale changes may require selecting a new template.
-4. Read HUD in 3 seconds verifies the candidates with Deadlock focused. Ambiguous markers, missing matches, large jumps and changed minimap scenes are rejected; tracking needs three consistent observations.
-5. Select Match timer to tune its OCR and inspect the processed input. Save and start reading. Use Save & calibrate on main map or Calibrate position to drag your frozen observation to its actual map location. Save alignment commits the change.
+![SpiritLocker match view](docs/match/match-desktop.png)
 
-Use Reset readings between matches to reset clock validation. Stale readings are marked. Captures are local and temporary; the selected small marker image, regions and alignment are saved on this PC. The optional Game reader uses the bundled DeadChaps reader to read the running game process for match state and roster statistics. It is disabled by default. Screen capture and OCR are local. Game reader compatibility after game updates requires verification. Deadlock must be foreground for capture.
+## Download and run
 
-## Performance and validation
+1. Download **SpiritLocker.exe** from the latest GitHub release. If GitHub asks you to sign in, use an account with access to the repository.
+2. Run the portable executable on Windows with Microsoft Edge WebView2 installed. The executable is unsigned.
+3. To upgrade, quit SpiritLocker from the system tray, replace the executable, and reopen it. Your saved settings stay on this PC.
 
-Synthetic full-map appearance searches averaged about 2.1 ms at 384 by 384 on this host, excluding capture, timer OCR and rendering. This is not a measurement of in-game frame-time impact. Default matching uses one orientation; optional rotation checks eight.
+**Settings > Desktop > App updates** checks for stable releases at launch and on demand. Automatic checks need anonymous access to the GitHub release feed. If that feed requires sign-in, check the releases page in your browser.
 
-See docs/VALIDATION.md for tested coverage and limits. Verify recognition with your actual in-game marker and timer.
+## First setup
 
-## Build
+The tactical map works as soon as you open the app. Configure only the features you want:
 
-Node.js 22+, Rust MSVC, Microsoft C++ desktop tools and WebView2 are required. Run npm ci, npm test, npm run build and npm run desktop. Portable native build: npm run tauri -- build --no-bundle. Native tests: cargo test --release in src-tauri.
+- **Match roster:** Open **Settings > Game reader** and enable the reader.
+- **Minimap tracking or timer reading:** Open **Screen setup**, then capture the game or load a screenshot with the same HUD layout. Draw around the whole minimap for tracking, or around just the clock digits and colon for timer reading. Under **Tracking & timer**, select your marker colour or test the timer, then choose **Save and start reading**. Use **Calibrate position** on the map if the tracked location needs alignment.
+- **Reminders and compass:** Open the respective overlay pages in **Settings** to enable and preview them.
 
-The executable is unsigned. Map/icon artwork belongs to Valve; see docs/ASSETS.json. Objective locations are static references. The GNU General Public License v3.0 (GPLv3) code license does not grant artwork rights.
+## Data and compatibility
 
-## Integrated map references
+Screen capture and OCR run locally. The optional Game reader is off by default and uses the bundled DeadChaps reader to read the running game's memory for match and roster data. Game updates can affect compatibility. Map markers are static references and do not indicate live objective availability. Preferences are stored locally, and update checks contact GitHub.
 
-Use **Layers** in the top-right of the map to choose objectives, camps, shops/events, movement or loot. Dense loot layers start hidden. Layer choices, tunnel artwork and icon size are saved. Search for a location in Layers to center the map on it; hover over a marker for details and teleporter/bounce-pad destinations.
+## Build from source
 
-The map uses the 913 researched static references and the genuine game icons where available. Objectives now use center positions derived from the source world coordinates. Possible urn/rift spawns are reference locations, and availability is not tracked. Features without a verified native glyph use companion symbols. Exact Mid Boss, shrine and stair positions remain pending. Player screen tracking and calibration are separate from these fixed references.
+On Windows, install Node.js 22+, Rust with the MSVC toolchain, Visual Studio C++ Build Tools, and WebView2.
 
-The included source bundle is documented in `docs/map-research/RESEARCH.md`; copied app assets and hashes are recorded in `public/map-assets/manifest.json`. To regenerate the app bundle from the checked research package, run `node scripts/sync-map-assets.mjs`. See `docs/map-integration/VALIDATION.md` for checks on this integration.
+~~~sh
+npm ci
+npm test
+npm run desktop
+~~~
+
+Build the portable executable with `npm run tauri -- build --no-bundle`. It lands in `src-tauri/target/release/SpiritLocker.exe`. Use `npm run package` to build an NSIS installer.
+
+See [validation notes](docs/VALIDATION.md), [map data provenance](docs/map-research/RESEARCH.md), and [Game reader integration](docs/game-reader-integration.md).
+
+## License
+
+SpiritLocker code is licensed under the [GNU General Public License v3.0](LICENSE). Third-party code and game artwork have separate terms. See [asset credits](docs/ASSETS.json) and the [bundled reader license](vendor/deadchaps-reader/LICENSE.md). SpiritLocker is a community project and is not affiliated with Valve.
