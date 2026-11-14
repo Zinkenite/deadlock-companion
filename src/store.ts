@@ -1,3 +1,4 @@
+import releaseDefaults from './releaseDefaults';
 import {defaultLoot,sanitizeLoot,type LootSettings} from './loot';
 import {defaultGameReader,sanitizeGameReader,readerTimerSample,useGameReader,type GameReaderSettings} from './gameReader';
 import type {MapSide} from './mapOrientation';
@@ -39,7 +40,7 @@ export function migrateSettings(raw:any):Settings{
  result.capture={...defaultCapture,...old.capture,alignment:{...defaultAlignment,...old.capture?.alignment},markerTemplate,anchor:old.capture?.anchor??defaultCapture.anchor,matchMode:'color',ocrInterval:typeof old.capture?.ocrInterval==='number'&&Number.isFinite(old.capture.ocrInterval)?Math.max(500,Math.min(3000,old.capture.ocrInterval)):1000,textRegions:old.capture?.textRegions?.timer?.region?{timer:{region:old.capture.textRegions.timer.region}}:{}};
  result.readingEnabled=typeof old.readingEnabled==='boolean'?old.readingEnabled:false;return result;
 }
-export const useSettings=create<{settings:Settings;set:(patch:Partial<Settings>)=>void}>()(persist(set=>({settings:defaults,set:patch=>set(s=>({settings:{...s.settings,...patch}}))}),{name:'deadlock-settings-v1',version:7,migrate:(raw)=>({settings:migrateSettings(raw)}) as any,merge:(saved,current)=>({...current,settings:migrateSettings(saved)})}));
+export const useSettings=create<{settings:Settings;set:(patch:Partial<Settings>)=>void}>()(persist(set=>({settings:migrateSettings({settings:releaseDefaults}),set:patch=>set(s=>({settings:{...s.settings,...patch}}))}),{name:'deadlock-settings-v1',version:7,migrate:(raw)=>({settings:migrateSettings(raw)}) as any,merge:(saved,current)=>({...current,settings:saved===undefined?current.settings:migrateSettings(saved)})}));
 export const useMatch=create<{data:Snapshot;previousMapPosition?:Snapshot['mapPosition'];status:Status;timestamps:number[];ingest:(s:Snapshot)=>void;clear:()=>void}>(set=>({data:{},status:'idle',timestamps:[],clear:()=>set({data:{},previousMapPosition:undefined,status:'idle',timestamps:[]}),ingest:raw=>set(s=>{
  const data=validate(raw),now=Date.now(),accepted:Snapshot={};for(const[k,v]of Object.entries(data))if(v.at>=((s.data as any)[k]?.at??0))(accepted as any)[k]=v;
  return{data:{...s.data,...accepted},previousMapPosition:accepted.mapPosition?s.data.mapPosition:s.previousMapPosition,timestamps:Object.keys(accepted).length?[...s.timestamps.filter(t=>now-t<5000),now]:s.timestamps};

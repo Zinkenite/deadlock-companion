@@ -80,7 +80,7 @@ fn main(){
  .manage(NativeState{reader:game_reader::Reader::new(),tray:AtomicBool::new(true),config_lock:Mutex::new(()),compass_lock:tauri::async_runtime::Mutex::new(()),compass_enabled:AtomicBool::new(false),compass_editing:AtomicBool::new(false),compass_hide_on_focus_loss:AtomicBool::new(true),notifications_lock:tauri::async_runtime::Mutex::new(()),notifications_enabled:AtomicBool::new(false),notifications_editing:AtomicBool::new(false),notifications_previewing:AtomicBool::new(false),notifications_hide_on_focus_loss:AtomicBool::new(true)})
  .invoke_handler(tauri::generate_handler![open_release_page,loot_red_fraction,game_reader::configure_game_reader,game_reader::game_reader_state,configure,capture_preview,read_screen,compass_overlay::configure_compass,compass_overlay::compass_placement,notifications_overlay::configure_notifications,notifications_overlay::notifications_placement,notifications_overlay::notification_sound])
  .setup(|app|{
-  let prefs=app.path().app_config_dir().ok().and_then(|p|std::fs::read(p.join("preferences.json")).ok()).and_then(|b|serde_json::from_slice::<Preferences>(&b).ok()).unwrap_or(Preferences{tray:true,start_minimized:false});
+  let prefs=app.path().app_config_dir().ok().and_then(|p|std::fs::read(p.join("preferences.json")).ok()).and_then(|b|serde_json::from_slice::<Preferences>(&b).ok()).unwrap_or(Preferences{tray:false,start_minimized:false});
   app.state::<NativeState>().tray.store(prefs.tray,Ordering::Relaxed);
   if prefs.start_minimized {if let Some(w)=app.get_webview_window("main"){let _=w.minimize();}}
   let show=MenuItem::with_id(app,"show","Open companion",true,None::<&str>)?;
