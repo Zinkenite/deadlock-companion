@@ -23,10 +23,10 @@ SpiritLocker is an unofficial Windows companion for Valve's Deadlock. Keep a tac
 
 ## First setup
 
-The tactical map works as soon as you open the app. Configure only the features you want:
+The tactical map is ready when you open the app. Fresh installs come with preset minimap and match timer regions, so you can skip Screen setup if the preset matches your HUD. Screen setup stays available if you want to adjust either region.
 
 - **Match roster:** Open **Settings > Game reader** and enable the reader.
-- **Minimap tracking or timer reading:** Open **Screen setup**, then capture the game or load a screenshot with the same HUD layout. Draw around the whole minimap for tracking, or around just the clock digits and colon for timer reading. Under **Tracking & timer**, select your marker colour or test the timer, then choose **Save and start reading**. Use **Calibrate position** on the map if the tracked location needs alignment.
+- **Optional HUD adjustments:** Open **Screen setup**, then capture the game or load a screenshot with the same HUD layout. Draw around the whole minimap for tracking, or around just the clock digits and colon for timer reading. Under **Tracking & timer**, select your marker colour or test the timer, then choose **Save and start reading**. Use **Calibrate position** on the map if the tracked location needs alignment.
 - **Reminders and compass:** Open the respective overlay pages in **Settings** to enable and preview them.
 
 ## Data and compatibility
